@@ -579,3 +579,14 @@ a:focus-visible {
   .dossier-header { grid-template-columns:1fr; text-align:center; }
   .dossier-portrait-link { justify-self:center; }
 }
+
+/* v8 release candidate: championship-driven Executive Hall portrait consistency */
+.hall-gallery .hall-frame a {
+  aspect-ratio: 4 / 5;
+}
+.hall-gallery .hall-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
