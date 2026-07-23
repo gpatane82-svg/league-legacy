@@ -1,40 +1,18 @@
-# League Legacy
+# Vandelay Industries Fantasy Football League History — Version 2
 
-A polished, mobile-friendly static fantasy football history site built from the supplied CSV exports.
+Static GitHub Pages website generated from `Fantasy League History.xlsx`.
 
-## What is included
+## Version 2 includes
 
-- One-click switching between **Art Vandelay League** and **League Of Losers**
-- Season selector
-- League overview
-- Historical standings
-- Manager career rankings
-- Championship timeline
-- Record book
-- Responsive phone and desktop layouts
-- No database, paid hosting, or coding framework required
+- Manager Adjust-based identity handling, including separate personnel records for the two Johns.
+- Overall league finish during division seasons.
+- Fully sortable Corporate Performance reports.
+- League Transactions and the Corporate Transaction Ledger presentation.
+- Season-aware League Champion and page content.
+- Executive Hall custom portrait presentation.
+- Clickable Personnel Files and manager links throughout the archive.
+- Responsive, accessibility, data-integrity, and final QA improvements.
 
-## Preview locally
+Open `index.html` locally or deploy the contents of this folder to GitHub Pages.
 
-Open `index.html` in a browser. Some browsers restrict local JavaScript files. If that happens:
-
-1. Open Terminal or Command Prompt in this folder.
-2. Run `python3 -m http.server 8000`
-3. Visit `http://localhost:8000`
-
-## Publish free with GitHub Pages
-
-1. Create a free GitHub account.
-2. Create a new public repository, such as `league-legacy`.
-3. Upload every file and folder from this project.
-4. In the repository, open **Settings → Pages**.
-5. Under **Build and deployment**, choose **Deploy from a branch**.
-6. Select the `main` branch and `/ (root)`, then save.
-7. GitHub will provide a public shareable URL.
-
-## Updating data
-
-The generated site data is stored in `data/league-data.js`. The original cleaned source came from `league_dashboard_standings.csv`.
-
-A future update script can regenerate that file after each fantasy season without redesigning the site.
-
+See `QA-REPORT.md` for the validation summary.

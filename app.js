@@ -7,230 +7,82 @@ const navButtons = [...document.querySelectorAll(".nav-link")];
 
 const state = {
   leagueId: localStorage.getItem("leagueId") || "26757",
-  view: location.hash.replace("#", "") || "overview",
-  season: null
+  view: "overview",
+  managerId: null,
+  season: null,
+  performanceSort: { key: "overallRank", direction: "asc" }
 };
 
 const fmt = new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 });
 const pct = value => `${(value * 100).toFixed(1)}%`;
-const initials = value => value.split(/\s+/).filter(Boolean).slice(0, 2).map(x => x[0]).join("").toUpperCase();
 const currentLeague = () => data[state.leagueId];
 const latestSeason = () => Math.max(...currentLeague().seasons);
-const seasonRows = () => currentLeague().rows.filter(r => r.season === (state.season || latestSeason()));
+const selectedSeason = () => state.season ?? latestSeason();
+const seasonRows = () => currentLeague().rows.filter(r => r.season === selectedSeason());
+const managerById = id => currentLeague().managers.find(m => m.id === id);
+const esc = value => String(value ?? "").replace(/[&<>\"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+const slug = value => String(value || "manager").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const customPortraits = {
+  "John (Energy)":"assets/portraits/custom/john-energy.jpg",
+  "John (Pigskin)":"assets/portraits/custom/john-pigskin.jpg",
+  "Rod":"assets/portraits/custom/rod.jpg",
+  "Jeff":"assets/portraits/custom/jeffrey.jpg",
+  "Jeffrey":"assets/portraits/custom/jeffrey.jpg",
+  "Jimmy":"assets/portraits/custom/jimmy.jpg",
+  "Garrett":"assets/portraits/custom/garrett.jpg",
+  "granny":"assets/portraits/custom/granny.jpg",
+  "Granny":"assets/portraits/custom/granny.jpg",
+  "Chandler":"assets/portraits/custom/chandler.jpg",
+  "Brian":"assets/portraits/custom/brian.jpg"
+};
+const portraitPath = managerId => customPortraits[managerId] || `assets/portraits/${slug(managerId)}.svg`;
+const managerHref = managerId => `#manager/${encodeURIComponent(managerId)}`;
+const managerLink = (managerId, label, className = "manager-link") => `<a class="${className}" href="${managerHref(managerId)}" data-manager-id="${esc(managerId)}">${esc(label)}</a>`;
+const portrait = (managerId, name, className = "executive-portrait") => `<img class="${className}" src="${portraitPath(managerId)}" alt="Executive portrait of ${esc(name)}">`;
+
+function parseHash() {
+  const raw = location.hash.replace(/^#/, "") || "overview";
+  if (raw.startsWith("manager/")) {
+    state.view = "manager";
+    state.managerId = decodeURIComponent(raw.slice(8));
+  } else {
+    const validViews = new Set(["overview", "standings", "managers", "history", "records", "transactions"]);
+    state.view = validViews.has(raw) ? raw : "overview";
+    state.managerId = null;
+  }
+}
 
 function titleFor(view) {
-  return ({
-    overview: "Corporate Headquarters",
-    standings: "Corporate Performance",
-    managers: "Personnel Files",
-    history: "Executive Hall",
-    records: "Records Department",
-    transactions: "Import / Export"
-  })[view] || "Corporate Headquarters";
+  if (view === "manager") return managerById(state.managerId)?.name ? `${managerById(state.managerId).name} Personnel File` : "Personnel File";
+  return ({overview:"Corporate Headquarters",standings:"Corporate Performance",managers:"Personnel Files",history:"Executive Hall",records:"Records Department",transactions:"League Transactions"})[view] || "Corporate Headquarters";
 }
 
 function sortedStandings(rows) {
-  return [...rows].sort((a, b) =>
-    a.regularSeasonRank - b.regularSeasonRank ||
-    b.wins - a.wins ||
-    b.pointsFor - a.pointsFor
-  );
+  return [...rows].sort((a,b)=>(a.overallRank??a.regularSeasonRank??999)-(b.overallRank??b.regularSeasonRank??999)||b.wins-a.wins||b.ties-a.ties||b.pointsFor-a.pointsFor);
 }
+function performanceValue(row,key){const games=row.wins+row.losses+row.ties;return {overallRank:row.overallRank??row.regularSeasonRank??999,team:row.team||"",manager:row.manager||"",record:(row.wins*10000)+(row.ties*100)-row.losses,winPct:games?(row.wins+row.ties*.5)/games:0,pointsFor:Number(row.pointsFor)||0,pointsAgainst:Number(row.pointsAgainst)||0,playoffRank:row.playoffRank??999}[key];}
+function sortedPerformance(rows){const {key,direction}=state.performanceSort,m=direction==="asc"?1:-1;return [...rows].sort((a,b)=>{const av=performanceValue(a,key),bv=performanceValue(b,key);if(typeof av==="string"||typeof bv==="string")return String(av).localeCompare(String(bv),undefined,{numeric:true,sensitivity:"base"})*m||(performanceValue(a,"overallRank")-performanceValue(b,"overallRank"));return ((av-bv)*m)||(performanceValue(a,"overallRank")-performanceValue(b,"overallRank"));});}
+function sortableHeading(label,key){const active=state.performanceSort.key===key,direction=active?state.performanceSort.direction:"none",arrow=active?(direction==="asc"?"▲":"▼"):"↕";return `<th class="sortable-th" data-sort-key="${key}" aria-sort="${active?(direction==="asc"?"ascending":"descending"):"none"}"><button type="button" class="sort-button">${label}<span aria-hidden="true">${arrow}</span></button></th>`;}
 
-function standingsTable(rows) {
-  const sorted = sortedStandings(rows);
-  if (!sorted.length) return `<div class="empty">No performance report is available for this season.</div>`;
-  return `<div class="table-wrap"><table>
-    <thead><tr><th>Rank</th><th>Franchise</th><th>Executive</th><th>Record</th><th>Production</th><th>Allowed</th><th>Finish</th></tr></thead>
-    <tbody>${sorted.map((r, i) => `<tr>
-      <td><span class="rank-cell ${i === 0 ? "first" : ""}">${r.regularSeasonRank || i + 1}</span></td>
-      <td><strong>${r.team}</strong></td>
-      <td>${r.manager}</td>
-      <td>${r.wins}-${r.losses}-${r.ties}</td>
-      <td>${fmt.format(r.pointsFor)}</td>
-      <td>${fmt.format(r.pointsAgainst)}</td>
-      <td>${r.playoffRank ? `#${r.playoffRank}` : "—"}</td>
-    </tr>`).join("")}</tbody>
-  </table></div>`;
-}
+function standingsTable(rows){const sorted=sortedPerformance(rows);if(!sorted.length)return `<div class="empty">No performance report is available for this season.</div>`;return `<div class="table-wrap"><table class="sortable-table"><thead><tr>${sortableHeading("Overall Rank","overallRank")}${sortableHeading("Franchise","team")}${sortableHeading("Executive","manager")}${sortableHeading("Record","record")}${sortableHeading("Win %","winPct")}${sortableHeading("Production","pointsFor")}${sortableHeading("Allowed","pointsAgainst")}${sortableHeading("Final Finish","playoffRank")}</tr></thead><tbody>${sorted.map(r=>{const games=r.wins+r.losses+r.ties,rate=games?(r.wins+r.ties*.5)/games:0;return `<tr><td><span class="rank-cell ${r.overallRank===1?"first":""}">${r.overallRank??r.regularSeasonRank??"—"}</span></td><td><strong>${esc(r.team)}</strong></td><td>${managerLink(r.managerId,r.manager)}</td><td>${r.wins}-${r.losses}-${r.ties}</td><td>${pct(rate)}</td><td>${fmt.format(r.pointsFor)}</td><td>${fmt.format(r.pointsAgainst)}</td><td>${r.playoffRank?`#${r.playoffRank}`:"—"}</td></tr>`}).join("")}</tbody></table></div>`;}
 
-function overview() {
-  const league = currentLeague();
-  const latest = latestSeason();
-  state.season = state.season || latest;
-  const rows = sortedStandings(seasonRows());
-  const champion = league.champions.find(c => c.season === state.season) || league.champions[0];
-  const leader = rows[0];
-  const totalGames = Math.round(league.managers.reduce((sum, m) => sum + m.wins + m.losses + m.ties, 0) / 2);
-  const topManagers = [...league.managers].sort((a, b) => b.wins - a.wins).slice(0, 5);
-  const maxWins = Math.max(...topManagers.map(m => m.wins), 1);
+function overview(){const league=currentLeague(),season=selectedSeason(),rows=sortedStandings(seasonRows()),champion=league.champions.find(c=>c.season===season),leader=rows[0],totalGames=Math.round(league.managers.reduce((s,m)=>s+m.wins+m.losses+m.ties,0)/2),top=[...league.managers].sort((a,b)=>b.wins-a.wins).slice(0,5),max=Math.max(...top.map(m=>m.wins),1);return `<div class="headquarters-grid"><section class="corporate-hero"><div class="document-code">Corporate Communications · File AVL-${season}</div><h2 class="hero-title">Welcome to the Fantasy Football Division.</h2><p class="hero-copy">The official archive of the ${esc(league.name)}: ${league.seasons.length} seasons of championships, personnel decisions, performance reviews and highly questionable asset management.</p><div class="hero-seal">Vandelay<br>Industries<br>Official</div></section><aside class="paper-panel champion-panel"><div class="panel-ribbon"><span>Executive of the Year</span><span>${season}</span></div><div class="champion-portrait">${champion?portrait(champion.managerId,champion.manager,"champion-photo"):'<div class="portrait-placeholder">VI</div>'}</div><div class="champion-copy"><div class="year">League Champion</div><h2>${esc(champion?.team||"Pending")}</h2><p>${champion?`${managerLink(champion.managerId,champion.manager)} · ${champion.record}`:"Awaiting final certification"}</p></div></aside></div><div class="stats-grid"><article class="stat-card"><div class="stat-label">Years in Operation</div><div class="stat-value">${league.seasons.length}</div><div class="stat-note">${league.seasons[0]}–${latestSeason()}</div></article><article class="stat-card"><div class="stat-label">Personnel on File</div><div class="stat-value">${league.managers.length}</div><div class="stat-note">Unique Manager Adjust IDs</div></article><article class="stat-card"><div class="stat-label">Recorded Matchups</div><div class="stat-value">${totalGames}</div><div class="stat-note">Regular-season results</div></article><article class="stat-card"><div class="stat-label">${season} Performance Leader</div><div class="stat-value small-stat">${esc(leader?.team||"—")}</div><div class="stat-note">${leader?`${managerLink(leader.managerId,leader.manager)} · ${leader.wins}-${leader.losses}-${leader.ties}`:""}</div></article></div><div class="lower-grid"><section class="paper-panel memo"><div class="panel-heading"><h2>Company Memorandum</h2><span>Form VI-22B</span></div><div class="memo-meta"><strong>TO:</strong><span>All Fantasy Football Division Personnel</span><strong>FROM:</strong><span>Office of the Commissioner</span><strong>RE:</strong><span>${season} Annual Performance Review</span></div><p>The ${season} records have been reviewed and entered into the permanent corporate archive. ${champion?`${managerLink(champion.managerId,champion.manager)}, representing ${esc(champion.team)}, has been formally recognized as League Champion.`:"Championship certification remains pending."}</p><p>Personnel are encouraged to review the Corporate Performance report before disputing any historical facts.</p></section><aside class="paper-panel"><div class="panel-heading"><h2>Department Directory</h2><span>Extension List</span></div><div class="department-links">${[["standings","Corporate Performance"],["managers","Personnel Files"],["history","Executive Hall"],["records","Records Department"],["transactions","League Transactions"]].map(([go,label])=>`<button class="department-link" data-go="${go}"><span>${label}</span><span>→</span></button>`).join("")}</div></aside></div><section class="paper-panel all-time-panel"><div class="panel-heading"><h2>All-Time Wins</h2><span>Senior Personnel</span></div><div class="bar-chart">${top.map(m=>`<div class="bar-row"><span>${managerLink(m.id,m.name)}</span><span class="bar-track"><span class="bar-fill" style="width:${m.wins/max*100}%"></span></span><strong>${m.wins}</strong></div>`).join("")}</div></section>`;}
+function standings(){return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>${selectedSeason()} Annual Performance Report</h2><span>${esc(currentLeague().name)}</span></div>${standingsTable(seasonRows())}</section>`;}
+function managers(){const season=selectedSeason(),rows=sortedStandings(seasonRows());return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>${season} Personnel Directory</h2><span>Click any employee to open the complete file</span></div><div class="table-wrap"><table><thead><tr><th>Employee</th><th>Franchise</th><th>Season Record</th><th>Success Rate</th><th>Overall Rank</th><th>Final Finish</th><th>Production</th></tr></thead><tbody>${rows.map(r=>{const m=managerById(r.managerId),games=r.wins+r.losses+r.ties,rate=games?(r.wins+r.ties*.5)/games:0;return `<tr><td><a class="manager-cell manager-card-link" href="${managerHref(r.managerId)}">${portrait(r.managerId,r.manager,"employee-photo")}<span><strong>${esc(r.manager)}</strong><br><small>${m?.firstSeason||season}–${m?.lastSeason||season}</small></span></a></td><td><strong>${esc(r.team)}</strong></td><td>${r.wins}-${r.losses}-${r.ties}</td><td>${pct(rate)}</td><td>#${r.overallRank}</td><td>${r.playoffRank?`#${r.playoffRank}`:"—"}</td><td>${fmt.format(r.pointsFor)}</td></tr>`}).join("")}</tbody></table></div></section>`;}
+function history(){const season=selectedSeason(),c=currentLeague().champions.find(x=>x.season===season);if(!c)return `<div class="empty">No certified League Champion is available for ${season}.</div>`;return `<section class="executive-hall"><header class="hall-masthead"><span></span><div><h2>Executive Hall</h2><p>Where Legends Are Recognized</p></div><span></span></header><article class="champion-plaque"><div class="hall-frame"><a href="${managerHref(c.managerId)}">${portrait(c.managerId,c.manager,"hall-portrait")}</a></div><div class="hall-nameplate"><h3>${esc(c.manager)}</h3><div class="hall-rule"></div><p class="hall-title">League Champion · ${c.season}</p><p class="hall-team">${esc(c.team)}</p><p class="hall-record">Record: ${esc(c.record)} · Season Points: ${fmt.format(c.pointsFor)}</p></div></article></section>`;}
+function recordCard(label,value,sub,managerId){return `<article class="stat-card record-card"><div class="stat-label">${label}</div><div class="stat-value">${value}</div><div class="stat-note">${managerId?managerLink(managerId,sub):sub}</div></article>`;}
+function records(){const season=selectedSeason(),rows=seasonRows();if(!rows.length)return `<div class="empty">No records are available for ${season}.</div>`;const high=[...rows].sort((a,b)=>b.pointsFor-a.pointsFor)[0],low=[...rows].filter(r=>r.pointsFor>0).sort((a,b)=>a.pointsFor-b.pointsFor)[0],diff=[...rows].sort((a,b)=>(b.pointsFor-b.pointsAgainst)-(a.pointsFor-a.pointsAgainst))[0],champ=currentLeague().champions.find(c=>c.season===season),moves=[...rows].sort((a,b)=>b.moves-a.moves)[0],trades=[...rows].sort((a,b)=>b.trades-a.trades)[0];return `<div class="record-grid">${recordCard(`${season} Highest Production`,fmt.format(high.pointsFor),`${high.team} · ${high.manager}`,high.managerId)}${recordCard(`${season} Lowest Production`,fmt.format(low.pointsFor),`${low.team} · ${low.manager}`,low.managerId)}${recordCard(`${season} Best Point Differential`,fmt.format(diff.pointsFor-diff.pointsAgainst),`${diff.team} · ${diff.manager}`,diff.managerId)}${recordCard("League Champion",esc(champ?.team||"Pending"),champ?.manager||String(season),champ?.managerId)}${recordCard("Most Roster Moves",moves.moves,`${moves.team} · ${moves.manager}`,moves.managerId)}${recordCard("Most Trades",trades.trades,`${trades.team} · ${trades.manager}`,trades.managerId)}</div>`;}
+function transactions(){const season=selectedSeason(),rows=sortedStandings(seasonRows()),totalMoves=rows.reduce((s,r)=>s+(r.moves||0),0),totalTrades=rows.reduce((s,r)=>s+(r.trades||0),0);return `<div class="stats-grid two-stats"><article class="stat-card"><div class="stat-label">Imported Assets</div><div class="stat-value">${totalMoves}</div><div class="stat-note">Waiver and roster moves in ${season}</div></article><article class="stat-card"><div class="stat-label">Export Agreements</div><div class="stat-value">${totalTrades}</div><div class="stat-note">Certified trades in ${season}</div></article></div><section class="paper-panel table-panel"><div class="panel-heading"><h2>${season} Corporate Transaction Ledger</h2><span>League Transactions · Transaction Control</span></div><div class="table-wrap"><table><thead><tr><th>Franchise</th><th>Executive</th><th>Imports</th><th>Exports</th><th>Draft Position</th><th>Final Finish</th></tr></thead><tbody>${rows.map(r=>`<tr><td><strong>${esc(r.team)}</strong></td><td>${managerLink(r.managerId,r.manager)}</td><td>${r.moves||0}</td><td>${r.trades||0}</td><td>${r.draftPosition||"—"}</td><td>${r.playoffRank?`#${r.playoffRank}`:"—"}</td></tr>`).join("")}</tbody></table></div></section>`;}
 
-  return `
-    <div class="headquarters-grid">
-      <section class="corporate-hero">
-        <div class="document-code">Corporate Communications · File AVL-${state.season}</div>
-        <h2 class="hero-title">Welcome to the Fantasy Football Division.</h2>
-        <p class="hero-copy">The official archive of the ${league.name}: ${league.seasons.length} seasons of championships, personnel decisions, performance reviews and highly questionable asset management.</p>
-        <div class="hero-seal">Vandelay<br>Industries<br>Official</div>
-      </section>
+function managerFile(){const m=managerById(state.managerId);if(!m)return `<div class="empty">This personnel file could not be located.</div>`;const career=currentLeague().rows.filter(r=>r.managerId===m.id).sort((a,b)=>b.season-a.season),selected=career.find(r=>r.season===selectedSeason()),titles=currentLeague().champions.filter(c=>c.managerId===m.id).sort((a,b)=>b.season-a.season),best=[...career].sort((a,b)=>(a.overallRank??999)-(b.overallRank??999)||b.pointsFor-a.pointsFor)[0];return `<section class="personnel-dossier"><div class="dossier-header paper-panel">${portrait(m.id,m.name,"dossier-portrait")}<div class="dossier-identity"><div class="document-code">Confidential Personnel Record · ID ${esc(m.id)}</div><h2>${esc(m.name)}</h2><p>Fantasy Football Division Executive</p><div class="dossier-badges"><span>${m.firstSeason}–${m.lastSeason}</span><span>${m.seasons} Seasons</span><span>${m.championships} Championship${m.championships===1?"":"s"}</span></div></div><div class="dossier-stamp">PERSONNEL<br>FILE</div></div><div class="stats-grid dossier-stats"><article class="stat-card"><div class="stat-label">Career Record</div><div class="stat-value">${m.wins}-${m.losses}-${m.ties}</div><div class="stat-note">${pct(m.winPct)} success rate</div></article><article class="stat-card"><div class="stat-label">Career Production</div><div class="stat-value">${fmt.format(m.pointsFor)}</div><div class="stat-note">${fmt.format(m.pointsAgainst)} allowed</div></article><article class="stat-card"><div class="stat-label">Playoff Appearances</div><div class="stat-value">${m.playoffs}</div><div class="stat-note">Across ${m.seasons} seasons</div></article><article class="stat-card"><div class="stat-label">Best Overall Rank</div><div class="stat-value">#${best?.overallRank??"—"}</div><div class="stat-note">${best?.season||"—"} · ${esc(best?.team||"")}</div></article></div><div class="dossier-grid"><section class="paper-panel"><div class="panel-heading"><h2>${selectedSeason()} Assignment</h2><span>Season-controlled view</span></div>${selected?`<div class="assignment-card"><h3>${esc(selected.team)}</h3><p><strong>${selected.wins}-${selected.losses}-${selected.ties}</strong> · Overall Rank #${selected.overallRank} · Final Finish ${selected.playoffRank?`#${selected.playoffRank}`:"—"}</p><p>${fmt.format(selected.pointsFor)} points for · ${fmt.format(selected.pointsAgainst)} allowed · ${selected.moves||0} moves · ${selected.trades||0} trades</p></div>`:`<div class="empty compact">No active assignment for ${selectedSeason()}.</div>`}<div class="panel-heading secondary-heading"><h2>Known Franchises</h2><span>${m.teams.length} names on file</span></div><div class="tag-list">${m.teams.map(t=>`<span>${esc(t)}</span>`).join("")}</div></section><section class="paper-panel"><div class="panel-heading"><h2>Executive Appointments</h2><span>Championship certifications</span></div>${titles.length?titles.map(c=>`<a class="appointment-row" href="#history" data-season-jump="${c.season}"><strong>${c.season}</strong><span>${esc(c.team)}</span><span>${c.record}</span></a>`).join(""):`<div class="empty compact">No championship appointments on file.</div>`}</section></div><section class="paper-panel table-panel career-ledger"><div class="panel-heading"><h2>Career Performance Ledger</h2><span>All seasons · newest first</span></div><div class="table-wrap"><table><thead><tr><th>Season</th><th>Franchise</th><th>Record</th><th>Overall Rank</th><th>Final Finish</th><th>Production</th><th>Transactions</th></tr></thead><tbody>${career.map(r=>`<tr class="${r.season===selectedSeason()?"selected-season-row":""}"><td><button class="season-jump" data-season-jump="${r.season}">${r.season}</button></td><td><strong>${esc(r.team)}</strong></td><td>${r.wins}-${r.losses}-${r.ties}</td><td>#${r.overallRank}</td><td>${r.playoffRank?`#${r.playoffRank}`:"—"}</td><td>${fmt.format(r.pointsFor)}</td><td>${r.moves||0} moves · ${r.trades||0} trades</td></tr>`).join("")}</tbody></table></div></section></section>`;}
 
-      <aside class="paper-panel champion-panel">
-        <div class="panel-ribbon"><span>Executive of the Year</span><span>${champion?.season || state.season}</span></div>
-        <div class="champion-portrait"><div class="portrait-placeholder">${champion ? initials(champion.manager) : "VI"}</div></div>
-        <div class="champion-copy">
-          <div class="year">Current Champion</div>
-          <h2>${champion?.team || "Pending"}</h2>
-          <p>${champion ? `${champion.manager} · ${champion.record}` : "Awaiting final certification"}</p>
-        </div>
-      </aside>
-    </div>
-
-    <div class="stats-grid">
-      <article class="stat-card"><div class="stat-label">Years in Operation</div><div class="stat-value">${league.seasons.length}</div><div class="stat-note">${league.seasons[0]}–${latest}</div></article>
-      <article class="stat-card"><div class="stat-label">Personnel on File</div><div class="stat-value">${league.managers.length}</div><div class="stat-note">Across league history</div></article>
-      <article class="stat-card"><div class="stat-label">Recorded Matchups</div><div class="stat-value">${totalGames}</div><div class="stat-note">Regular-season results</div></article>
-      <article class="stat-card"><div class="stat-label">${state.season} Performance Leader</div><div class="stat-value" style="font-size:22px">${leader?.team || "—"}</div><div class="stat-note">${leader ? `${leader.wins}-${leader.losses}-${leader.ties} · ${fmt.format(leader.pointsFor)} PF` : ""}</div></article>
-    </div>
-
-    <div class="lower-grid">
-      <section class="paper-panel memo">
-        <div class="panel-heading"><h2>Company Memorandum</h2><span>Form VI-22B</span></div>
-        <div class="memo-meta"><strong>TO:</strong><span>All Fantasy Football Division Personnel</span><strong>FROM:</strong><span>Office of the Commissioner</span><strong>RE:</strong><span>${state.season} Annual Performance Review</span></div>
-        <p>The ${state.season} records have been reviewed and entered into the permanent corporate archive. ${champion ? `${champion.manager}, representing ${champion.team}, has been formally recognized as Champion.` : "Championship certification remains pending."}</p>
-        <p>Personnel are encouraged to review the Corporate Performance report before disputing any historical facts.</p>
-      </section>
-
-      <aside class="paper-panel">
-        <div class="panel-heading"><h2>Department Directory</h2><span>Extension List</span></div>
-        <div class="department-links">
-          <button class="department-link" data-go="standings"><span>Corporate Performance</span><span>→</span></button>
-          <button class="department-link" data-go="managers"><span>Personnel Files</span><span>→</span></button>
-          <button class="department-link" data-go="history"><span>Executive Hall</span><span>→</span></button>
-          <button class="department-link" data-go="records"><span>Records Department</span><span>→</span></button>
-          <button class="department-link" data-go="transactions"><span>Import / Export</span><span>→</span></button>
-        </div>
-      </aside>
-    </div>
-
-    <section class="paper-panel" style="margin-top:20px">
-      <div class="panel-heading"><h2>All-Time Wins</h2><span>Senior Personnel</span></div>
-      <div class="bar-chart">${topManagers.map(m => `<div class="bar-row"><span>${m.name}</span><span class="bar-track"><span class="bar-fill" style="width:${m.wins / maxWins * 100}%"></span></span><strong>${m.wins}</strong></div>`).join("")}</div>
-    </section>`;
-}
-
-function standings() {
-  return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>${state.season || latestSeason()} Annual Performance Report</h2><span>${currentLeague().name}</span></div>${standingsTable(seasonRows())}</section>`;
-}
-
-function managers() {
-  const managers = currentLeague().managers;
-  return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>Personnel Directory</h2><span>Sorted by Championships, then wins</span></div><div class="table-wrap"><table>
-    <thead><tr><th>Employee</th><th>Service</th><th>Career Record</th><th>Success Rate</th><th>Championships</th><th>Playoffs</th><th>Career Production</th></tr></thead>
-    <tbody>${managers.map(m => `<tr>
-      <td><span class="manager-cell"><span class="employee-badge">${initials(m.name)}</span><span>${m.name}<br><small>${m.firstSeason}–${m.lastSeason}</small></span></span></td>
-      <td>${m.seasons} seasons</td><td>${m.wins}-${m.losses}-${m.ties}</td><td>${pct(m.winPct)}</td>
-      <td><span class="title-badge">${m.championships} Championship${m.championships === 1 ? "" : "s"}</span></td>
-      <td>${m.playoffs}</td><td>${fmt.format(m.pointsFor)}</td>
-    </tr>`).join("")}</tbody>
-  </table></div></section>`;
-}
-
-function history() {
-  const champions = currentLeague().champions;
-  return `<div class="file-grid">${champions.map(c => `<article class="file-card">
-    <div class="document-code">Executive Appointment · ${c.season}</div>
-    <div class="champion-portrait" style="height:130px;margin:14px -20px 16px;border-bottom-width:4px"><div class="portrait-placeholder" style="width:86px;height:102px;font-size:30px;border-width:6px">${initials(c.manager)}</div></div>
-    <h3>${c.team}</h3><p><strong>${c.manager}</strong></p><p>${c.record} · ${fmt.format(c.pointsFor)} points</p>
-    <span class="title-badge" style="margin-top:10px">Champion</span>
-  </article>`).join("")}</div>`;
-}
-
-function records() {
-  const rows = currentLeague().rows;
-  const highScore = [...rows].sort((a, b) => b.pointsFor - a.pointsFor)[0];
-  const lowScore = [...rows].filter(r => r.pointsFor > 0).sort((a, b) => a.pointsFor - b.pointsFor)[0];
-  const bestDiff = [...rows].sort((a, b) => (b.pointsFor - b.pointsAgainst) - (a.pointsFor - a.pointsAgainst))[0];
-  const titles = [...currentLeague().managers].sort((a, b) => b.championships - a.championships || b.wins - a.wins)[0];
-  const points = [...currentLeague().managers].sort((a, b) => b.pointsFor - a.pointsFor)[0];
-  const longest = [...currentLeague().managers].sort((a, b) => b.seasons - a.seasons)[0];
-  const card = (label, value, sub) => `<article class="stat-card record-card"><div class="stat-label">${label}</div><div class="stat-value">${value}</div><div class="stat-note">${sub}</div></article>`;
-  return `<div class="record-grid">
-    ${card("Highest Season Production", fmt.format(highScore.pointsFor), `${highScore.team} · ${highScore.season}`)}
-    ${card("Lowest Season Production", fmt.format(lowScore.pointsFor), `${lowScore.team} · ${lowScore.season}`)}
-    ${card("Best Point Differential", fmt.format(bestDiff.pointsFor - bestDiff.pointsAgainst), `${bestDiff.team} · ${bestDiff.season}`)}
-    ${card("Most Championships", titles.championships, `${titles.name} · ${titles.wins} career wins`)}
-    ${card("Most Career Points", fmt.format(points.pointsFor), points.name)}
-    ${card("Longest Service Record", `${longest.seasons} seasons`, longest.name)}
-  </div>`;
-}
-
-function transactions() {
-  const rows = sortedStandings(seasonRows());
-  const totalMoves = rows.reduce((sum, r) => sum + (r.moves || 0), 0);
-  const totalTrades = rows.reduce((sum, r) => sum + (r.trades || 0), 0);
-  return `<div class="stats-grid" style="grid-template-columns:repeat(2,1fr)">
-    <article class="stat-card"><div class="stat-label">Imported Assets</div><div class="stat-value">${totalMoves}</div><div class="stat-note">Waiver and roster moves in ${state.season}</div></article>
-    <article class="stat-card"><div class="stat-label">Export Agreements</div><div class="stat-value">${totalTrades}</div><div class="stat-note">Certified trades in ${state.season}</div></article>
-  </div>
-  <section class="paper-panel table-panel"><div class="panel-heading"><h2>${state.season} Import / Export Ledger</h2><span>Transaction Control</span></div><div class="table-wrap"><table>
-    <thead><tr><th>Franchise</th><th>Executive</th><th>Imports</th><th>Exports</th><th>Draft Position</th><th>Final Finish</th></tr></thead>
-    <tbody>${rows.map(r => `<tr><td><strong>${r.team}</strong></td><td>${r.manager}</td><td>${r.moves || 0}</td><td>${r.trades || 0}</td><td>${r.draftPosition || "—"}</td><td>${r.playoffRank ? `#${r.playoffRank}` : "—"}</td></tr>`).join("")}</tbody>
-  </table></div></section>`;
-}
-
-function bindInternalLinks() {
-  document.querySelectorAll("[data-go]").forEach(button => button.addEventListener("click", () => {
-    state.view = button.dataset.go;
-    location.hash = state.view;
-    render();
-  }));
-}
-
-function render() {
-  const league = currentLeague();
-  if (!league.seasons.includes(state.season)) state.season = latestSeason();
-  pageTitle.textContent = titleFor(state.view);
-  document.title = `${titleFor(state.view)} | Vandelay Industries`;
-  navButtons.forEach(btn => btn.classList.toggle("active", btn.dataset.view === state.view));
-  seasonSelect.value = state.season;
-  content.innerHTML = ({ overview, standings, managers, history, records, transactions }[state.view] || overview)();
-  bindInternalLinks();
-}
-
-function populate() {
-  leagueSelect.innerHTML = Object.values(data).map(l => `<option value="${l.id}">${l.name}</option>`).join("");
-  if (!data[state.leagueId]) state.leagueId = Object.keys(data)[0];
-  leagueSelect.value = state.leagueId;
-  const league = currentLeague();
-  seasonSelect.innerHTML = [...league.seasons].reverse().map(y => `<option value="${y}">${y}</option>`).join("");
-  if (!state.season || !league.seasons.includes(state.season)) state.season = latestSeason();
-  seasonSelect.value = state.season;
-}
-
-leagueSelect.addEventListener("change", event => {
-  state.leagueId = event.target.value;
-  localStorage.setItem("leagueId", state.leagueId);
-  state.season = null;
-  populate();
-  render();
-});
-seasonSelect.addEventListener("change", event => { state.season = Number(event.target.value); render(); });
-navButtons.forEach(button => button.addEventListener("click", () => {
-  state.view = button.dataset.view;
-  location.hash = state.view;
-  render();
-}));
-window.addEventListener("hashchange", () => { state.view = location.hash.replace("#", "") || "overview"; render(); });
-document.querySelector("#shareButton").addEventListener("click", async () => {
-  const button = document.querySelector("#shareButton");
-  try {
-    await navigator.clipboard.writeText(location.href);
-    button.textContent = "File Link Copied";
-    setTimeout(() => button.textContent = "Copy File Link", 1400);
-  } catch {
-    alert("Copy the address from your browser to share this file.");
-  }
-});
-
-populate();
-render();
+function bindPerformanceSort(){document.querySelectorAll("[data-sort-key]").forEach(h=>h.querySelector("button")?.addEventListener("click",()=>{const key=h.dataset.sortKey;if(state.performanceSort.key===key)state.performanceSort.direction=state.performanceSort.direction==="asc"?"desc":"asc";else state.performanceSort={key,direction:["team","manager"].includes(key)?"asc":"desc"};render();}));}
+function bindInternalLinks(){document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{location.hash=b.dataset.go;}));document.querySelectorAll("[data-season-jump]").forEach(el=>el.addEventListener("click",e=>{e.preventDefault();state.season=Number(el.dataset.seasonJump);localStorage.setItem(`season:${state.leagueId}`,String(state.season));populate();if(el.getAttribute("href")==="#history")location.hash="history";else render();}));}
+function render(){const league=currentLeague();if(!league.seasons.includes(state.season))state.season=latestSeason();if(state.view==="manager"&&!managerById(state.managerId)){state.view="managers";state.managerId=null;}const title=titleFor(state.view);pageTitle.textContent=title;document.title=`${title} | Vandelay Industries`;navButtons.forEach(btn=>btn.classList.toggle("active",btn.dataset.view===(state.view==="manager"?"managers":state.view)));seasonSelect.value=state.season;localStorage.setItem(`season:${state.leagueId}`,String(state.season));content.innerHTML=({overview,standings,managers,manager:managerFile,history,records,transactions}[state.view]||overview)();bindInternalLinks();if(state.view==="standings")bindPerformanceSort();if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)window.scrollTo({top:0,behavior:"smooth"});else window.scrollTo(0,0);}
+function populate(){leagueSelect.innerHTML=Object.values(data).map(l=>`<option value="${l.id}">${esc(l.name)}</option>`).join("");if(!data[state.leagueId])state.leagueId=Object.keys(data)[0];leagueSelect.value=state.leagueId;const league=currentLeague();seasonSelect.innerHTML=[...league.seasons].reverse().map(y=>`<option value="${y}">${y}</option>`).join("");const remembered=Number(localStorage.getItem(`season:${state.leagueId}`));if(!state.season||!league.seasons.includes(state.season))state.season=league.seasons.includes(remembered)?remembered:latestSeason();seasonSelect.value=state.season;}
+leagueSelect.addEventListener("change",e=>{state.leagueId=e.target.value;localStorage.setItem("leagueId",state.leagueId);state.season=null;populate();if(state.view==="manager"&&!managerById(state.managerId))location.hash="managers";else render();});
+seasonSelect.addEventListener("change",e=>{state.season=Number(e.target.value);localStorage.setItem(`season:${state.leagueId}`,String(state.season));render();});
+navButtons.forEach(b=>b.addEventListener("click",()=>location.hash=b.dataset.view));
+window.addEventListener("hashchange",()=>{parseHash();render();});
+document.querySelector("#shareButton").addEventListener("click",async()=>{const b=document.querySelector("#shareButton");try{await navigator.clipboard.writeText(location.href);b.textContent="File Link Copied";setTimeout(()=>b.textContent="Copy File Link",1400);}catch{alert("Copy the address from your browser to share this file.");}});
+parseHash();populate();render();

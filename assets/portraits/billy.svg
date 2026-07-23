@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="440" viewBox="0 0 360 440" role="img" aria-label="Executive portrait of Billy">
+<rect width="360" height="440" fill="#3a506b"/>
+<path d="M0 338 L360 274 V440 H0Z" fill="#d8a31a" opacity=".22"/>
+<circle cx="180" cy="150" r="82" fill="#edf2f4"/>
+<path d="M105 144 Q112 63 180 58 Q248 63 255 144 Q233 113 180 110 Q127 113 105 144Z" fill="#20252a"/>
+<path d="M122 153 Q180 206 238 153 Q232 244 180 252 Q128 244 122 153Z" fill="#d5a276"/>
+<path d="M145 164 q12 -8 25 0 M190 164 q12 -8 25 0" fill="none" stroke="#20252a" stroke-width="6" stroke-linecap="round"/>
+<path d="M163 207 q17 12 34 0" fill="none" stroke="#7a3b31" stroke-width="5" stroke-linecap="round"/>
+<path d="M58 440 Q67 284 180 278 Q293 284 302 440Z" fill="#20252a"/>
+<path d="M129 284 L180 354 L231 284 L213 440 H147Z" fill="#edf2f4"/>
+<path d="M169 333 L191 333 L202 440 H158Z" fill="#d8a31a"/>
+<rect x="18" y="18" width="324" height="404" fill="none" stroke="#d8a31a" stroke-width="8"/>
+<rect x="30" y="30" width="300" height="380" fill="none" stroke="#edf2f4" stroke-width="2" opacity=".8"/>
+<circle cx="304" cy="378" r="35" fill="#d8a31a"/><text x="304" y="389" text-anchor="middle" font-family="Georgia,serif" font-size="27" font-weight="bold" fill="#3a506b">B</text>
+</svg>

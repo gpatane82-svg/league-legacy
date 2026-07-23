@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="440" viewBox="0 0 360 440" role="img" aria-label="Executive portrait of merritt">
+<rect width="360" height="440" fill="#264653"/>
+<path d="M0 338 L360 274 V440 H0Z" fill="#e9c46a" opacity=".22"/>
+<circle cx="180" cy="150" r="82" fill="#f8f1df"/>
+<path d="M105 144 Q112 63 180 58 Q248 63 255 144 Q233 113 180 110 Q127 113 105 144Z" fill="#20252a"/>
+<path d="M122 153 Q180 206 238 153 Q232 244 180 252 Q128 244 122 153Z" fill="#d5a276"/>
+<path d="M145 164 q12 -8 25 0 M190 164 q12 -8 25 0" fill="none" stroke="#20252a" stroke-width="6" stroke-linecap="round"/>
+<path d="M163 207 q17 12 34 0" fill="none" stroke="#7a3b31" stroke-width="5" stroke-linecap="round"/>
+<path d="M58 440 Q67 284 180 278 Q293 284 302 440Z" fill="#20252a"/>
+<path d="M129 284 L180 354 L231 284 L213 440 H147Z" fill="#f8f1df"/>
+<path d="M169 333 L191 333 L202 440 H158Z" fill="#e9c46a"/>
+<rect x="18" y="18" width="324" height="404" fill="none" stroke="#e9c46a" stroke-width="8"/>
+<rect x="30" y="30" width="300" height="380" fill="none" stroke="#f8f1df" stroke-width="2" opacity=".8"/>
+<circle cx="304" cy="378" r="35" fill="#e9c46a"/><text x="304" y="389" text-anchor="middle" font-family="Georgia,serif" font-size="27" font-weight="bold" fill="#264653">M</text>
+</svg>
