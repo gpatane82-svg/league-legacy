@@ -37,3 +37,4 @@ Open `index.html` in a browser. Some browsers restrict local JavaScript files. I
 The generated site data is stored in `data/league-data.js`. The original cleaned source came from `league_dashboard_standings.csv`.
 
 A future update script can regenerate that file after each fantasy season without redesigning the site.
+
