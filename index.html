@@ -3,53 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A shareable fantasy football history hub for two leagues.">
-  <title>League Legacy</title>
+  <meta name="description" content="Vandelay Industries Fantasy Football Division — official league archive.">
+  <title>Vandelay Industries | Fantasy Football Division</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="#overview">
-        <span class="brand-mark">LL</span>
-        <span><strong>League Legacy</strong><small>Fantasy archive</small></span>
+  <div class="utility-strip">
+    <div class="utility-inner">
+      <span>Vandelay Industries, Inc.</span>
+      <span class="utility-right">Fantasy Football Division · Internal Use</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#overview" aria-label="Vandelay Industries home">
+        <span class="wordmark-v">V</span>
+        <span class="wordmark-copy">
+          <strong>Vandelay Industries</strong>
+          <small>Fantasy Football Division</small>
+        </span>
       </a>
 
-      <label class="field-label" for="leagueSelect">League</label>
-      <select id="leagueSelect" class="select"></select>
-
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-link active" data-view="overview">Overview</button>
-        <button class="nav-link" data-view="standings">Standings</button>
-        <button class="nav-link" data-view="managers">Managers</button>
-        <button class="nav-link" data-view="history">Champions</button>
-        <button class="nav-link" data-view="records">Record Book</button>
-      </nav>
-
-      <div class="sidebar-note">
-        <span class="live-dot"></span>
-        <div><strong>Static & free</strong><small>Ready for GitHub Pages</small></div>
+      <div class="header-controls">
+        <label>
+          <span>League File</span>
+          <select id="leagueSelect"></select>
+        </label>
+        <label>
+          <span>Fiscal Season</span>
+          <select id="seasonSelect"></select>
+        </label>
       </div>
-    </aside>
+    </div>
 
-    <main>
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Fantasy football history</p>
-          <h1 id="pageTitle">League overview</h1>
-        </div>
-        <div class="topbar-actions">
-          <label class="season-control">Season
-            <select id="seasonSelect" class="select compact"></select>
-          </label>
-          <button id="shareButton" class="button">Copy page link</button>
-        </div>
-      </header>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <div class="nav-inner">
+        <button class="nav-link active" data-view="overview">Corporate Headquarters</button>
+        <button class="nav-link" data-view="standings">Corporate Performance</button>
+        <button class="nav-link" data-view="managers">Personnel Files</button>
+        <button class="nav-link" data-view="history">Executive Hall</button>
+        <button class="nav-link" data-view="records">Records Department</button>
+        <button class="nav-link" data-view="transactions">Import / Export</button>
+      </div>
+    </nav>
+  </header>
 
-      <section id="content" class="content"></section>
-      <footer>Built from your historical league exports · No paid database required</footer>
-    </main>
-  </div>
+  <main class="page-shell">
+    <div class="page-heading">
+      <div>
+        <p class="kicker">Official corporate archive</p>
+        <h1 id="pageTitle">Corporate Headquarters</h1>
+      </div>
+      <button id="shareButton" class="office-button">Copy File Link</button>
+    </div>
+    <section id="content" class="content"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Vandelay Industries · Fantasy Football Division</div>
+    <div>Importing Championships. Exporting Excuses.</div>
+  </footer>
 
   <script src="data/league-data.js"></script>
   <script src="app.js"></script>
