@@ -37,12 +37,18 @@ const customPortraits = {
   "Brian":"assets/portraits/custom/brian.jpg"
 };
 const themedPortraits = new Set([
-  "Tina","Stanley","Dan","Gabriella","Jos","Richard","Marianne","Debbie",
-  "Andrew","Tom","Billy","David","Elliott","Jonathan","Mike","Jon","Merritt"
+  "tina","stanley","dan","gabriella","jos","richard","marianne","debbie",
+  "andrew","tom","billy","david","elliott","jonathan","mike","jon","merritt"
 ]);
-const portraitPath = managerId => customPortraits[managerId] || (themedPortraits.has(managerId)
-  ? `assets/portraits/seinfeld/${slug(managerId)}.webp`
-  : `assets/portraits/${slug(managerId)}.svg`);
+const customPortraitLookup = Object.fromEntries(
+  Object.entries(customPortraits).map(([name, path]) => [String(name).toLowerCase(), path])
+);
+const portraitPath = managerId => {
+  const normalizedId = String(managerId || "").toLowerCase();
+  return customPortraitLookup[normalizedId] || (themedPortraits.has(normalizedId)
+    ? `assets/portraits/seinfeld/${slug(normalizedId)}.webp`
+    : `assets/portraits/${slug(normalizedId)}.svg`);
+};
 const hallPortraitPath = managerId => customPortraits[managerId] || portraitPath(managerId);
 
 
