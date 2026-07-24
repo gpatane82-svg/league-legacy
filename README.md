@@ -16,3 +16,4 @@ Static GitHub Pages website generated from `Fantasy League History.xlsx`.
 Open `index.html` locally or deploy the contents of this folder to GitHub Pages.
 
 See `QA-REPORT.md` for the validation summary.
+
