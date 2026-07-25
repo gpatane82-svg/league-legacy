@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Vandelay Industries Fantasy Football Division — official league archive.">
+  <meta id="siteDescription" name="description" content="Vandelay Industries Fantasy Football Division — official league archive.">
   <title>Vandelay Industries | Fantasy Football Division</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,28 +11,29 @@
   <a class="skip-link" href="#content">Skip to league content</a>
   <div class="utility-strip">
     <div class="utility-inner">
-      <span>Vandelay Industries, Inc.</span>
-      <span class="utility-right">Fantasy Football Division · Internal Use</span>
+      <span id="utilityBrand">Vandelay Industries, Inc.</span>
+      <span id="utilityTagline" class="utility-right">Fantasy Football Division · Internal Use</span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="wordmark" href="#overview" aria-label="Vandelay Industries home">
+      <a id="wordmarkLink" class="wordmark" href="#overview" aria-label="Vandelay Industries home">
         <span class="wordmark-v">V</span>
+        <img class="florida-masthead-art" src="assets/branding/league-of-losers-masthead.svg" alt="Florida Man Fantasy Football League — League of Losers">
         <span class="wordmark-copy">
-          <strong>Vandelay Industries</strong>
-          <small>Fantasy Football Division</small>
+          <strong id="brandTitle">Vandelay Industries</strong>
+          <small id="brandSubtitle">Fantasy Football Division</small>
         </span>
       </a>
 
       <div class="header-controls">
         <label>
-          <span>League File</span>
+          <span id="leagueSelectLabel">League File</span>
           <select id="leagueSelect"></select>
         </label>
         <label>
-          <span>Fiscal Season</span>
+          <span id="seasonSelectLabel">Fiscal Season</span>
           <select id="seasonSelect"></select>
         </label>
       </div>
@@ -57,17 +58,19 @@
   <main class="page-shell">
     <div class="page-heading">
       <div>
-        <p class="kicker">Official corporate archive</p>
+        <p id="pageKicker" class="kicker">Official corporate archive</p>
         <h1 id="pageTitle">League History</h1>
       </div>
       <button id="shareButton" class="office-button">Copy File Link</button>
     </div>
+    <div class="florida-page-decor" aria-hidden="true"><img class="florida-palm florida-palm-left" src="assets/florida/palm.svg" alt=""><img class="florida-palm florida-palm-right" src="assets/florida/palm.svg" alt=""><span class="florida-stamp stamp-one">PUBLIC RECORD</span><span class="florida-stamp stamp-two">QUESTIONABLE DECISIONS</span></div>
     <section id="content" class="content" tabindex="-1" aria-live="polite"></section>
   </main>
 
   <footer class="site-footer">
-    <div>Vandelay Industries · Fantasy Football Division</div>
-    <div>Importing Championships. Exporting Excuses.</div>
+    <div id="footerBrand">Vandelay Industries · Fantasy Football Division</div>
+    <div id="footerTagline">Importing Championships. Exporting Excuses.</div>
+    <div class="florida-footer-scene" aria-hidden="true"><img src="assets/florida/gator-mascot.svg" alt=""><span>NO SHIRT · NO SHOES · NO GOOD DRAFT PICKS</span></div>
   </footer>
 
   <script src="data/league-data.js"></script>

@@ -1,31 +1,44 @@
-# Version 2 QA Report
+# League Legacy Final QA Report
 
-Final QA completed against both league files and every season represented in `Fantasy League History.xlsx`.
+## Architecture verified
 
-## Verified
+- League `26757` resolves to `art-vandelay`.
+- League `5119107` resolves to `florida-man`.
+- Art Vandelay remains the default for an unknown league ID.
+- Both leagues use the same archive data, routes, manager identities, season state, calculations, draft history, game history, awards, and search index.
+- Florida styling and decorative assets are scoped to the Florida theme.
 
-- `Manager Adjust` is the unique manager key throughout the site.
-- John (Energy) and John (Pigskin) remain separate personnel records.
-- Every season has unique overall ranks running consecutively from 1 through the league size.
-- Every row and champion points to a valid manager record.
-- Corporate Performance supports ascending and descending sorting for text, numeric, record, percentage, points, and finish columns.
-- The selected league and season propagate to Headquarters, Corporate Performance, Personnel Files, Executive Hall, Records Department, and League Transactions.
-- League Champion changes with the selected season.
-- Manager links resolve to Personnel Files from all generated reports.
-- All manager portrait paths resolve; custom Executive Hall portraits are used for the supplied managers.
-- Invalid page hashes return safely to Corporate Headquarters.
-- JavaScript syntax validation passes.
-- ZIP integrity validation passes.
-- Responsive and keyboard-accessibility polish is included for navigation, tables, dossiers, and Executive Hall.
+## Route validation
 
-## Data totals validated
+The final application was executed in a static DOM test harness for both leagues. The following views rendered successfully in each theme:
 
-- Art Vandelay League: 16 seasons, 200 season records, 26 unique Manager Adjust IDs, 16 champions.
-- League Of Losers: 9 seasons, 90 season records, 20 unique Manager Adjust IDs, 9 champions.
+- Overview
+- Standings
+- Managers
+- Champions/history
+- Records
+- Transactions
+- Draft
+- Games
+- Awards
+- Search
+- Manager detail
 
-## v7 portrait restoration
-- Restored all 17 approved Seinfeld-themed personnel portraits.
-- Preserved the approved assignments, including Debbie as Festivus, Billy as Big Salad, and Jos as a unique non-duplicate easter egg.
-- Removed the obsolete bottom name/title plaques while retaining the easter-egg props.
-- Confirmed all themed portraits are uniform 744 × 990 portrait assets.
-- Existing custom uploaded portraits were not modified.
+That is 22 successful league/route render checks with no runtime exceptions in the harness.
+
+## File and syntax validation
+
+- `app.js` passes `node --check`.
+- All generated local image references resolve.
+- Required data files are present and parse successfully.
+- Theme-aware metadata, accessibility labels, selector labels, navigation, footer copy, and copy-link feedback are included.
+- Final ZIP integrity is checked after packaging.
+
+## Data totals retained
+
+- Art Vandelay League: 16 seasons, 200 season records, 26 unique manager IDs, 16 champions.
+- League of Losers: 9 seasons, 90 season records, 20 unique manager IDs, 9 champions.
+
+## Hosted verification still required
+
+GitHub Pages caching, MIME handling, and hosted responsive rendering can only be confirmed after the final ZIP is committed. Use the post-commit checklist in `BATCH-5-RELEASE-QA.md` after deployment.
