@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 260" role="img" aria-labelledby="title desc">
+  <title id="title">League of Losers Florida fantasy football masthead</title>
+  <desc id="desc">A distressed Florida beach banner with a smiling orange mascot, palm trees, and the League of Losers X crest.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#168bd0"/><stop offset="1" stop-color="#07598e"/></linearGradient>
+    <linearGradient id="sunset" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff4c00"/><stop offset="1" stop-color="#ff8a00"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="5" dy="6" stdDeviation="0" flood-color="#061b29" flood-opacity=".65"/></filter>
+    <pattern id="grain" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="3" cy="5" r="1" fill="#fff" opacity=".12"/><circle cx="18" cy="16" r="1.5" fill="#001827" opacity=".13"/><path d="M0 22L24 18" stroke="#fff" opacity=".05"/></pattern>
+  </defs>
+  <rect width="1100" height="260" rx="12" fill="url(#sky)"/>
+  <circle cx="885" cy="73" r="45" fill="#ffd34e" opacity=".9"/>
+  <path d="M0 190 Q150 130 300 190 T600 190 T900 190 T1200 190 V260 H0Z" fill="#06344b"/>
+  <path d="M0 207 Q180 170 350 209 T680 207 T1100 205 V260 H0Z" fill="#052332"/>
+  <g fill="#051d2b">
+    <path d="M92 194V83h9v111zm5-106c-24-22-45-19-56-10 19 0 33 7 48 22-23-7-42 1-51 12 21-5 38 0 57 11 0-21 1-25 2-35zm4 0c18-24 43-27 57-19-19 3-35 13-49 28 20-10 42-7 54 3-22-1-41 7-59 20 1-17 0-22-3-32z"/>
+    <path d="M1010 202V96h8v106zm4-100c-20-21-40-18-50-10 17 1 30 8 44 22-21-7-38 0-47 11 20-5 35 0 52 10 0-18 1-23 1-33zm5 0c17-21 38-24 51-16-18 2-31 10-44 24 19-8 37-5 48 4-20-1-37 6-53 18 1-15 0-20-2-30z"/>
+  </g>
+  <g transform="translate(100 42)" filter="url(#shadow)">
+    <circle cx="75" cy="78" r="62" fill="#ff6a00" stroke="#071a24" stroke-width="9"/>
+    <path d="M72 13c6-22 26-29 43-22-13 6-19 15-20 30" fill="#54a936" stroke="#071a24" stroke-width="7"/>
+    <ellipse cx="53" cy="67" rx="10" ry="16" fill="#fff"/><ellipse cx="95" cy="67" rx="10" ry="16" fill="#fff"/>
+    <circle cx="57" cy="70" r="5"/><circle cx="91" cy="70" r="5"/>
+    <path d="M42 96 Q75 127 108 94 Q104 139 75 143 Q46 139 42 96Z" fill="#fff" stroke="#071a24" stroke-width="7"/>
+    <path d="M52 112h46" stroke="#071a24" stroke-width="5"/>
+    <path d="M19 91C-3 79-13 60-3 48M131 91c25-13 33-34 22-46" fill="none" stroke="#071a24" stroke-width="15" stroke-linecap="round"/>
+    <path d="M-7 48l-10-27m13 25L8 23m-10 23L-2 16" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+    <path d="M155 45l10-27m-13 25-12-24m10 24 1-31" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(805 22)" filter="url(#shadow)">
+    <path d="M15 8h78l52 73 51-73h79l-88 119 84 112h-78l-48-68-48 68H18l85-112z" fill="url(#sunset)" stroke="#061b29" stroke-width="9"/>
+    <circle cx="145" cy="127" r="66" fill="#0875b2" stroke="#061b29" stroke-width="8"/>
+    <circle cx="145" cy="127" r="51" fill="#f3e4bd" stroke="#061b29" stroke-width="5"/>
+    <path d="M120 154q24-12 49 0l-8-40-12 17-12-17z" fill="#fff" stroke="#061b29" stroke-width="4"/>
+    <path d="M144 74v38m0-32c-17-15-34-12-42-4 14 0 26 5 38 17m6-13c15-16 31-16 40-8-14 2-25 8-36 20" stroke="#4da83e" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <text x="145" y="186" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="15" fill="#071a24">LEAGUE OF LOSERS</text>
+  </g>
+  <g filter="url(#shadow)">
+    <text x="330" y="93" font-family="Arial Black, Impact, sans-serif" font-size="77" letter-spacing="2" fill="#fff" stroke="#061b29" stroke-width="4" paint-order="stroke">FLORIDA MAN</text>
+    <text x="337" y="139" font-family="Arial Black, Impact, sans-serif" font-size="31" font-style="italic" fill="#ff5a00">FANTASY FOOTBALL LEAGUE</text>
+  </g>
+  <path d="M315 158h465l-20 40H292z" fill="#050708" opacity=".96"/>
+  <text x="530" y="187" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="22" font-style="italic" letter-spacing="2" fill="#fff">NO RULES. JUST BAD DECISIONS.</text>
+  <rect width="1100" height="260" rx="12" fill="url(#grain)"/>
+  <rect x="5" y="5" width="1090" height="250" rx="8" fill="none" stroke="#061b29" stroke-width="10"/>
+</svg>

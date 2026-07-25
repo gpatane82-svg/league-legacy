@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-label="Cartoon Florida alligator mascot holding a football">
+<defs><filter id="s"><feDropShadow dx="6" dy="7" stdDeviation="0" flood-color="#071e2c"/></filter></defs>
+<g filter="url(#s)" stroke="#071e2c" stroke-width="8" stroke-linejoin="round">
+<path fill="#2f9366" d="M55 154c35-58 95-82 176-63 53-53 142-59 211-8 29 22 34 55 8 76-33 26-92 23-145 3-55 45-133 62-205 33-35-14-59-23-45-41z"/>
+<path fill="#eaf0cf" d="M236 111c62-34 149-34 204 4-42 4-90 17-128 36-28 14-58 15-76-4-12-13-12-25 0-36z"/>
+<path fill="#2f9366" d="M81 171L22 204l75 1 42-20z"/>
+<circle cx="319" cy="78" r="25" fill="#fff"/><circle cx="382" cy="78" r="25" fill="#fff"/>
+<circle cx="326" cy="83" r="9" fill="#071e2c" stroke="none"/><circle cx="389" cy="83" r="9" fill="#071e2c" stroke="none"/>
+<path d="M290 126c40 21 90 22 132 2" fill="none"/>
+<path fill="#fff" d="M314 132l13 29 13-26 15 29 14-30 16 26 12-31"/>
+<path fill="#ef7b2d" d="M183 118c-10-31 18-57 51-50 20 4 31 18 30 38-2 30-39 64-55 83-12-24-17-43-26-71z"/>
+<path fill="#fff" d="M205 82c18 11 34 29 45 50M190 106c20 11 36 27 48 47" fill="none" stroke-width="4"/>
+<path fill="#f6c84a" d="M273 48l29-33 12 38 41-16-13 40-39 4z"/>
+</g></svg>
