@@ -1580,3 +1580,1373 @@ body.theme-florida-man .florida-footer-scene span{position:relative;z-index:2;ma
 .office-buttons .secondary { background: white; }
 .import-preview { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px; border: 1px solid var(--line); }
 @media (max-width: 760px) { .commissioner-grid { grid-template-columns: 1fr; } .office-form { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   BATCH 6 · FLORIDA MAN HOME PAGE / NEWSPAPER FRONT PAGE
+   ========================================================= */
+body.theme-florida-man .lol-front-page{display:grid;gap:22px;max-width:1320px;margin:0 auto}
+body.theme-florida-man .lol-edition-banner{border-top:5px solid var(--ink,#172224);border-bottom:2px solid var(--ink,#172224);background:rgba(255,250,229,.9);box-shadow:0 8px 22px rgba(38,45,35,.09)}
+body.theme-florida-man .lol-edition-meta{display:flex;justify-content:space-between;gap:16px;padding:8px 14px;font:800 11px/1.2 var(--font-sans,Arial,sans-serif);letter-spacing:.12em;text-transform:uppercase}
+body.theme-florida-man .lol-breaking-strip{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:10px 14px;background:#bb3325;color:#fff;font-family:var(--font-sans,Arial,sans-serif);text-transform:uppercase}
+body.theme-florida-man .lol-breaking-strip strong{padding:4px 8px;background:#fff;color:#9d271c;font-size:12px;letter-spacing:.14em}
+body.theme-florida-man .lol-breaking-strip span{font-weight:900;letter-spacing:.045em}
+body.theme-florida-man .lol-breaking-strip button,.lol-rail-heading button{border:0;background:transparent;color:inherit;font:800 11px/1.2 var(--font-sans,Arial,sans-serif);letter-spacing:.06em;cursor:pointer}
+body.theme-florida-man .lol-front-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,.72fr);gap:20px;border-bottom:3px double var(--ink,#172224);padding-bottom:22px}
+body.theme-florida-man .lol-lead-story{padding:4px 24px 0 0;border-right:1px solid rgba(23,34,36,.42)}
+body.theme-florida-man .lol-section-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;font:900 11px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.15em;color:#ad301f;text-transform:uppercase}
+body.theme-florida-man .lol-section-label:before{content:"";width:28px;height:3px;background:#e9a82f}
+body.theme-florida-man .lol-lead-story>h2{max-width:900px;margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,5.4vw,78px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase;color:#172224}
+body.theme-florida-man .lol-lead-deck{max-width:850px;margin:16px 0 18px;font:700 clamp(16px,1.8vw,22px)/1.35 Georgia,serif;color:#3e4745}
+body.theme-florida-man .lol-lead-visual{display:grid;grid-template-columns:180px 1fr;min-height:215px;border:1px solid #172224;background:linear-gradient(110deg,#f1bb42 0 180px,#fff9e7 180px);overflow:hidden}
+body.theme-florida-man .lol-champion-mark{display:grid;place-items:center;align-content:center;border-right:1px solid #172224;position:relative}
+body.theme-florida-man .lol-champion-mark img{width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 7px 2px rgba(56,42,15,.15))}
+body.theme-florida-man .lol-champion-mark span{font:950 25px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.08em}
+body.theme-florida-man .lol-lead-scorecard{padding:26px 30px;display:flex;flex-direction:column;justify-content:center}
+body.theme-florida-man .lol-lead-scorecard>span{font:900 11px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.16em;color:#ad301f}
+body.theme-florida-man .lol-lead-scorecard>strong{margin:5px 0;font:900 clamp(28px,4vw,54px)/.95 Georgia,serif;text-transform:uppercase}
+body.theme-florida-man .lol-lead-scorecard p{margin:3px 0;font-size:17px}
+body.theme-florida-man .lol-lead-scorecard>b{margin-top:13px;align-self:flex-start;padding:5px 8px;border:2px solid #172224;font:900 13px/1 var(--font-sans,Arial,sans-serif);transform:rotate(-1deg)}
+body.theme-florida-man .lol-story-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:13px}
+body.theme-florida-man .florida-action.secondary{background:#fff9e7;color:#172224}
+body.theme-florida-man .lol-right-rail{display:grid;align-content:start;gap:16px}
+body.theme-florida-man .lol-standings-snapshot{border-top:5px solid #172224;border-bottom:1px solid #172224;background:#fff9e7}
+body.theme-florida-man .lol-rail-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-bottom:1px solid #172224;background:#172224;color:#fff;font:900 12px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.1em}
+body.theme-florida-man .lol-standings-snapshot ol,.lol-leaders-board ol{list-style:none;padding:0;margin:0}
+body.theme-florida-man .lol-standings-snapshot li{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:8px;padding:11px 12px;border-bottom:1px dotted rgba(23,34,36,.4)}
+body.theme-florida-man .lol-standings-snapshot li:last-child{border:0}
+body.theme-florida-man .lol-standings-snapshot li>b{font:950 18px/1 var(--font-sans,Arial,sans-serif);color:#bb3325}
+body.theme-florida-man .lol-standings-snapshot li span{font-weight:850}
+body.theme-florida-man .lol-standings-snapshot li small{font:800 12px/1 var(--font-sans,Arial,sans-serif)}
+body.theme-florida-man .lol-sacko-watch{display:grid;grid-template-columns:90px 1fr;gap:14px;align-items:center;padding:14px;border:2px dashed #bb3325;background:#ffe8c7;transform:rotate(.35deg)}
+body.theme-florida-man .lol-sacko-watch img{width:82px;height:82px;object-fit:contain}
+body.theme-florida-man .lol-sacko-watch span{font:900 10px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.14em;color:#ad301f}
+body.theme-florida-man .lol-sacko-watch strong{display:block;margin:4px 0;font:900 23px/1 Georgia,serif;text-transform:uppercase}
+body.theme-florida-man .lol-sacko-watch p{margin:0;font-size:13px}
+body.theme-florida-man .lol-news-rundown{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #172224;border-bottom:1px solid #172224}
+body.theme-florida-man .lol-news-rundown article{padding:16px 18px;border-right:1px solid #172224;background:rgba(255,249,231,.72)}
+body.theme-florida-man .lol-news-rundown article:last-child{border-right:0}
+body.theme-florida-man .lol-news-rundown span{font:900 10px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.14em;color:#ad301f}
+body.theme-florida-man .lol-news-rundown h3{margin:6px 0 4px;font:900 clamp(21px,2.5vw,34px)/1 Georgia,serif;text-transform:uppercase}
+body.theme-florida-man .lol-news-rundown p{margin:0;font-size:13px;line-height:1.35}
+body.theme-florida-man .lol-mid-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:20px}
+body.theme-florida-man .lol-column-story{padding:26px 28px;border-top:6px solid #172224}
+body.theme-florida-man .lol-column-story h2{margin:0 0 12px;font:900 clamp(28px,3.8vw,50px)/.96 Georgia,serif;text-transform:uppercase;letter-spacing:-.035em}
+body.theme-florida-man .lol-column-story p{font-family:Georgia,serif;line-height:1.55}
+body.theme-florida-man .lol-dropcap:first-letter{float:left;font:900 65px/.78 Georgia,serif;padding:7px 8px 0 0;color:#bb3325}
+body.theme-florida-man .text-link-button{border:0;border-bottom:2px solid #172224;background:transparent;padding:5px 0;font:900 12px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.08em;cursor:pointer}
+body.theme-florida-man .lol-leaders-board{overflow:hidden;padding:0}
+body.theme-florida-man .lol-leaders-board li{display:grid;grid-template-columns:35px 1fr auto;align-items:center;gap:10px;padding:14px 15px;border-bottom:1px solid rgba(23,34,36,.25)}
+body.theme-florida-man .lol-leaders-board li>b{font:950 23px/1 var(--font-sans,Arial,sans-serif);color:#e09a23}
+body.theme-florida-man .lol-leaders-board li span{font-weight:900}
+body.theme-florida-man .lol-leaders-board li small{display:block;margin-top:3px;font-weight:500;color:#5f665f}
+body.theme-florida-man .lol-leaders-board li>strong{font:950 25px/1 var(--font-sans,Arial,sans-serif)}
+body.theme-florida-man .lol-title-race{display:grid;grid-template-columns:.7fr 1.3fr;gap:20px;align-items:stretch;padding:24px;background:#173e37;color:#fff;border:5px double #f2bd42}
+body.theme-florida-man .lol-title-race-copy{align-self:center;padding:8px 16px}
+body.theme-florida-man .lol-title-race-copy h2{margin:0;font:900 clamp(35px,4vw,55px)/.9 Georgia,serif;text-transform:uppercase}
+body.theme-florida-man .lol-title-race-copy p{margin-bottom:0;color:#dce6da}
+body.theme-florida-man .lol-title-podium{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:end}
+body.theme-florida-man .lol-title-podium article{display:flex;min-height:165px;flex-direction:column;justify-content:flex-end;padding:14px;text-align:center;background:#fff9e7;color:#172224;border:1px solid #f2bd42}
+body.theme-florida-man .lol-title-podium article.place-1{min-height:205px;background:#f2bd42}
+body.theme-florida-man .lol-title-podium article>span{font:900 10px/1 var(--font-sans,Arial,sans-serif);letter-spacing:.12em;color:#a42e20}
+body.theme-florida-man .lol-title-podium article>strong{font:950 53px/.9 Georgia,serif}
+body.theme-florida-man .lol-title-podium h3{margin:8px 0 3px;font-size:17px}
+body.theme-florida-man .lol-title-podium small{font:700 11px/1 var(--font-sans,Arial,sans-serif)}
+body.theme-florida-man .lol-section-directory{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #172224;background:#fff9e7}
+body.theme-florida-man .lol-section-directory button{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:10px;padding:18px;border:0;border-right:1px solid #172224;border-bottom:1px solid #172224;background:transparent;text-align:left;cursor:pointer}
+body.theme-florida-man .lol-section-directory button:nth-child(3n){border-right:0}
+body.theme-florida-man .lol-section-directory button:nth-last-child(-n+3){border-bottom:0}
+body.theme-florida-man .lol-section-directory button:hover{background:#f2bd42}
+body.theme-florida-man .lol-section-directory button>b{font:950 18px/1 var(--font-sans,Arial,sans-serif);color:#bb3325}
+body.theme-florida-man .lol-section-directory strong{display:block;font:900 14px/1.1 var(--font-sans,Arial,sans-serif);letter-spacing:.05em}
+body.theme-florida-man .lol-section-directory small{display:block;margin-top:4px;color:#5d625d}
+body.theme-florida-man .lol-section-directory i{font-style:normal;font-size:22px}
+@media(max-width:900px){body.theme-florida-man .lol-front-grid,body.theme-florida-man .lol-mid-grid,body.theme-florida-man .lol-title-race{grid-template-columns:1fr}body.theme-florida-man .lol-lead-story{padding-right:0;border-right:0}body.theme-florida-man .lol-news-rundown{grid-template-columns:1fr}body.theme-florida-man .lol-news-rundown article{border-right:0;border-bottom:1px solid #172224}body.theme-florida-man .lol-news-rundown article:last-child{border-bottom:0}}
+@media(max-width:680px){body.theme-florida-man .lol-edition-meta{display:block;text-align:center}body.theme-florida-man .lol-edition-meta span{display:block;margin:3px 0}body.theme-florida-man .lol-breaking-strip{grid-template-columns:auto 1fr}body.theme-florida-man .lol-breaking-strip button{grid-column:1/-1;text-align:left}body.theme-florida-man .lol-lead-story>h2{font-size:42px}body.theme-florida-man .lol-lead-visual{grid-template-columns:105px 1fr;min-height:180px;background:linear-gradient(110deg,#f1bb42 0 105px,#fff9e7 105px)}body.theme-florida-man .lol-champion-mark img{width:72px;height:72px}body.theme-florida-man .lol-lead-scorecard{padding:18px}body.theme-florida-man .lol-title-podium{grid-template-columns:1fr}body.theme-florida-man .lol-title-podium article,body.theme-florida-man .lol-title-podium article.place-1{min-height:auto}body.theme-florida-man .lol-section-directory{grid-template-columns:1fr}body.theme-florida-man .lol-section-directory button,body.theme-florida-man .lol-section-directory button:nth-child(3n),body.theme-florida-man .lol-section-directory button:nth-last-child(-n+3){border-right:0;border-bottom:1px solid #172224}body.theme-florida-man .lol-section-directory button:last-child{border-bottom:0}}
+body.theme-florida-man.view-overview .page-heading{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+body.theme-florida-man.view-overview .florida-page-decor{display:none}
+body.theme-florida-man.view-overview .page-shell{padding-top:22px}
+
+/* Batch 7 — Florida owner directory and owner rap sheets */
+body.theme-florida-man .owner-directory-front,body.theme-florida-man .owner-rap-sheet{display:grid;gap:18px}
+body.theme-florida-man .owner-directory-mast{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:28px;border:3px solid #172224;border-top:10px solid #bb3325;background:linear-gradient(105deg,#fff9e7 0 72%,#f2bd42 72%)}
+body.theme-florida-man .owner-directory-mast h2{margin:5px 0;font:950 clamp(42px,7vw,82px)/.88 var(--font-display,Impact,sans-serif);letter-spacing:-.02em;text-transform:uppercase}
+body.theme-florida-man .owner-directory-mast p{max-width:760px;margin:10px 0 0;font:700 17px/1.45 Georgia,serif}
+body.theme-florida-man .directory-seal{display:flex;align-items:center;gap:10px;border:4px double #172224;padding:13px 16px;transform:rotate(2deg);background:#fff9e7}
+body.theme-florida-man .directory-seal strong{font:950 45px/1 var(--font-display,Impact,sans-serif);color:#bb3325}
+body.theme-florida-man .directory-seal span{font:900 11px/1.1 Arial,sans-serif;letter-spacing:.12em}
+body.theme-florida-man .owner-directory-stats{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #172224;background:#172224;gap:2px}
+body.theme-florida-man .owner-directory-stats article{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:13px 16px;background:#fff9e7}
+body.theme-florida-man .owner-directory-stats span{font:900 10px/1 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+body.theme-florida-man .owner-directory-stats strong{font:950 27px/1 var(--font-display,Impact,sans-serif);color:#bb3325}
+body.theme-florida-man .owner-directory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+body.theme-florida-man .owner-directory-card{display:grid;grid-template-columns:122px 1fr;min-height:244px;color:#172224;text-decoration:none;border:3px solid #172224;background:#fff9e7;box-shadow:6px 6px 0 rgba(23,34,36,.2);overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
+body.theme-florida-man .owner-directory-card:hover,body.theme-florida-man .owner-directory-card:focus-visible{transform:translate(-2px,-2px) rotate(-.3deg);box-shadow:9px 9px 0 #f2bd42;outline:3px solid #bb3325;outline-offset:2px}
+body.theme-florida-man .owner-card-photo{position:relative;background:#8ecbd5;border-right:3px solid #172224;overflow:hidden}
+body.theme-florida-man .owner-directory-portrait{width:100%;height:100%;min-height:244px;object-fit:cover;object-position:center top;display:block}
+body.theme-florida-man .owner-status{position:absolute;left:7px;bottom:8px;padding:5px 7px;border:2px solid #172224;font:900 9px/1 Arial,sans-serif;letter-spacing:.1em;transform:rotate(-3deg)}
+body.theme-florida-man .owner-status.active{background:#64ae72}.theme-florida-man .owner-status.former{background:#d5d1c6}
+body.theme-florida-man .owner-card-copy{display:flex;flex-direction:column;padding:14px 15px}
+body.theme-florida-man .owner-card-kicker{font:800 9px/1.2 "Courier New",monospace;text-transform:uppercase;color:#686b67}
+body.theme-florida-man .owner-card-copy h3{margin:5px 0 2px;font:950 31px/.95 var(--font-display,Impact,sans-serif);text-transform:uppercase}
+body.theme-florida-man .owner-card-copy>p{margin:2px 0 10px;min-height:32px;font:700 13px/1.25 Georgia,serif}
+body.theme-florida-man .owner-card-record{display:flex;align-items:baseline;gap:8px;border-top:2px solid #172224;border-bottom:1px dotted #172224;padding:7px 0}
+body.theme-florida-man .owner-card-record strong{font:950 23px/1 var(--font-display,Impact,sans-serif);color:#bb3325}.theme-florida-man .owner-card-record span{font:800 10px/1 Arial,sans-serif;text-transform:uppercase}
+body.theme-florida-man .owner-card-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:9px 0}
+body.theme-florida-man .owner-card-facts span{font:800 8px/1.2 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .owner-card-facts b{display:block;font:950 14px/1 var(--font-display,Impact,sans-serif)}
+body.theme-florida-man .owner-card-cta{margin-top:auto;padding-top:7px;border-top:1px solid #172224;font:900 10px/1 Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.theme-florida-man .owner-card-cta b{float:right;font-size:16px}
+
+body.theme-florida-man .owner-profile-hero{position:relative;display:grid;grid-template-columns:205px 1fr auto;gap:25px;align-items:center;padding:24px;overflow:hidden;border:3px solid #172224;border-top:10px solid #bb3325;background:linear-gradient(105deg,#fff9e7 0 78%,#8ecbd5 78%)}
+body.theme-florida-man .owner-profile-photo{position:relative}.theme-florida-man .owner-profile-portrait{display:block;width:190px;height:245px;object-fit:cover;object-position:center top;border:5px solid #172224;background:#8ecbd5;box-shadow:7px 7px 0 #f2bd42}
+body.theme-florida-man .profile-evidence-tag{position:absolute;right:-8px;bottom:12px;background:#bb3325;color:#fff;border:3px solid #172224;padding:6px 9px;font:950 10px/1 Arial,sans-serif;letter-spacing:.12em;transform:rotate(-6deg)}
+body.theme-florida-man .owner-profile-intro h2{margin:5px 0;font:950 clamp(48px,7vw,90px)/.84 var(--font-display,Impact,sans-serif);letter-spacing:-.02em;text-transform:uppercase}
+body.theme-florida-man .owner-profile-deck{margin:10px 0;font:800 16px/1.35 Georgia,serif}
+body.theme-florida-man .owner-profile-badges{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}.theme-florida-man .owner-profile-badges span{border:2px solid #172224;background:#fff;padding:7px 9px;font:900 10px/1 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .owner-profile-badges .title-badge{background:#f2bd42}.theme-florida-man .owner-profile-badges .sacko-badge{background:#ef7b2d;color:#fff}
+body.theme-florida-man .owner-franchise-line{border-top:1px dotted #172224;padding-top:9px;font:700 12px/1.4 Georgia,serif}
+body.theme-florida-man .owner-profile-stamp{border:5px double #bb3325;color:#bb3325;padding:13px;font:950 20px/.95 var(--font-display,Impact,sans-serif);text-align:center;letter-spacing:.1em;transform:rotate(7deg);background:rgba(255,249,231,.8)}
+body.theme-florida-man .owner-profile-scoreboard{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid #172224;background:#172224;gap:3px}
+body.theme-florida-man .owner-profile-scoreboard article{display:grid;gap:4px;padding:15px;background:#fff9e7}.theme-florida-man .owner-profile-scoreboard span{font:900 10px/1 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.theme-florida-man .owner-profile-scoreboard strong{font:950 34px/1 var(--font-display,Impact,sans-serif);color:#bb3325}.theme-florida-man .owner-profile-scoreboard small{font:700 10px/1.2 Georgia,serif;color:#626762}
+body.theme-florida-man .owner-feature-grid{display:grid;grid-template-columns:1.45fr .75fr;gap:18px}.theme-florida-man .owner-current-brief,.theme-florida-man .owner-rivalry-box,.theme-florida-man .owner-accolades,.theme-florida-man .owner-milestones{border:2px solid #172224}
+body.theme-florida-man .owner-big-stat{display:flex;align-items:center;gap:16px;padding:24px}.theme-florida-man .owner-big-stat strong{font:950 78px/.8 var(--font-display,Impact,sans-serif);color:#bb3325}.theme-florida-man .owner-big-stat span{font:900 15px/1.2 Georgia,serif}
+body.theme-florida-man .owner-brief-columns{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #172224}.theme-florida-man .owner-brief-columns p{margin:0;padding:14px;border-right:1px solid #172224;border-bottom:1px solid #172224;font:800 12px/1.2 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .owner-brief-columns b{display:block;font:950 24px/1 var(--font-display,Impact,sans-serif)}
+body.theme-florida-man .season-incident{display:grid;grid-template-columns:2fr repeat(3,1fr);border-top:1px solid #172224}.theme-florida-man .season-incident>div{display:grid;gap:4px;padding:20px;border-right:1px solid #172224}.theme-florida-man .season-incident span{font:900 9px/1 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .season-incident strong{font:950 24px/1 var(--font-display,Impact,sans-serif)}.theme-florida-man .incident-production{margin:0;padding:14px 20px;background:#f2bd42;font-weight:900}
+body.theme-florida-man .rivalry-feature{padding:15px 18px;border-bottom:1px dotted #172224}.theme-florida-man .rivalry-feature>span,.theme-florida-man .profile-high-score span{display:block;font:900 9px/1 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.theme-florida-man .rivalry-feature strong{display:block;margin:4px 0;font:950 25px/1 var(--font-display,Impact,sans-serif)}.theme-florida-man .rivalry-feature p{margin:0;font:700 12px/1.3 Georgia,serif}.theme-florida-man .rivalry-feature.victim{background:#f2bd42}.theme-florida-man .profile-high-score{display:flex;align-items:center;justify-content:space-between;padding:15px 18px}.theme-florida-man .profile-high-score strong{font:950 28px/1 var(--font-display,Impact,sans-serif);color:#bb3325}
+body.theme-florida-man .owner-history-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}.theme-florida-man .accolade-columns{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px}.theme-florida-man .accolade-columns h3{margin:0 0 9px;font:950 21px/1 var(--font-display,Impact,sans-serif);text-transform:uppercase}
+body.theme-florida-man .accolade-ticket{display:grid;grid-template-columns:48px 1fr;gap:2px 8px;margin-bottom:8px;padding:10px;border:2px solid #172224;background:#fff}.theme-florida-man .accolade-ticket b{grid-row:1/3;font:950 25px/1 var(--font-display,Impact,sans-serif)}.theme-florida-man .accolade-ticket span{font-weight:900}.theme-florida-man .accolade-ticket small{font:700 10px/1.2 Georgia,serif}.theme-florida-man .accolade-ticket.champion{border-left:10px solid #f2bd42}.theme-florida-man .accolade-ticket.sacko{border-left:10px solid #ef7b2d}
+body.theme-florida-man .owner-timeline{max-height:530px;overflow:auto;padding:7px 16px 16px}.theme-florida-man .timeline-entry{display:grid;grid-template-columns:58px 1fr;gap:12px;position:relative;padding:11px 0;border-bottom:1px dotted #172224}.theme-florida-man .timeline-entry>b{font:950 22px/1 var(--font-display,Impact,sans-serif);color:#bb3325}.theme-florida-man .timeline-entry div{display:grid;gap:3px}.theme-florida-man .timeline-entry strong{font:900 13px/1.1 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .timeline-entry span{font:700 11px/1.3 Georgia,serif}.theme-florida-man .timeline-entry.title{background:linear-gradient(90deg,rgba(242,189,66,.35),transparent);padding-left:8px}.theme-florida-man .timeline-entry.sacko{background:linear-gradient(90deg,rgba(239,123,45,.25),transparent);padding-left:8px}
+body.theme-florida-man .owner-ledger{border:2px solid #172224}.theme-florida-man .owner-ledger tbody tr:hover{background:#f7df9d}
+@media(max-width:1000px){body.theme-florida-man .owner-directory-grid{grid-template-columns:repeat(2,1fr)}body.theme-florida-man .owner-profile-hero{grid-template-columns:165px 1fr}.theme-florida-man .owner-profile-portrait{width:150px;height:205px}.theme-florida-man .owner-profile-stamp{grid-column:1/-1;justify-self:start}.theme-florida-man .owner-feature-grid,.theme-florida-man .owner-history-grid{grid-template-columns:1fr}}
+@media(max-width:700px){body.theme-florida-man .owner-directory-mast{grid-template-columns:1fr;background:#fff9e7}.theme-florida-man .directory-seal{justify-self:start}.theme-florida-man .owner-directory-stats,.theme-florida-man .owner-profile-scoreboard{grid-template-columns:1fr 1fr}.theme-florida-man .owner-directory-grid{grid-template-columns:1fr}.theme-florida-man .owner-profile-hero{grid-template-columns:1fr;text-align:center;background:#fff9e7}.theme-florida-man .owner-profile-photo{justify-self:center}.theme-florida-man .owner-profile-stamp{justify-self:center}.theme-florida-man .owner-profile-badges{justify-content:center}.theme-florida-man .owner-franchise-line{text-align:left}.theme-florida-man .season-incident{grid-template-columns:1fr 1fr}.theme-florida-man .accolade-columns{grid-template-columns:1fr}}
+@media(max-width:430px){body.theme-florida-man .owner-directory-card{grid-template-columns:96px 1fr}.theme-florida-man .owner-directory-portrait{min-height:230px}.theme-florida-man .owner-card-copy h3{font-size:27px}.theme-florida-man .owner-directory-stats,.theme-florida-man .owner-profile-scoreboard{grid-template-columns:1fr}.theme-florida-man .owner-profile-scoreboard article{grid-template-columns:1fr auto;align-items:end}.theme-florida-man .owner-profile-scoreboard small{grid-column:1/-1}.theme-florida-man .owner-brief-columns,.theme-florida-man .season-incident{grid-template-columns:1fr}.theme-florida-man .owner-big-stat{align-items:flex-start;flex-direction:column}}
+
+/* Batch 8: Florida Trophy Case & Awards Museum */
+body.theme-florida-man .trophy-museum-hero{position:relative;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,.7fr);gap:28px;align-items:center;overflow:hidden;margin-bottom:20px;padding:30px;border:3px double var(--fm-black);background:linear-gradient(105deg,rgba(255,255,255,.92),rgba(244,229,184,.86)),repeating-linear-gradient(0deg,transparent 0 25px,rgba(34,46,60,.05) 26px)}
+body.theme-florida-man .trophy-museum-hero:before{content:"PERMANENT COLLECTION";position:absolute;right:-42px;top:24px;padding:7px 48px;border:2px solid rgba(179,55,31,.32);color:rgba(179,55,31,.42);font:900 12px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:2px;transform:rotate(31deg)}
+body.theme-florida-man .museum-kicker{margin:10px 0 2px;color:var(--fm-orange);font:900 15px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:2px;text-transform:uppercase}
+body.theme-florida-man .museum-hero-copy h2{max-width:780px;margin:5px 0 10px;font:900 clamp(2.5rem,6vw,5.5rem)/.88 Impact,"Arial Narrow",sans-serif;letter-spacing:-.02em;text-transform:uppercase}
+body.theme-florida-man .museum-hero-copy>p:last-of-type{max-width:760px;font-family:Georgia,serif;font-size:1.05rem;line-height:1.55}
+body.theme-florida-man .museum-hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+body.theme-florida-man .museum-hero-stats span{padding:8px 12px;border:1px solid var(--fm-black);background:var(--fm-paper);font:800 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+body.theme-florida-man .museum-hero-stats strong{font:900 22px/1 Impact,"Arial Narrow",sans-serif;margin-right:5px}
+body.theme-florida-man .museum-hero-object{position:relative;display:grid;place-items:center;min-height:245px;padding:18px;border:9px ridge #9b6a21;background:radial-gradient(circle,#2f4964 0,#102739 68%);box-shadow:inset 0 0 0 3px #dfb65b,0 12px 24px rgba(0,0,0,.3);color:#f2d783;text-align:center;text-transform:uppercase}
+body.theme-florida-man .museum-hero-object img{width:130px;max-height:145px;filter:drop-shadow(0 7px 4px rgba(0,0,0,.45))}
+body.theme-florida-man .museum-hero-object strong{font:900 32px/1 Georgia,serif}
+body.theme-florida-man .museum-hero-object span{font:800 10px/1 Arial,sans-serif;letter-spacing:.16em}
+body.theme-florida-man .season-honors-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+body.theme-florida-man .season-honor{position:relative;min-height:230px;padding:24px 24px 24px 175px;overflow:hidden;border-width:3px}
+body.theme-florida-man .season-honor .honor-label{font:900 13px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:2px;text-transform:uppercase}
+body.theme-florida-man .season-honor h3{margin:12px 0 8px;font:900 clamp(1.8rem,4vw,3rem)/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+body.theme-florida-man .season-honor p{font-family:Georgia,serif}
+body.theme-florida-man .honor-art{position:absolute;left:20px;bottom:14px;width:130px;height:180px;display:grid;place-items:center}
+body.theme-florida-man .honor-art img{max-width:100%;max-height:100%;filter:drop-shadow(0 7px 5px rgba(0,0,0,.25))}
+body.theme-florida-man .champion-honor{border-top:12px solid #b98a26;background:linear-gradient(110deg,#fffdf4,#f3df9f)}
+body.theme-florida-man .sacko-honor{border-top:12px solid var(--fm-orange);background:linear-gradient(110deg,#fffdf4,#f2c3a3)}
+body.theme-florida-man .champion-wall{margin-bottom:18px}
+body.theme-florida-man .champion-wall-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:16px}
+body.theme-florida-man .champion-nameplate{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px;border:5px ridge #9b6a21;background:linear-gradient(145deg,#1d1d1a,#080807);box-shadow:0 7px 12px rgba(0,0,0,.24);color:#e1bd65}
+body.theme-florida-man .champion-nameplate.dynasty{grid-column:span 2;border-color:#d5aa49;transform:translateY(-3px)}
+body.theme-florida-man .champion-rank{font:900 13px/1 Arial,sans-serif;color:#8f7a4e}
+body.theme-florida-man .champion-nameplate h3{margin:0;color:#f0d17d;font:900 20px/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+body.theme-florida-man .champion-nameplate h3 a{color:inherit}
+body.theme-florida-man .champion-nameplate p{margin:5px 0 2px;letter-spacing:3px}
+body.theme-florida-man .champion-nameplate small{color:#bcae85;text-transform:uppercase;letter-spacing:.09em}
+body.theme-florida-man .champion-nameplate>strong{font:900 34px/1 Georgia,serif}
+body.theme-florida-man .museum-collection-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}
+body.theme-florida-man .collection-wing{min-width:0}
+body.theme-florida-man .museum-plaque-grid{display:grid;gap:12px;padding:15px}
+body.theme-florida-man .museum-plaque{position:relative;display:grid;grid-template-columns:68px 78px 1fr;align-items:center;min-height:112px;border:1px solid #9d927b;background:#fffdf5;box-shadow:3px 4px 0 rgba(31,40,50,.12)}
+body.theme-florida-man .museum-plaque:after{content:"CERTIFIED";position:absolute;right:8px;top:7px;color:rgba(179,55,31,.18);font:900 10px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:1px;transform:rotate(-7deg)}
+body.theme-florida-man .museum-year{align-self:stretch;display:grid;place-items:center;background:var(--fm-blue);color:#fff;font:900 20px/1 Georgia,serif;writing-mode:vertical-rl;transform:rotate(180deg)}
+body.theme-florida-man .sacko-plaque .museum-year{background:var(--fm-orange)}
+body.theme-florida-man .museum-icon{display:grid;place-items:center;padding:10px}
+body.theme-florida-man .museum-icon img{max-width:58px;max-height:76px}
+body.theme-florida-man .museum-copy{padding:13px 14px 13px 0;min-width:0}
+body.theme-florida-man .museum-copy>span{font:900 10px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#766f61}
+body.theme-florida-man .museum-copy h3{margin:4px 0;font:900 21px/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+body.theme-florida-man .museum-copy h3 a{color:inherit}
+body.theme-florida-man .museum-copy p{margin:4px 0;font:800 15px/1 Georgia,serif}
+body.theme-florida-man .museum-copy small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#5f5a50}
+body.theme-florida-man .performance-gallery{margin-top:18px}
+body.theme-florida-man .award-ribbon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;padding:16px}
+body.theme-florida-man .award-ribbon-card{position:relative;min-height:190px;padding:50px 16px 18px;border:2px solid var(--fm-black);background:linear-gradient(#fffdf6,#f1ead7);box-shadow:4px 5px 0 rgba(31,40,50,.18);text-align:center}
+body.theme-florida-man .award-ribbon-card:before,.theme-florida-man .award-ribbon-card:after{content:"";position:absolute;top:0;width:28px;height:48px;background:var(--fm-blue);clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%)}
+body.theme-florida-man .award-ribbon-card:before{left:calc(50% - 30px)}body.theme-florida-man .award-ribbon-card:after{right:calc(50% - 30px);background:var(--fm-orange)}
+body.theme-florida-man .award-medallion{position:absolute;z-index:2;left:50%;top:23px;display:grid;place-items:center;width:38px;height:38px;border:3px double #6e5220;border-radius:50%;background:#e6bd58;transform:translateX(-50%);font:900 12px/1 Georgia,serif}
+body.theme-florida-man .award-ribbon-card>span{display:block;margin-top:16px;font:900 11px/1 Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase}
+body.theme-florida-man .award-ribbon-card h3{margin:9px 0 5px;font:900 20px/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+body.theme-florida-man .award-ribbon-card strong{display:block;font:900 28px/1 Georgia,serif}
+body.theme-florida-man .award-ribbon-card small{display:block;margin-top:8px;color:#655f53}
+@media(max-width:900px){body.theme-florida-man .trophy-museum-hero{grid-template-columns:1fr}body.theme-florida-man .museum-hero-object{min-height:190px}body.theme-florida-man .champion-wall-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body.theme-florida-man .museum-collection-grid{grid-template-columns:1fr}body.theme-florida-man .award-ribbon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){body.theme-florida-man .trophy-museum-hero{padding:20px 16px}body.theme-florida-man .museum-hero-copy h2{font-size:2.8rem}body.theme-florida-man .season-honors-grid{grid-template-columns:1fr}body.theme-florida-man .season-honor{padding:20px 16px 20px 112px;min-height:185px}body.theme-florida-man .honor-art{left:8px;width:92px;height:140px}body.theme-florida-man .champion-wall-grid{grid-template-columns:1fr}body.theme-florida-man .champion-nameplate.dynasty{grid-column:auto;transform:none}body.theme-florida-man .museum-plaque{grid-template-columns:50px 62px 1fr}body.theme-florida-man .award-ribbon-grid{grid-template-columns:1fr}}
+
+/* Batch 9: Florida Record Book & League History */
+body.theme-florida-man .record-book-hero,body.theme-florida-man .history-archive-hero{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:24px;align-items:center;margin-bottom:18px;padding:28px;border:4px double var(--fm-black);background:linear-gradient(100deg,rgba(255,253,244,.96),rgba(239,226,190,.88)),repeating-linear-gradient(90deg,transparent 0 31px,rgba(31,40,50,.04) 32px)}
+body.theme-florida-man .record-book-kicker,body.theme-florida-man .history-kicker{margin:8px 0 3px;color:var(--fm-orange);font:900 13px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+body.theme-florida-man .record-book-hero h2,body.theme-florida-man .history-archive-hero h2{margin:5px 0 9px;font:900 clamp(2.5rem,6vw,5rem)/.9 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+body.theme-florida-man .record-book-hero p:last-child,body.theme-florida-man .history-archive-hero p:last-child{max-width:760px;font:16px/1.55 Georgia,serif}
+body.theme-florida-man .record-book-seal,body.theme-florida-man .history-volume{display:grid;place-items:center;min-height:150px;padding:14px;border:7px ridge #8d6829;background:var(--fm-blue);box-shadow:inset 0 0 0 2px #e5c574;color:#fff6cf;text-align:center;transform:rotate(1.5deg)}
+body.theme-florida-man .record-book-seal strong,body.theme-florida-man .history-volume strong{font:900 46px/1 Georgia,serif}body.theme-florida-man .record-book-seal span,body.theme-florida-man .history-volume span{font:900 12px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:.16em}body.theme-florida-man .record-book-seal small,body.theme-florida-man .history-volume small{font:800 11px/1 Arial,sans-serif}
+body.theme-florida-man .record-marquee{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+body.theme-florida-man .record-marquee-card{position:relative;min-height:185px;padding:18px;border:2px solid var(--fm-black);background:#fffdf5;box-shadow:4px 5px 0 rgba(31,40,50,.18);text-align:center;overflow:hidden}
+body.theme-florida-man .record-marquee-card:before{content:"RECORD";position:absolute;right:-21px;top:15px;padding:4px 25px;background:var(--fm-blue);color:#fff;font:900 9px/1 Arial,sans-serif;letter-spacing:.12em;transform:rotate(42deg)}
+body.theme-florida-man .record-marquee-card.warning:before{background:var(--fm-orange)}body.theme-florida-man .record-marquee-card.crown{background:linear-gradient(#fffbea,#ead08a)}
+body.theme-florida-man .record-marquee-card>span{font:900 11px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}body.theme-florida-man .record-marquee-card>strong{display:block;margin:17px 0 8px;font:900 48px/1 Georgia,serif}body.theme-florida-man .record-marquee-card h3{margin:0;font:900 20px/1.05 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}body.theme-florida-man .record-marquee-card small{display:block;margin-top:8px;color:#666055}
+body.theme-florida-man .record-book-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}.theme-florida-man .record-list-panel{min-width:0}.theme-florida-man .record-ranking-list{list-style:none;margin:0;padding:10px 16px 16px}.theme-florida-man .record-ranking-list li{display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:center;padding:12px 4px;border-bottom:1px dotted #8f8879}.theme-florida-man .record-ranking-list li>b{color:var(--fm-orange);font:900 18px/1 Georgia,serif}.theme-florida-man .record-ranking-list li strong{font:900 16px/1.1 Arial,sans-serif}.theme-florida-man .record-ranking-list li small{display:block;margin-top:3px;color:#6b665c}.theme-florida-man .record-ranking-list li>span{font:900 24px/1 Georgia,serif}.theme-florida-man .record-book-footnote{padding:12px 16px;border-top:1px solid #aaa18d;background:#eee5cf;font:13px/1.4 Georgia,serif}
+body.theme-florida-man .history-archive-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}.theme-florida-man .history-archive-stats article{display:flex;align-items:end;justify-content:space-between;min-height:90px;padding:14px;border:2px solid var(--fm-black);background:#fffdf5}.theme-florida-man .history-archive-stats span{max-width:90px;font:900 10px/1.15 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.theme-florida-man .history-archive-stats strong{font:900 36px/1 Georgia,serif}
+body.theme-florida-man .dynasty-index{margin-bottom:18px}.theme-florida-man .dynasty-index-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:16px}.theme-florida-man .dynasty-index-grid article{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:12px;border:1px solid #8c816c;background:#fff9e8}.theme-florida-man .dynasty-index-grid article>span{color:var(--fm-orange);font:900 12px/1 Arial,sans-serif}.theme-florida-man .dynasty-index-grid strong{font:900 15px/1 Arial,sans-serif}.theme-florida-man .dynasty-index-grid small{display:block;color:#b18827;letter-spacing:1px}.theme-florida-man .dynasty-index-grid b{font:900 28px/1 Georgia,serif}
+body.theme-florida-man .history-ledger{border:3px double var(--fm-black);background:#f4ecd9}.theme-florida-man .history-ledger-heading{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:end;padding:16px 20px;border-bottom:5px solid var(--fm-black);background:var(--fm-blue);color:#fff}.theme-florida-man .history-ledger-heading span{font:900 10px/1 Arial,sans-serif;letter-spacing:.15em}.theme-florida-man .history-ledger-heading h2{margin:0;font:900 31px/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}.theme-florida-man .history-ledger-heading small{font:italic 12px Georgia,serif}
+body.theme-florida-man .history-year-file{display:grid;grid-template-columns:105px 1fr 200px;min-height:190px;border-bottom:2px solid #837b6d;background:#fffdf5}.theme-florida-man .history-year-file:last-child{border-bottom:0}.theme-florida-man .history-year-tab{display:grid;place-items:center;align-content:center;gap:7px;background:var(--fm-black);color:#fff}.theme-florida-man .history-year-tab strong{font:900 32px/1 Georgia,serif;writing-mode:vertical-rl;transform:rotate(180deg)}.theme-florida-man .history-year-tab span{font:900 9px/1 Arial,sans-serif;letter-spacing:.12em}.theme-florida-man .history-year-copy{padding:21px 24px}.theme-florida-man .history-year-copy h3{margin:8px 0;font:900 28px/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}.theme-florida-man .history-year-copy p{max-width:760px;font:15px/1.5 Georgia,serif}.theme-florida-man .history-year-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.theme-florida-man .history-year-facts span{padding:6px 9px;border:1px solid #a99f89;background:#eee5d0;font:800 10px/1 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .history-year-stamp{align-self:center;display:grid;gap:6px;margin:16px;padding:16px;border:4px double #a73724;color:#a73724;text-align:center;transform:rotate(-2deg)}.theme-florida-man .history-year-stamp span{font:900 10px/1 Arial,sans-serif;letter-spacing:.15em}.theme-florida-man .history-year-stamp strong{font:900 21px/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}.theme-florida-man .history-year-stamp small{color:#5c554a;font:11px/1.3 Georgia,serif}
+@media(max-width:1000px){body.theme-florida-man .record-marquee{grid-template-columns:repeat(2,1fr)}body.theme-florida-man .dynasty-index-grid{grid-template-columns:repeat(2,1fr)}body.theme-florida-man .history-year-file{grid-template-columns:80px 1fr}.theme-florida-man .history-year-stamp{grid-column:2;margin-top:0;justify-self:start}}
+@media(max-width:700px){body.theme-florida-man .record-book-hero,body.theme-florida-man .history-archive-hero{grid-template-columns:1fr;padding:20px 16px}body.theme-florida-man .record-book-seal,body.theme-florida-man .history-volume{min-height:110px;transform:none}body.theme-florida-man .record-book-grid{grid-template-columns:1fr}body.theme-florida-man .history-archive-stats{grid-template-columns:repeat(2,1fr)}body.theme-florida-man .history-ledger-heading{grid-template-columns:1fr;gap:5px}body.theme-florida-man .history-year-file{grid-template-columns:1fr}.theme-florida-man .history-year-tab{display:flex;justify-content:space-between;padding:10px 15px}.theme-florida-man .history-year-tab strong{writing-mode:initial;transform:none}.theme-florida-man .history-year-stamp{grid-column:1;margin:0 18px 18px}.theme-florida-man .dynasty-index-grid{grid-template-columns:1fr}}
+@media(max-width:460px){body.theme-florida-man .record-marquee{grid-template-columns:1fr}body.theme-florida-man .history-archive-stats{grid-template-columns:1fr}}
+
+/* Batch 10: Game Day & Matchups */
+body.theme-florida-man .game-day-hero{display:grid;grid-template-columns:minmax(0,1fr) 175px;gap:26px;align-items:center;margin-bottom:18px;padding:28px;border:4px double var(--fm-black);background:linear-gradient(105deg,rgba(255,253,244,.97),rgba(225,236,230,.86)),repeating-linear-gradient(0deg,transparent 0 27px,rgba(31,40,50,.035) 28px)}
+body.theme-florida-man .game-day-kicker{margin:8px 0 3px;color:var(--fm-orange);font:900 13px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+body.theme-florida-man .game-day-hero h2{margin:5px 0 9px;font:900 clamp(2.7rem,6vw,5.2rem)/.88 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+body.theme-florida-man .game-day-hero p:last-child{max-width:760px;font:16px/1.55 Georgia,serif}
+body.theme-florida-man .score-desk-seal{display:grid;place-items:center;min-height:155px;padding:14px;border:7px ridge #1e5d73;background:var(--fm-blue);box-shadow:inset 0 0 0 2px #d7e8e5;color:#fff;text-align:center;transform:rotate(1.5deg)}
+body.theme-florida-man .score-desk-seal strong{font:900 48px/1 Georgia,serif}.theme-florida-man .score-desk-seal span{font:900 12px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:.16em}.theme-florida-man .score-desk-seal small{font:800 11px/1 Arial,sans-serif}
+body.theme-florida-man .game-day-marquee{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+body.theme-florida-man .game-day-marquee article{position:relative;min-height:170px;padding:17px;border:2px solid var(--fm-black);background:#fffdf5;box-shadow:4px 5px 0 rgba(31,40,50,.18);text-align:center;overflow:hidden}
+body.theme-florida-man .game-day-marquee article:before{content:"FINAL";position:absolute;right:-22px;top:14px;padding:4px 27px;background:var(--fm-blue);color:#fff;font:900 9px/1 Arial,sans-serif;letter-spacing:.13em;transform:rotate(42deg)}
+body.theme-florida-man .game-day-marquee article.warning:before{background:var(--fm-orange)}.theme-florida-man .game-day-marquee article>span{font:900 10px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}.theme-florida-man .game-day-marquee article>strong{display:block;margin:17px 0 8px;font:900 42px/1 Georgia,serif}.theme-florida-man .game-day-marquee h3{margin:0;font:900 18px/1.08 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}.theme-florida-man .game-day-marquee small{display:block;margin-top:8px;color:#666055}
+body.theme-florida-man .game-day-grid{display:grid;grid-template-columns:minmax(0,2fr) minmax(250px,.7fr);gap:18px;margin-bottom:18px}.theme-florida-man .score-desk,.theme-florida-man .game-day-notebook{min-width:0}.theme-florida-man .scoreboard-list{display:grid;gap:9px;padding:14px}.theme-florida-man .scoreboard-game{display:grid;grid-template-columns:125px 1fr 1fr 125px;align-items:stretch;border:1px solid #847c6d;background:#fffdf6;box-shadow:2px 2px 0 rgba(31,40,50,.12)}.theme-florida-man .scoreboard-game.championship-game{border-left:7px solid #b48724}.theme-florida-man .scoreboard-game.sacko-game{border-left:7px solid #a33d28}.theme-florida-man .scoreboard-meta{display:grid;align-content:center;gap:5px;padding:10px;border-right:1px solid #b8ad99;background:#eee5cf}.theme-florida-man .scoreboard-meta strong{font:900 12px/1 Arial,sans-serif}.theme-florida-man .scoreboard-meta span{font:900 9px/1 Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase}.theme-florida-man .scoreboard-side{display:flex;align-items:center;justify-content:space-between;gap:9px;padding:12px 14px;border-right:1px dotted #aaa08f}.theme-florida-man .scoreboard-side span{font:900 15px/1.1 Arial,sans-serif}.theme-florida-man .scoreboard-side b{font:900 26px/1 Georgia,serif}.theme-florida-man .scoreboard-side.winner{background:#e5efe4}.theme-florida-man .scoreboard-side.winner b{color:#174f3a}.theme-florida-man .scoreboard-margin{display:grid;place-items:center;padding:8px;text-align:center;font:800 10px/1.25 Arial,sans-serif;text-transform:uppercase}
+body.theme-florida-man .game-day-notebook>article{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 15px;padding:17px 2px;border-bottom:1px dotted #8a8275}.theme-florida-man .game-day-notebook>article span{font:900 10px/1 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.theme-florida-man .game-day-notebook>article strong{font:900 35px/1 Georgia,serif}.theme-florida-man .game-day-notebook>article small{max-width:90px;color:#6d675c;text-align:right}.theme-florida-man .game-certification{margin:15px;padding:14px;border:2px dashed #9b3d2d;background:#f7ead6;color:#5f281f;font:13px/1.45 Georgia,serif;transform:rotate(-.6deg)}
+body.theme-florida-man .rivalry-desk{padding:0;margin-bottom:18px;overflow:hidden}.theme-florida-man .rivalry-desk-heading{display:flex;align-items:end;justify-content:space-between;padding:16px 20px;border-bottom:5px solid var(--fm-black);background:var(--fm-blue);color:#fff}.theme-florida-man .rivalry-desk-heading span{font:900 10px/1 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}.theme-florida-man .rivalry-desk-heading h2{margin:4px 0 0;font:900 30px/1 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}.theme-florida-man .rivalry-desk-heading small{font:italic 12px Georgia,serif}.theme-florida-man .rivalry-desk .matchup-selectors{padding:20px 22px 10px}.theme-florida-man .rivalry-desk .series-summary{margin:8px 22px 22px;border:3px double var(--fm-black);background:#fff9e7}.theme-florida-man .rivalry-desk .series-summary article{min-width:0}.theme-florida-man .rivalry-desk .series-summary article small{display:block;margin-top:5px;color:#6a6459;font:800 9px/1 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .rivalry-ledger{margin-bottom:18px}.theme-florida-man .rivalry-ledger tbody tr:nth-child(odd){background:#f8f0df}.theme-florida-man .matchup-matrix .matrix-cell{min-width:42px;border:1px solid #7f7769;background:#fffdf5;font:900 11px/1 Arial,sans-serif}.theme-florida-man .matchup-matrix .matrix-cell:hover,.theme-florida-man .matchup-matrix .matrix-cell:focus{background:var(--fm-orange);color:#fff;transform:translateY(-1px)}
+@media(max-width:1000px){body.theme-florida-man .game-day-marquee{grid-template-columns:repeat(2,1fr)}body.theme-florida-man .game-day-grid{grid-template-columns:1fr}.theme-florida-man .scoreboard-game{grid-template-columns:105px 1fr 1fr 105px}}
+@media(max-width:700px){body.theme-florida-man .game-day-hero{grid-template-columns:1fr;padding:20px 16px}body.theme-florida-man .score-desk-seal{min-height:105px;transform:none}.theme-florida-man .scoreboard-game{grid-template-columns:1fr 1fr}.theme-florida-man .scoreboard-meta{grid-column:1/-1;display:flex;justify-content:space-between;border-right:0;border-bottom:1px solid #b8ad99}.theme-florida-man .scoreboard-margin{grid-column:1/-1;border-top:1px dotted #aaa08f}.theme-florida-man .rivalry-desk-heading{display:block}.theme-florida-man .rivalry-desk-heading small{display:block;margin-top:6px}}
+@media(max-width:460px){body.theme-florida-man .game-day-marquee{grid-template-columns:1fr}.theme-florida-man .scoreboard-side{padding:11px 9px}.theme-florida-man .scoreboard-side span{font-size:12px}.theme-florida-man .scoreboard-side b{font-size:21px}.theme-florida-man .rivalry-desk .matchup-selectors{padding:15px}.theme-florida-man .rivalry-desk .series-summary{margin:5px 15px 15px}}
+
+/* Batch 11: Commissioner's Office & Final Production QA */
+body.theme-florida-man .commissioner-hero{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:28px;align-items:center;margin-bottom:16px;padding:30px;border:4px double var(--fm-black);background:linear-gradient(110deg,rgba(255,253,244,.98),rgba(235,225,200,.88)),repeating-linear-gradient(0deg,transparent 0 27px,rgba(31,40,50,.035) 28px)}
+body.theme-florida-man .commissioner-kicker{margin:10px 0 4px;color:var(--fm-orange);font:900 13px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+body.theme-florida-man .commissioner-hero h2{max-width:850px;margin:4px 0 12px;font:900 clamp(2.5rem,5.6vw,5rem)/.9 Impact,"Arial Narrow",sans-serif;text-transform:uppercase}
+body.theme-florida-man .commissioner-hero p:last-child{max-width:780px;font:16px/1.55 Georgia,serif}
+body.theme-florida-man .commissioner-seal{display:grid;place-items:center;min-height:170px;padding:16px;border:8px double #7d211b;border-radius:50%;background:#f2dfbd;box-shadow:inset 0 0 0 4px #f9f2df,0 5px 0 rgba(31,40,50,.16);color:#7d211b;text-align:center;transform:rotate(2deg)}
+body.theme-florida-man .commissioner-seal strong{font:900 47px/1 Georgia,serif}.theme-florida-man .commissioner-seal span{max-width:110px;font:900 11px/1.15 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}.theme-florida-man .commissioner-seal small{font:800 10px/1 Arial,sans-serif}
+body.theme-florida-man .commissioner-status-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:18px}
+body.theme-florida-man .commissioner-status-strip article{min-width:0;padding:15px;border:2px solid var(--fm-black);background:#fffaf0;box-shadow:3px 4px 0 rgba(31,40,50,.14);text-align:center}
+body.theme-florida-man .commissioner-status-strip span{display:block;font:900 9px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}.theme-florida-man .commissioner-status-strip strong{display:block;margin:8px 0 6px;font:900 34px/1 Georgia,serif}.theme-florida-man .commissioner-status-strip small{display:block;overflow:hidden;color:#686156;font:11px/1.2 Arial,sans-serif;text-overflow:ellipsis;white-space:nowrap}
+body.theme-florida-man .commissioner-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.34fr);gap:18px;align-items:start}.theme-florida-man .commissioner-layout>main{min-width:0}.theme-florida-man .commissioner-sidebar{display:grid;gap:18px;position:sticky;top:16px}
+body.theme-florida-man .commissioner-bulletin{margin-bottom:18px}.theme-florida-man .publication-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;padding:18px;list-style:none;counter-reset:workflow}.theme-florida-man .publication-steps li{position:relative;padding:9px 18px 9px 45px;border-right:1px dotted #8e8576;counter-increment:workflow}.theme-florida-man .publication-steps li:last-child{border-right:0}.theme-florida-man .publication-steps li:before{content:counter(workflow);position:absolute;left:8px;top:6px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--fm-blue);color:#fff;font:900 14px/1 Arial,sans-serif}.theme-florida-man .publication-steps b,.theme-florida-man .publication-steps span{display:block}.theme-florida-man .publication-steps b{margin-bottom:4px;font:900 13px/1 Arial,sans-serif;text-transform:uppercase}.theme-florida-man .publication-steps span{color:#625d53;font:12px/1.4 Georgia,serif}
+body.theme-florida-man .commissioner-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:18px}.theme-florida-man .office-module{min-width:0}.theme-florida-man .office-module .panel-heading{min-height:67px}.theme-florida-man .office-field{display:grid;gap:8px;margin:16px;font:900 11px/1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}.theme-florida-man .office-field input[type=file]{width:100%;padding:12px;border:2px dashed #817867;background:#f8efd9;font:12px/1.3 Arial,sans-serif;text-transform:none}.theme-florida-man .office-help{margin:12px 16px;color:#625d53;font:12px/1.5 Georgia,serif}.theme-florida-man .office-help code{padding:1px 4px;background:#eee3ca;color:#27231f}.theme-florida-man .office-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px}.theme-florida-man .office-form input,.theme-florida-man .office-form select{min-width:0;width:100%}.theme-florida-man .office-form button{grid-column:1/-1}.theme-florida-man .office-actions{margin-bottom:18px}.theme-florida-man .office-buttons{display:flex;flex-wrap:wrap;gap:10px;padding:18px 18px 4px}
+body.theme-florida-man .audit-entries{display:grid}.theme-florida-man .audit-entries article{display:grid;gap:4px;padding:13px 15px;border-bottom:1px dotted #8b8273}.theme-florida-man .audit-entries article:last-child{border-bottom:0}.theme-florida-man .audit-entries b{color:var(--fm-orange);font:900 10px/1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}.theme-florida-man .audit-entries span{overflow-wrap:anywhere;font:12px/1.4 Georgia,serif}
+body.theme-florida-man .source-custody ol{margin:0;padding:10px 18px 15px 43px}.theme-florida-man .source-custody li{padding:9px 0;border-bottom:1px dotted #8b8273}.theme-florida-man .source-custody li:last-child{border-bottom:0}.theme-florida-man .source-custody b,.theme-florida-man .source-custody span{display:block}.theme-florida-man .source-custody b{font:900 11px/1.2 Arial,sans-serif}.theme-florida-man .source-custody span{margin-top:3px;color:#6b6459;font:11px/1.35 Georgia,serif}
+body.theme-florida-man .office-warning{padding:17px;border:3px dashed #9c3527;background:#f3dfc2;color:#65271f;box-shadow:3px 3px 0 rgba(94,35,26,.15);transform:rotate(-.5deg)}.theme-florida-man .office-warning strong{font:900 15px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:.1em;text-transform:uppercase}.theme-florida-man .office-warning p{margin:7px 0 0;font:12px/1.5 Georgia,serif}
+body.theme-florida-man .import-preview{margin:12px 16px;padding:14px;border:2px solid #51715b;background:#e5efe4}.theme-florida-man .import-preview strong{display:block;margin-bottom:9px}.theme-florida-man .import-preview button{width:100%}
+body.theme-florida-man :where(button,a,input,select,textarea):focus-visible{outline:3px solid #f2a541;outline-offset:3px}
+body.theme-florida-man img{max-width:100%;height:auto}
+body.theme-florida-man .table-wrap{scrollbar-width:thin;scrollbar-color:#726957 #e8dec7}
+@media(max-width:1050px){body.theme-florida-man .commissioner-layout{grid-template-columns:1fr}.theme-florida-man .commissioner-sidebar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.theme-florida-man .office-warning{grid-column:1/-1}.theme-florida-man .publication-steps{grid-template-columns:repeat(2,1fr)}.theme-florida-man .publication-steps li:nth-child(2){border-right:0}.theme-florida-man .publication-steps li{border-bottom:1px dotted #8e8576}.theme-florida-man .publication-steps li:nth-child(n+3){border-bottom:0}}
+@media(max-width:760px){body.theme-florida-man .commissioner-hero{grid-template-columns:1fr;padding:21px 16px}.theme-florida-man .commissioner-seal{min-height:115px;border-radius:0;transform:none}.theme-florida-man .commissioner-status-strip{grid-template-columns:repeat(2,1fr)}.theme-florida-man .commissioner-grid{grid-template-columns:1fr}.theme-florida-man .commissioner-sidebar{grid-template-columns:1fr}.theme-florida-man .office-warning{grid-column:auto}}
+@media(max-width:500px){body.theme-florida-man .commissioner-status-strip{grid-template-columns:1fr}.theme-florida-man .publication-steps{grid-template-columns:1fr}.theme-florida-man .publication-steps li,.theme-florida-man .publication-steps li:nth-child(2),.theme-florida-man .publication-steps li:nth-child(n+3){border-right:0;border-bottom:1px dotted #8e8576}.theme-florida-man .publication-steps li:last-child{border-bottom:0}.theme-florida-man .office-form{grid-template-columns:1fr}.theme-florida-man .office-form button{grid-column:auto}.theme-florida-man .office-buttons{display:grid}.theme-florida-man .office-buttons button{width:100%}}
+
+/* ================================================================
+   BRAND CORRECTION PASS — USER-SUPPLIED LEAGUE OF LOSERS IDENTITY
+   Florida Man only. Art Vandelay remains untouched.
+   ================================================================ */
+.florida-brand-shell,
+.florida-footer-shell { display: none; }
+
+body.theme-florida-man .header-inner {
+  min-height: 218px;
+}
+body.theme-florida-man .wordmark {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255,255,255,.17), transparent 26%),
+    linear-gradient(116deg, #087eb8 0 62%, #07679b 62% 100%);
+}
+body.theme-florida-man .wordmark::before,
+body.theme-florida-man .wordmark::after {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+}
+body.theme-florida-man .wordmark::before {
+  inset:0;
+  background:
+    linear-gradient(90deg, transparent 0 7%, rgba(2,31,47,.18) 7.2% 7.7%, transparent 8% 92%, rgba(2,31,47,.18) 92.2% 92.7%, transparent 93%),
+    radial-gradient(ellipse at 7% 110%, #062f42 0 14%, transparent 14.5%),
+    radial-gradient(ellipse at 93% 110%, #062f42 0 14%, transparent 14.5%);
+  opacity:.72;
+}
+body.theme-florida-man .wordmark::after {
+  left:0; right:0; bottom:0; height:16px;
+  background:linear-gradient(90deg,var(--fl-orange),#ff7a12 43%,#0a1720 43% 57%,#ff7a12 57%,var(--fl-orange));
+  border-top:3px solid var(--fl-night);
+}
+body.theme-florida-man .florida-brand-shell {
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:190px minmax(0,1fr) 145px;
+  align-items:center;
+  gap:24px;
+  padding:17px 27px 28px;
+  color:#fff;
+}
+body.theme-florida-man .florida-brand-logo {
+  width:174px;
+  height:174px;
+  object-fit:cover;
+  border:4px solid var(--fl-night);
+  border-radius:50%;
+  box-shadow:6px 6px 0 rgba(4,25,35,.7);
+  transform:rotate(-2deg);
+}
+body.theme-florida-man .florida-brand-copy {
+  min-width:0;
+  display:grid;
+  justify-items:center;
+  text-align:center;
+  transform:rotate(-.4deg);
+}
+body.theme-florida-man .florida-brand-title {
+  font-family:Impact,"Arial Black",sans-serif;
+  font-size:clamp(54px,7vw,102px);
+  line-height:.82;
+  letter-spacing:.025em;
+  color:#fff8e8;
+  -webkit-text-stroke:2px var(--fl-night);
+  text-shadow:5px 6px 0 var(--fl-night);
+  white-space:nowrap;
+}
+body.theme-florida-man .florida-brand-subtitle {
+  margin-top:10px;
+  font-family:Impact,"Arial Black",sans-serif;
+  color:var(--fl-orange-hot);
+  font-size:clamp(19px,2.4vw,35px);
+  letter-spacing:.035em;
+  text-shadow:2px 2px 0 var(--fl-night);
+  transform:skew(-8deg);
+}
+body.theme-florida-man .florida-brand-tagline {
+  margin-top:9px;
+  padding:6px 18px 5px;
+  background:var(--fl-night);
+  color:#fff;
+  font-family:Impact,"Arial Black",sans-serif;
+  font-size:clamp(12px,1.4vw,18px);
+  letter-spacing:.08em;
+  transform:rotate(-1deg);
+  box-shadow:4px 4px 0 rgba(0,0,0,.28);
+}
+body.theme-florida-man .florida-brand-burst {
+  justify-self:end;
+  width:126px;
+  height:126px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  border:4px solid var(--fl-night);
+  border-radius:50%;
+  background:var(--fl-orange);
+  color:#fff;
+  font:20px/1 Impact,"Arial Black",sans-serif;
+  letter-spacing:.05em;
+  box-shadow:5px 5px 0 rgba(4,25,35,.7);
+  transform:rotate(5deg);
+}
+body.theme-florida-man .header-controls {
+  right:18px;
+  bottom:-57px;
+  z-index:8;
+  transform:rotate(-1deg) scale(.88);
+  transform-origin:right bottom;
+}
+body.theme-florida-man .main-nav {
+  margin-top:0;
+}
+body.theme-florida-man .nav-inner {
+  padding-right:285px;
+  overflow-x:auto;
+  scrollbar-width:thin;
+}
+body.theme-florida-man .nav-link {
+  min-width:max-content;
+  padding:15px 13px 14px;
+  font-size:12px;
+}
+
+body.theme-florida-man .site-footer {
+  min-height:0;
+  padding:0;
+  display:block;
+  overflow:hidden;
+  background:var(--fl-night);
+  color:#fff;
+  text-shadow:none;
+}
+body.theme-florida-man .site-footer::before,
+body.theme-florida-man .site-footer::after { display:none; }
+body.theme-florida-man .site-footer > #footerBrand,
+body.theme-florida-man .site-footer > #footerTagline { display:none; }
+body.theme-florida-man .site-footer > .florida-footer-shell {
+  opacity:1;
+  display:grid;
+  grid-template-columns:minmax(260px,1fr) auto;
+  gap:16px 28px;
+  align-items:center;
+  padding:22px 25px 18px;
+  border-top:8px solid var(--fl-orange);
+  background:
+    linear-gradient(180deg,rgba(15,114,160,.96),rgba(5,49,72,.98)),
+    var(--fl-blue-dark);
+}
+body.theme-florida-man .florida-footer-identity {
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+body.theme-florida-man .florida-footer-identity img {
+  width:78px;
+  height:78px;
+  object-fit:cover;
+  border:3px solid #fff1cf;
+  border-radius:50%;
+}
+body.theme-florida-man .florida-footer-identity div { display:grid; gap:3px; }
+body.theme-florida-man .florida-footer-identity strong {
+  font:28px/.9 Impact,"Arial Black",sans-serif;
+  letter-spacing:.035em;
+}
+body.theme-florida-man .florida-footer-identity span {
+  color:#bceaff;
+  font:800 11px/1.3 "Arial Narrow",Arial,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+body.theme-florida-man .florida-footer-nav {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:7px 14px;
+}
+body.theme-florida-man .florida-footer-nav a {
+  color:#fff9e9;
+  text-decoration:none;
+  font:14px Impact,"Arial Black",sans-serif;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+body.theme-florida-man .florida-footer-nav a:hover { color:#ff8a3d; }
+body.theme-florida-man .florida-footer-motto {
+  grid-column:1/-1;
+  margin:2px -25px -18px;
+  padding:12px 20px 10px;
+  text-align:center;
+  background:#e9c47c;
+  border-top:3px solid var(--fl-night);
+  color:var(--fl-night);
+  font:italic 700 clamp(15px,2vw,22px)/1.1 Georgia,serif;
+  letter-spacing:.015em;
+}
+
+@media (max-width:1050px) {
+  body.theme-florida-man .header-inner { min-height:190px; }
+  body.theme-florida-man .florida-brand-shell { grid-template-columns:150px 1fr 105px; gap:16px; padding:14px 20px 26px; }
+  body.theme-florida-man .florida-brand-logo { width:142px; height:142px; }
+  body.theme-florida-man .florida-brand-burst { width:98px; height:98px; font-size:16px; }
+}
+@media (max-width:760px) {
+  body.theme-florida-man .header-inner { min-height:262px; }
+  body.theme-florida-man .wordmark { height:176px; }
+  body.theme-florida-man .florida-brand-shell { grid-template-columns:92px 1fr; gap:12px; padding:12px 14px 24px; }
+  body.theme-florida-man .florida-brand-logo { width:86px; height:86px; border-width:3px; box-shadow:3px 3px 0 rgba(4,25,35,.7); }
+  body.theme-florida-man .florida-brand-title { font-size:clamp(37px,10vw,62px); -webkit-text-stroke:1px var(--fl-night); text-shadow:3px 3px 0 var(--fl-night); }
+  body.theme-florida-man .florida-brand-subtitle { font-size:clamp(13px,3.6vw,22px); margin-top:7px; }
+  body.theme-florida-man .florida-brand-tagline { font-size:10px; margin-top:7px; padding:4px 8px; }
+  body.theme-florida-man .florida-brand-burst { display:none; }
+  body.theme-florida-man .header-controls { position:absolute; left:10px; right:10px; bottom:10px; width:auto; margin:0; transform:none; }
+  body.theme-florida-man .main-nav { border-top:5px solid var(--fl-night); }
+  body.theme-florida-man .nav-inner { padding-right:0; justify-content:flex-start; }
+  body.theme-florida-man .site-footer > .florida-footer-shell { grid-template-columns:1fr; }
+  body.theme-florida-man .florida-footer-nav { justify-content:flex-start; }
+}
+@media (max-width:520px) {
+  body.theme-florida-man .header-inner { min-height:274px; }
+  body.theme-florida-man .wordmark { height:178px; }
+  body.theme-florida-man .florida-brand-shell { grid-template-columns:74px 1fr; padding-inline:9px; }
+  body.theme-florida-man .florida-brand-logo { width:70px; height:70px; }
+  body.theme-florida-man .florida-brand-title { font-size:34px; }
+  body.theme-florida-man .florida-brand-subtitle { font-size:13px; }
+  body.theme-florida-man .header-controls { grid-template-columns:1fr 1fr; }
+  body.theme-florida-man .florida-footer-identity strong { font-size:23px; }
+}
+
+/* =========================================================
+   BATCH 2 — HOME + STANDINGS
+   ========================================================= */
+body.theme-florida-man .lol-front-page-v2 { display:grid; gap:22px; }
+body.theme-florida-man .lol-front-grid-v2 { grid-template-columns:minmax(0,1.55fr) minmax(290px,.65fr); }
+body.theme-florida-man .lol-verdict-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:24px 0 18px; }
+body.theme-florida-man .lol-verdict-card { min-height:210px; padding:18px; display:grid; grid-template-columns:72px 1fr; align-items:center; gap:4px 16px; border:3px solid var(--fm-black); box-shadow:4px 5px 0 rgba(7,24,31,.22); }
+body.theme-florida-man .lol-verdict-card span { grid-column:1/-1; font:900 11px/1 "Arial Narrow",Arial,sans-serif; letter-spacing:.14em; }
+body.theme-florida-man .lol-verdict-card img { width:64px; height:64px; object-fit:contain; grid-row:2/4; }
+body.theme-florida-man .lol-verdict-card strong { font:400 clamp(24px,3vw,38px)/.95 Impact,"Arial Black",sans-serif; text-transform:uppercase; }
+body.theme-florida-man .lol-verdict-card small { font-weight:800; line-height:1.35; }
+body.theme-florida-man .lol-verdict-card.champion { background:#e0bc52; color:#111; }
+body.theme-florida-man .lol-verdict-card.sacko { background:var(--fm-orange); color:#fff; }
+body.theme-florida-man .lol-standings-snapshot li span { display:grid; gap:2px; }
+body.theme-florida-man .lol-standings-snapshot li em { color:#657076; font-size:10px; font-style:normal; font-weight:700; }
+body.theme-florida-man .lol-archive-totals { display:grid; grid-template-columns:1fr 1fr; border:3px solid var(--fm-black); background:var(--fm-blue-dark); color:#fff; box-shadow:var(--fm-shadow); }
+body.theme-florida-man .lol-archive-totals div { min-height:92px; display:grid; place-content:center; text-align:center; border:1px solid rgba(255,255,255,.18); }
+body.theme-florida-man .lol-archive-totals span { font:900 9px/1 "Arial Narrow",Arial,sans-serif; letter-spacing:.12em; }
+body.theme-florida-man .lol-archive-totals strong { margin-top:6px; color:#fff; font:400 30px/1 Impact,"Arial Black",sans-serif; }
+body.theme-florida-man .lol-mid-grid-v2 { align-items:stretch; }
+body.theme-florida-man .lol-title-race-v2 .lol-title-podium { grid-template-columns:repeat(5,1fr); }
+body.theme-florida-man .lol-title-race-v2 .lol-title-podium article { min-width:0; }
+
+body.theme-florida-man .lol-standings-page { display:grid; gap:18px; }
+body.theme-florida-man .lol-standings-header { display:flex; justify-content:space-between; align-items:end; gap:24px; padding:20px 22px; border:3px solid var(--fm-black); background:var(--fm-cream); box-shadow:var(--fm-shadow); }
+body.theme-florida-man .lol-standings-header h2 { margin:5px 0 6px; color:var(--fm-blue-dark); font:400 clamp(30px,4.5vw,52px)/.95 Impact,"Arial Black",sans-serif; text-transform:uppercase; }
+body.theme-florida-man .lol-standings-header p { max-width:680px; margin:0; color:#536167; font-weight:700; }
+body.theme-florida-man .lol-standings-summary { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+body.theme-florida-man .lol-standings-summary article { min-height:105px; display:grid; place-content:center; text-align:center; border:3px solid var(--fm-black); background:#f7efd9; box-shadow:3px 4px 0 rgba(7,24,31,.2); }
+body.theme-florida-man .lol-standings-summary article:nth-child(2) { background:var(--fm-blue); color:#fff; }
+body.theme-florida-man .lol-standings-summary article:nth-child(4) { background:var(--fm-orange); color:#fff; }
+body.theme-florida-man .lol-standings-summary span { font:900 10px/1.2 "Arial Narrow",Arial,sans-serif; letter-spacing:.1em; }
+body.theme-florida-man .lol-standings-summary strong { margin-top:7px; color:inherit; font:400 clamp(24px,3vw,36px)/1 Impact,"Arial Black",sans-serif; text-transform:uppercase; }
+body.theme-florida-man .lol-standings-table tbody tr:last-child { box-shadow:none; }
+body.theme-florida-man .lol-standings-table tbody tr.is-champion { box-shadow:inset 6px 0 0 #bd8a2c; }
+body.theme-florida-man .lol-standings-table tbody tr.is-sacko { box-shadow:inset 6px 0 0 var(--fm-orange); }
+body.theme-florida-man .lol-standings-table tbody tr.is-champion.is-sacko { box-shadow:inset 6px 0 0 #bd8a2c, inset 12px 0 0 var(--fm-orange); }
+body.theme-florida-man .lol-standings-table td { white-space:nowrap; }
+body.theme-florida-man .sort-button { width:100%; display:flex; justify-content:space-between; gap:8px; border:0; background:transparent; cursor:pointer; font:inherit; }
+body.theme-florida-man .sortable-th[aria-sort="ascending"], body.theme-florida-man .sortable-th[aria-sort="descending"] { background:var(--fm-blue); }
+
+@media (max-width:900px){
+  body.theme-florida-man .lol-front-grid-v2 { grid-template-columns:1fr; }
+  body.theme-florida-man .lol-title-race-v2 .lol-title-podium { grid-template-columns:repeat(3,1fr); }
+  body.theme-florida-man .lol-standings-header { align-items:flex-start; flex-direction:column; }
+  body.theme-florida-man .lol-standings-summary { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:620px){
+  body.theme-florida-man .lol-verdict-grid { grid-template-columns:1fr; }
+  body.theme-florida-man .lol-title-race-v2 .lol-title-podium { grid-template-columns:1fr 1fr; }
+  body.theme-florida-man .lol-standings-summary { grid-template-columns:1fr; }
+}
+/* Batch 1 carry-forward corrections */
+body.theme-florida-man .page-heading::after { content:"LEAGUE OF LOSERS · OFFICIAL ARCHIVE"; }
+body.theme-florida-man .content::before { content:"PERMANENT LEAGUE RECORD"; }
+
+/* =========================================================
+   REAL BATCH 1 — GLOBAL NEWSPAPER FOUNDATION (REBASED ON BATCH 2)
+   Shared archive shell only. Page-specific Batch 2 work remains intact.
+   ========================================================= */
+:root{
+  --archive-blue:#1f5f87;
+  --archive-blue-dark:#12364f;
+  --archive-orange:#d9632a;
+  --archive-orange-dark:#9e3f18;
+  --archive-cream:#f4eddb;
+  --archive-paper:#fffaf0;
+  --archive-ink:#1d2428;
+  --archive-muted:#67675f;
+  --archive-rule:#b9ad91;
+  --archive-green:#34764c;
+  --archive-gold:#b88925;
+  --archive-shadow:0 3px 0 rgba(29,36,40,.16),0 12px 28px rgba(29,36,40,.10);
+}
+body,
+body.theme-florida-man{
+  color:var(--archive-ink);
+  background-color:var(--archive-cream);
+  background-image:linear-gradient(rgba(70,58,38,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(70,58,38,.025) 1px,transparent 1px);
+  background-size:5px 5px;
+  font-family:Arial,Helvetica,sans-serif;
+}
+body.theme-florida-man::before,
+body.theme-florida-man::after,
+.florida-brand-shell,
+.florida-masthead-art,
+.florida-page-decor{display:none!important}
+.utility-strip,
+body.theme-florida-man .utility-strip{
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.16);
+  background:var(--archive-blue-dark);
+  color:#f7f0df;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.13em;
+}
+body.theme-florida-man .utility-right{color:#dce9ef}
+.utility-inner,.header-inner,.nav-inner,.page-shell,.site-footer,
+body.theme-florida-man .header-inner,
+body.theme-florida-man .main-nav,
+body.theme-florida-man .page-shell,
+body.theme-florida-man .site-footer{width:min(1180px,calc(100% - 36px));margin-left:auto;margin-right:auto}
+.site-header,
+body.theme-florida-man .site-header{
+  border:0;
+  border-bottom:4px solid var(--archive-orange);
+  background:var(--archive-paper);
+  box-shadow:0 5px 16px rgba(29,36,40,.13);
+}
+.header-inner,
+body.theme-florida-man .header-inner{
+  position:relative;
+  min-height:142px;
+  padding:18px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+.wordmark,
+body.theme-florida-man .wordmark{
+  position:static;
+  inset:auto;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  overflow:visible;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  color:inherit;
+  text-decoration:none;
+}
+.archive-logo{width:98px;height:98px;flex:0 0 auto;border:3px solid var(--archive-ink);border-radius:50%;object-fit:cover;box-shadow:3px 4px 0 rgba(29,36,40,.18)}
+.wordmark-copy,
+body.theme-florida-man .wordmark-copy{display:grid!important}
+.masthead-eyebrow{margin-bottom:4px;color:var(--archive-orange-dark);font:800 10px/1.2 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}
+.wordmark-copy strong,
+body.theme-florida-man .wordmark-copy strong{color:var(--archive-blue-dark);font-family:Georgia,"Times New Roman",serif;font-size:clamp(35px,5vw,58px);font-style:normal;font-weight:800;line-height:.9;letter-spacing:-.045em}
+.wordmark-copy small,
+body.theme-florida-man .wordmark-copy small{margin-top:9px;color:var(--archive-muted);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.header-controls,
+body.theme-florida-man .header-controls{
+  position:static;
+  right:auto;bottom:auto;
+  display:flex;
+  gap:10px;
+  padding:12px;
+  border:1px solid var(--archive-rule);
+  background:#eee5cf;
+  box-shadow:2px 3px 0 rgba(29,36,40,.13);
+  transform:none;
+}
+body.theme-florida-man .header-controls::before{display:none}
+.header-controls label,
+body.theme-florida-man .header-controls label{color:var(--archive-muted);font-family:Arial,sans-serif;font-size:9px;font-weight:800;letter-spacing:.12em}
+select,
+body.theme-florida-man select{min-width:145px;border:1px solid #8e846f;border-radius:0;background:#fffdf7;color:var(--archive-ink);padding:8px 28px 8px 9px;box-shadow:inset 1px 1px #fff;font-weight:700}
+.main-nav,
+body.theme-florida-man .main-nav{position:static;z-index:auto;width:100%;margin:0;border:0;border-top:1px solid #315f7b;background:var(--archive-blue-dark);box-shadow:none}
+.nav-inner,
+body.theme-florida-man .nav-inner{width:min(1180px,calc(100% - 36px));justify-content:flex-start;background:transparent}
+.nav-link,
+body.theme-florida-man .nav-link{flex:0 0 auto;border:0;border-right:1px solid rgba(255,255,255,.14);background:transparent;color:#f8f3e6;padding:13px 14px 12px;font-family:Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.045em;text-shadow:none;text-transform:uppercase;clip-path:none}
+body.theme-florida-man .nav-link::after{display:none}
+.nav-link:hover,.nav-link.active,
+body.theme-florida-man .nav-link:hover,
+body.theme-florida-man .nav-link.active{background:var(--archive-orange);color:#fff;clip-path:none}
+.page-shell,
+body.theme-florida-man .page-shell{padding:30px 0 58px}
+.page-heading,
+body.theme-florida-man .page-heading{position:relative;display:flex;align-items:end;justify-content:space-between;gap:20px;margin:0 0 22px;padding:0 0 13px;border:0;border-bottom:4px double var(--archive-blue-dark);background:transparent;box-shadow:none;overflow:visible}
+body.theme-florida-man .page-heading::before,
+body.theme-florida-man .page-heading::after{display:none}
+.kicker,
+body.theme-florida-man .kicker{margin:0 0 5px;color:var(--archive-orange-dark);font-family:Arial,sans-serif;font-size:9px;font-weight:900;letter-spacing:.17em}
+h1,body.theme-florida-man h1{margin:0;color:var(--archive-blue-dark);font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,4vw,45px);font-weight:800;line-height:1;letter-spacing:-.025em;text-shadow:none;text-transform:none;transform:none}
+.office-button,
+body.theme-florida-man .office-button{border:1px solid #837965;border-radius:0;background:linear-gradient(#fffdf7,#ded4bd);color:var(--archive-blue-dark);padding:9px 13px;font-family:Arial,sans-serif;font-size:10px;font-weight:900;letter-spacing:.06em;box-shadow:2px 2px 0 rgba(29,36,40,.14);transform:none}
+body.theme-florida-man .office-button:hover{background:#fff;transform:translateY(-1px)}
+.paper-panel,.stat-card,.file-card,.corporate-hero,.table-panel{border-color:var(--archive-rule);background:var(--archive-paper);box-shadow:var(--archive-shadow)}
+.panel-heading{border-bottom-color:var(--archive-blue-dark)}
+.panel-heading h2,h2,h3{color:var(--archive-blue-dark)}
+th{background:var(--archive-blue-dark)}
+tbody tr:nth-child(even){background:#f1ead9}
+tbody tr:hover{background:#e6eef2}
+.title-badge,.rank-cell.first{background:#f1dfaa;border-color:var(--archive-gold);color:#684a0d}
+.site-footer,
+body.theme-florida-man .site-footer{
+  position:relative;
+  min-height:0;
+  margin:0 auto 24px;
+  padding:22px 0 0;
+  display:block;
+  overflow:visible;
+  border:0;
+  border-top:4px double var(--archive-blue-dark);
+  background:transparent;
+  color:var(--archive-muted);
+  box-shadow:none;
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:.06em;
+  text-shadow:none;
+  text-transform:uppercase;
+}
+body.theme-florida-man .site-footer::before,
+body.theme-florida-man .site-footer::after{display:none}
+body.theme-florida-man .site-footer>div{opacity:1}
+.footer-main{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.footer-identity{display:flex;align-items:center;gap:12px}.footer-identity img{width:48px;height:48px;border:2px solid var(--archive-ink);border-radius:50%;object-fit:cover}.footer-identity div{display:grid;gap:4px}.footer-identity strong{color:var(--archive-blue-dark);font-size:11px}.footer-identity span{font-size:9px}
+.footer-nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px 16px}.footer-nav a{color:var(--archive-blue-dark);font-weight:800;text-decoration:none}.footer-nav a:hover{color:var(--archive-orange-dark);text-decoration:underline}
+.footer-note{margin:16px 0 0;padding:10px 0;border-top:1px solid var(--archive-rule);text-align:center;font-family:Georgia,serif;font-size:11px;font-style:italic;letter-spacing:.02em;text-transform:none}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid rgba(217,99,42,.42);outline-offset:2px}
+@media(max-width:900px){
+  .header-inner,body.theme-florida-man .header-inner{align-items:flex-start;flex-direction:column}
+  .header-controls,body.theme-florida-man .header-controls{position:static;width:100%;transform:none}
+  .header-controls label{flex:1}.header-controls select{width:100%}
+  .footer-main{align-items:flex-start;flex-direction:column}.footer-nav{justify-content:flex-start}
+}
+@media(max-width:620px){
+  .utility-inner,.header-inner,.nav-inner,.page-shell,.site-footer,body.theme-florida-man .header-inner,body.theme-florida-man .nav-inner,body.theme-florida-man .page-shell,body.theme-florida-man .site-footer{width:calc(100% - 22px)}
+  .archive-logo{width:72px;height:72px}.wordmark{gap:12px}.wordmark-copy strong,body.theme-florida-man .wordmark-copy strong{font-size:32px}.masthead-eyebrow{font-size:8px}.wordmark-copy small{font-size:8px;letter-spacing:.11em}
+  .header-controls,body.theme-florida-man .header-controls{display:grid;grid-template-columns:1fr 1fr;margin:0}
+  .page-heading,body.theme-florida-man .page-heading{align-items:stretch;flex-direction:column}
+  .office-button,body.theme-florida-man .office-button{align-self:flex-start}
+  .footer-identity{align-items:flex-start}.footer-nav{gap:9px 14px}
+}
+
+
+/* ===== Batch 3: The Suspects + Trophy Case ===== */
+.suspect-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 18px;padding:10px;border:1px solid var(--rule);background:rgba(255,255,255,.48)}
+.suspect-toolbar button{font:800 .76rem/1 var(--font-sans);text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--ink);background:var(--paper);padding:9px 13px;cursor:pointer}
+.suspect-toolbar button.active{background:var(--accent);color:#fff}.suspect-toolbar span{margin-left:auto;font-size:.75rem;color:var(--muted)}
+.wanted-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.wanted-card{position:relative;display:grid;grid-template-columns:104px 1fr;min-height:250px;color:var(--ink);text-decoration:none;background:#f6edcf;border:1px solid #6b5943;box-shadow:0 3px 0 rgba(46,36,24,.24);overflow:hidden;transition:transform .16s ease,box-shadow .16s ease}
+.wanted-card:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(70,52,29,.025) 5px 6px)}
+.wanted-card:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(46,36,24,.18)}.wanted-card.most-wanted{border:3px double var(--gold)}
+.wanted-rank{position:absolute;z-index:2;right:8px;top:7px;text-align:right}.wanted-rank span{display:block;font:800 .55rem/1 var(--font-sans);letter-spacing:.12em}.wanted-rank strong{font:900 1.5rem/1 var(--font-display);color:var(--accent)}
+.wanted-photo{position:relative;border-right:1px solid #8b7658;background:#d9c8a3;min-height:100%}.wanted-photo img,.wanted-photo .portrait-placeholder{width:100%;height:100%;object-fit:cover;filter:sepia(.18) contrast(1.03)}
+.wanted-photo .owner-status{position:absolute;left:6px;bottom:7px}.wanted-copy{position:relative;padding:42px 14px 13px}.wanted-file{font:700 .57rem/1.2 var(--font-mono);letter-spacing:.06em;color:#6e604c}.wanted-copy h3{font:900 1.6rem/.95 var(--font-display);text-transform:uppercase;margin:7px 0 8px}.wanted-alias{font-size:.68rem;line-height:1.35;margin:0 0 10px}.wanted-record{display:flex;align-items:end;justify-content:space-between;border-block:1px solid #9f8b6d;padding:8px 0}.wanted-record strong{font:900 1.25rem/1 var(--font-display)}.wanted-record span{font-size:.65rem}.wanted-charges{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:10px 0}.wanted-charges span{text-align:center;font-size:.58rem;text-transform:uppercase}.wanted-charges b{display:block;font:900 1rem/1 var(--font-display)}.wanted-years{min-height:28px;font-size:.58rem;line-height:1.35;color:#655642}.wanted-card .owner-card-cta{margin-top:8px;border-top:1px dashed #8b7658;padding-top:7px}
+.trophy-museum-hero .museum-hero-object img,.season-honor .honor-art img{filter:drop-shadow(0 8px 5px rgba(0,0,0,.22))}.dynamic-title-wall .champion-nameplate{min-height:112px}.dynamic-title-wall .title-count-2{grid-column:span 1;border-width:2px}.dynamic-title-wall .title-count-3,.dynamic-title-wall .title-count-4{grid-column:span 2;background:linear-gradient(120deg,#fffaf0,#f5df9d)}.dynamic-title-wall .title-count-3 h3,.dynamic-title-wall .title-count-4 h3{font-size:1.45rem}.sacko-wing .panel-heading{border-bottom-color:var(--accent)}
+@media(max-width:980px){.wanted-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.wanted-grid{grid-template-columns:1fr}.wanted-card{grid-template-columns:96px 1fr}.suspect-toolbar span{width:100%;margin-left:0}.dynamic-title-wall .title-count-3,.dynamic-title-wall .title-count-4{grid-column:span 1}}
+
+/* Batch 5 — Draft Board + Commissioner's Office */
+.draft-newsroom{display:grid;gap:22px}.draft-hero{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;padding:28px}.draft-kicker,.commissioner-kicker{text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:var(--orange,#c55422);margin:.45rem 0}.draft-hero h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.7rem);line-height:.95;margin:.25rem 0 .75rem}.draft-stamp{width:132px;aspect-ratio:1;border:3px double currentColor;border-radius:50%;display:grid;place-content:center;text-align:center;transform:rotate(-3deg)}.draft-stamp strong{font:900 2.3rem/1 Georgia,serif}.draft-stamp span{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase}.draft-summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.draft-summary-grid article{background:var(--paper,#f7f0df);border:1px solid rgba(27,35,43,.35);padding:16px;display:grid;gap:4px}.draft-summary-grid span{font-size:.7rem;font-weight:900;letter-spacing:.12em}.draft-summary-grid strong{font:900 1.8rem/1 Georgia,serif}.draft-summary-grid small{opacity:.7}.draft-order-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px}.draft-order-card{display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:12px;border:1px solid rgba(27,35,43,.25);background:rgba(255,255,255,.28);padding:12px}.draft-pick-number{display:grid;place-items:center;width:42px;height:42px;background:var(--blue,#234b65);color:white;font:900 1.3rem Georgia,serif}.draft-order-card div{display:grid}.draft-order-card small{margin-top:3px}.draft-finish-chip{font-size:.72rem;font-weight:800;text-transform:uppercase;white-space:nowrap}.keeper-rating-strip{display:flex;gap:10px;flex-wrap:wrap}.keeper-rating-strip span{padding:9px 14px;border:1px solid currentColor;background:var(--paper,#f7f0df);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}.keeper-rating-strip .good{color:#356447}.keeper-rating-strip .bad{color:#a7421e}.draft-source-boundary{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:14px 16px;border-left:6px solid var(--blue,#234b65);background:rgba(35,75,101,.08)}.draft-source-boundary strong{text-transform:uppercase;letter-spacing:.1em}.commissioner-hero{border-top:8px solid var(--blue,#234b65)}.commissioner-seal{box-shadow:inset 0 0 0 4px var(--paper,#f7f0df),0 0 0 2px currentColor}.office-module{position:relative;overflow:hidden}.office-module:before{content:"AUTHORIZED ENTRY";position:absolute;right:-26px;top:12px;transform:rotate(35deg);font-size:.55rem;letter-spacing:.12em;font-weight:900;opacity:.18}.publication-steps li{border-bottom:1px solid rgba(27,35,43,.16);padding-block:10px}.audit-entries article{border-left:4px solid var(--orange,#c55422)}
+@media(max-width:820px){.draft-hero{grid-template-columns:1fr}.draft-stamp{width:100px}.draft-summary-grid{grid-template-columns:repeat(2,1fr)}.draft-order-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.draft-summary-grid{grid-template-columns:1fr 1fr}.draft-order-card{grid-template-columns:42px 1fr}.draft-finish-chip{grid-column:2}.draft-source-boundary{grid-template-columns:1fr}}
+
+/* ========================================================================== 
+   RECOVERY BATCH 1 — APPROVED GLOBAL SHELL + HOME + STANDINGS
+   League of Losers is the brand. Florida is editorial flavor only.
+   ========================================================================== */
+:root{
+  --lol-blue:#0c6597;
+  --lol-blue-dark:#063b5b;
+  --lol-orange:#ef5b16;
+  --lol-orange-dark:#a93d12;
+  --lol-cream:#f4eddc;
+  --lol-paper:#fffaf0;
+  --lol-ink:#181a1c;
+  --lol-rule:#26343d;
+  --lol-gold:#c69b2d;
+}
+body.theme-florida-man{
+  color:var(--lol-ink);
+  background-color:var(--lol-cream);
+  background-image:
+    radial-gradient(circle at 18% 10%,rgba(255,255,255,.7),transparent 30%),
+    repeating-linear-gradient(0deg,rgba(70,53,29,.025) 0 1px,transparent 1px 4px);
+}
+body.theme-florida-man .utility-strip{
+  background:#17191b;color:#f6f0df;border-bottom:3px solid var(--lol-orange);
+}
+body.theme-florida-man .site-header{
+  background:var(--lol-paper);border-bottom:0;box-shadow:0 5px 0 rgba(24,26,28,.16);
+}
+body.theme-florida-man .header-inner{min-height:132px;padding:14px 0 12px;position:relative}
+body.theme-florida-man .wordmark{gap:18px;min-width:0}
+body.theme-florida-man .archive-logo{
+  width:102px;height:102px;border:3px solid var(--lol-ink);border-radius:0;object-fit:cover;
+  box-shadow:5px 5px 0 var(--lol-orange);background:white;
+}
+body.theme-florida-man .masthead-eyebrow{
+  color:var(--lol-orange-dark);font:900 10px/1 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;
+}
+body.theme-florida-man .wordmark-copy strong{
+  color:var(--lol-ink);font-family:Impact,"Arial Narrow",sans-serif;font-style:normal;
+  font-size:clamp(39px,6vw,76px);line-height:.82;letter-spacing:-.025em;text-transform:uppercase;
+  text-shadow:2px 2px 0 rgba(12,101,151,.18);
+}
+body.theme-florida-man .wordmark-copy small{
+  color:var(--lol-blue);font:900 11px/1.1 Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;
+}
+body.theme-florida-man .header-controls label{color:#4e4b43}
+body.theme-florida-man .header-controls select{
+  min-width:160px;border:2px solid var(--lol-ink);background:#fffdf5;box-shadow:3px 3px 0 rgba(12,101,151,.2);
+  font-weight:800;
+}
+body.theme-florida-man .main-nav{background:#17191b;border-top:4px solid var(--lol-blue);border-bottom:4px solid var(--lol-orange)}
+body.theme-florida-man .nav-link{font-family:"Arial Narrow",Arial,sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+body.theme-florida-man .nav-link:hover,body.theme-florida-man .nav-link.active{background:var(--lol-orange);color:#fff}
+body.theme-florida-man .page-shell{padding-top:22px}
+body.theme-florida-man .page-heading{border-bottom:4px double var(--lol-rule);padding-bottom:10px;margin-bottom:18px}
+body.theme-florida-man .kicker{color:var(--lol-orange-dark)}
+body.theme-florida-man h1{font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;color:var(--lol-ink);letter-spacing:.01em}
+body.theme-florida-man .office-button{background:var(--lol-blue);border:2px solid var(--lol-ink);color:white;box-shadow:3px 3px 0 var(--lol-ink)}
+
+/* Home front page */
+body.theme-florida-man .lol-front-page-v2{display:grid;gap:18px}
+body.theme-florida-man .lol-edition-banner{
+  border:2px solid var(--lol-ink);background:var(--lol-paper);box-shadow:5px 5px 0 rgba(24,26,28,.16)
+}
+body.theme-florida-man .lol-edition-meta{
+  background:var(--lol-blue-dark);color:#fff;padding:7px 12px;font:900 10px/1 Arial,sans-serif;letter-spacing:.13em
+}
+body.theme-florida-man .lol-breaking-strip{background:var(--lol-paper);border-top:0;border-bottom:0;color:var(--lol-ink)}
+body.theme-florida-man .lol-breaking-strip strong{background:var(--lol-orange);color:#fff;border-right:2px solid var(--lol-ink)}
+body.theme-florida-man .lol-breaking-strip button{color:var(--lol-blue-dark)}
+body.theme-florida-man .lol-lead-story,body.theme-florida-man .lol-right-rail>section,
+body.theme-florida-man .lol-mid-grid-v2>*,body.theme-florida-man .lol-title-race-v2{
+  border:2px solid var(--lol-ink);background:var(--lol-paper);box-shadow:4px 4px 0 rgba(24,26,28,.13)
+}
+body.theme-florida-man .lol-lead-story{padding:24px}
+body.theme-florida-man .lol-section-label{color:var(--lol-orange-dark);font-weight:900;letter-spacing:.14em}
+body.theme-florida-man .lol-lead-story h2,body.theme-florida-man .lol-title-race h2,
+body.theme-florida-man .lol-column-story h2{
+  font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;color:var(--lol-ink);letter-spacing:.01em
+}
+body.theme-florida-man .lol-verdict-card{border:2px solid var(--lol-ink);box-shadow:3px 3px 0 rgba(24,26,28,.15)}
+body.theme-florida-man .lol-verdict-card.champion{background:#fff5cf;border-top:8px solid var(--lol-gold)}
+body.theme-florida-man .lol-verdict-card.sacko{background:#fff0e8;border-top:8px solid var(--lol-orange)}
+body.theme-florida-man .florida-action{border:2px solid var(--lol-ink);background:var(--lol-blue);box-shadow:3px 3px 0 var(--lol-ink)}
+body.theme-florida-man .florida-action.secondary{background:var(--lol-paper);color:var(--lol-ink)}
+body.theme-florida-man .lol-rail-heading{background:#17191b;color:white;border-bottom:4px solid var(--lol-blue)}
+body.theme-florida-man .lol-standings-snapshot li:nth-child(even){background:#edf4f7}
+body.theme-florida-man .lol-archive-totals{border-top:6px solid var(--lol-orange)}
+body.theme-florida-man .lol-title-podium article{border:2px solid var(--lol-ink);background:#fffdf6}
+body.theme-florida-man .lol-title-podium .place-1{background:#fff4c4;border-top:7px solid var(--lol-gold)}
+body.theme-florida-man .lol-section-directory button{border:2px solid var(--lol-ink);background:var(--lol-paper);box-shadow:3px 3px 0 rgba(24,26,28,.12)}
+body.theme-florida-man .lol-section-directory button:hover{background:#eaf3f7}
+body.theme-florida-man .lol-section-directory b{color:var(--lol-orange-dark)}
+
+/* Standings — readable newspaper ledger, no novelty decoration */
+body.theme-florida-man .standings-newsroom{display:grid;gap:16px}
+body.theme-florida-man .standings-hero,body.theme-florida-man .standings-table-panel,
+body.theme-florida-man .standings-summary-grid article{
+  border:2px solid var(--lol-ink);background:var(--lol-paper);box-shadow:4px 4px 0 rgba(24,26,28,.12)
+}
+body.theme-florida-man .standings-hero{border-top:8px solid var(--lol-blue);padding:22px}
+body.theme-florida-man .standings-hero h2{font-family:Impact,"Arial Narrow",sans-serif;font-weight:400;text-transform:uppercase;color:var(--lol-ink)}
+body.theme-florida-man .standings-summary-grid article{border-top:5px solid var(--lol-blue)}
+body.theme-florida-man .standings-summary-grid article:nth-child(3){border-top-color:var(--lol-gold)}
+body.theme-florida-man .standings-summary-grid article:nth-child(4){border-top-color:var(--lol-orange)}
+body.theme-florida-man .standings-mode button{border:2px solid var(--lol-ink);background:var(--lol-paper);color:var(--lol-ink)}
+body.theme-florida-man .standings-mode button.active{background:var(--lol-blue);color:#fff}
+body.theme-florida-man .standings-table-panel{overflow:hidden}
+body.theme-florida-man .standings-table-panel th{background:#17191b;color:#fff;border-color:#53616a}
+body.theme-florida-man .standings-table-panel tbody tr:nth-child(even){background:#edf4f7}
+body.theme-florida-man .standings-table-panel tbody tr:hover{background:#dbeaf1}
+body.theme-florida-man .standings-table-panel tr.is-champion{box-shadow:inset 7px 0 0 var(--lol-gold)}
+body.theme-florida-man .standings-table-panel tr.is-sacko{box-shadow:inset 7px 0 0 var(--lol-orange)}
+body.theme-florida-man .standings-table-panel .rank-cell.first{background:#f5d97e;color:#3c2a00}
+
+/* Footer stays archival, not a Florida promotion */
+body.theme-florida-man .site-footer{border-top:5px double var(--lol-ink)}
+body.theme-florida-man .footer-identity img{border-radius:0;border:2px solid var(--lol-ink);box-shadow:3px 3px 0 var(--lol-orange)}
+
+@media(max-width:720px){
+  body.theme-florida-man .archive-logo{width:78px;height:78px;box-shadow:3px 3px 0 var(--lol-orange)}
+  body.theme-florida-man .wordmark-copy strong{font-size:38px}
+  body.theme-florida-man .lol-lead-story{padding:16px}
+}
+
+/* ========================================================================== 
+   RECOVERY BATCH 2 — HOME + STANDINGS CORRECTIONS
+   ========================================================================== */
+body.theme-florida-man .site-header{
+  background:var(--lol-blue-dark);
+  color:#fff;
+  box-shadow:0 3px 10px rgba(6,32,48,.24);
+}
+body.theme-florida-man .masthead-eyebrow,
+body.theme-florida-man .wordmark-copy strong,
+body.theme-florida-man .wordmark-copy small,
+body.theme-florida-man .header-controls label{color:#fff;text-shadow:none}
+body.theme-florida-man .wordmark-copy strong{font-family:Georgia,"Times New Roman",serif;font-weight:900;letter-spacing:-.035em}
+body.theme-florida-man .archive-logo{box-shadow:4px 4px 0 rgba(255,255,255,.2)}
+body.theme-florida-man .main-nav{background:var(--lol-blue);border-top:1px solid rgba(255,255,255,.22);border-bottom:0}
+body.theme-florida-man .nav-link{color:#fff}
+body.theme-florida-man .nav-link:hover,body.theme-florida-man .nav-link.active{background:var(--lol-orange);color:#111}
+
+/* Paper is the content field; blue is the structural frame. */
+body.theme-florida-man .lol-front-grid-v2,
+body.theme-florida-man .lol-mid-grid-v2{gap:22px}
+body.theme-florida-man .lol-lead-story,
+body.theme-florida-man .lol-right-rail>section,
+body.theme-florida-man .lol-mid-grid-v2>*{box-shadow:none;border:1px solid #9b927f}
+body.theme-florida-man .lol-verdict-card.sacko{
+  background:var(--lol-orange);
+  border-color:#111;
+  border-top:8px solid var(--lol-orange-dark);
+  color:#111;
+}
+body.theme-florida-man .lol-verdict-card.sacko span,
+body.theme-florida-man .lol-verdict-card.sacko strong,
+body.theme-florida-man .lol-verdict-card.sacko small{color:#111}
+body.theme-florida-man .lol-archive-totals{background:var(--lol-blue-dark);color:#fff;border:0;border-top:0;box-shadow:none}
+body.theme-florida-man .lol-archive-totals span,
+body.theme-florida-man .lol-archive-totals strong{color:#fff}
+body.theme-florida-man .lol-title-race-v2{
+  background:var(--lol-blue-dark);
+  color:#fff;
+  border:0;
+  box-shadow:none;
+}
+body.theme-florida-man .lol-title-race-v2 .lol-section-label,
+body.theme-florida-man .lol-title-race-v2 h2,
+body.theme-florida-man .lol-title-race-v2 p{color:#fff}
+body.theme-florida-man .lol-title-race-v2 .lol-title-podium article{background:var(--lol-paper);color:var(--lol-ink);border:0}
+
+body.theme-florida-man .standings-hero{display:flex;justify-content:space-between;align-items:end;gap:20px;background:var(--lol-blue-dark);color:#fff;border:0;box-shadow:none}
+body.theme-florida-man .standings-hero h2,
+body.theme-florida-man .standings-hero p,
+body.theme-florida-man .standings-hero .lol-section-label{color:#fff}
+body.theme-florida-man .standings-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+body.theme-florida-man .standings-summary-grid article{background:var(--lol-paper);border:1px solid #9b927f;border-top:5px solid var(--lol-blue);box-shadow:none;padding:15px}
+body.theme-florida-man .standings-summary-grid span{display:block;color:#5c5a52;font:900 9px/1 Arial,sans-serif;letter-spacing:.12em}
+body.theme-florida-man .standings-summary-grid strong{display:block;margin-top:7px;color:var(--lol-blue-dark);font:900 22px/1.05 Georgia,serif}
+body.theme-florida-man .standings-table-panel{border:1px solid #9b927f;box-shadow:none}
+body.theme-florida-man .standings-table-panel .panel-heading{background:var(--lol-blue);color:#fff;padding:13px 16px}
+body.theme-florida-man .standings-table-panel .panel-heading h2,
+body.theme-florida-man .standings-table-panel .panel-heading span{color:#fff}
+@media(max-width:760px){
+  body.theme-florida-man .standings-hero{align-items:stretch;flex-direction:column}
+  body.theme-florida-man .standings-summary-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ========================================================================== 
+   REVIEW FIX — HEADER TYPE, NAV STRIP, HOME ARCHIVE TOTAL CONTRAST
+   ========================================================================== */
+body.theme-florida-man .wordmark-copy strong{
+  font-family:Impact,"Arial Black","Arial Narrow",sans-serif !important;
+  font-weight:400 !important;
+  font-stretch:condensed;
+  letter-spacing:.005em !important;
+  line-height:.82;
+  text-transform:uppercase;
+}
+
+/* Keep navigation inside the blue structural header; remove the old orange/black footer-bar treatment. */
+body.theme-florida-man .main-nav{
+  background:var(--lol-blue) !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+body.theme-florida-man .nav-inner{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+body.theme-florida-man .main-nav::before,
+body.theme-florida-man .main-nav::after,
+body.theme-florida-man .nav-inner::before,
+body.theme-florida-man .nav-inner::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Force readable blue summary tiles even when earlier generic card rules win in the cascade. */
+body.theme-florida-man .lol-archive-totals{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  background:var(--lol-blue-dark) !important;
+  color:#fff !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+body.theme-florida-man .lol-archive-totals > div{
+  min-height:92px;
+  display:grid;
+  place-content:center;
+  text-align:center;
+  background:var(--lol-blue-dark) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.22) !important;
+}
+body.theme-florida-man .lol-archive-totals span{
+  color:#fff !important;
+  opacity:.88;
+  font:900 10px/1 Arial,sans-serif !important;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+body.theme-florida-man .lol-archive-totals strong{
+  margin-top:7px;
+  color:#fff !important;
+  font:400 32px/1 Impact,"Arial Black","Arial Narrow",sans-serif !important;
+  text-shadow:none !important;
+}
+
+/* Recovery review: streamlined standings layout */
+body.theme-florida-man .standings-summary-grid { display:none; }
+body.theme-florida-man .standings-hero { display:block; }
+body.theme-florida-man .standings-table-panel { overflow:visible; }
+body.theme-florida-man .standings-table-panel .panel-heading.standings-table-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin:0;
+  padding:14px 16px;
+  border:0;
+  border-bottom:3px solid var(--lol-ink);
+  background:var(--lol-blue);
+  transform:none;
+}
+body.theme-florida-man .standings-table-panel .panel-heading.standings-table-heading::before { content:none; }
+body.theme-florida-man .standings-table-heading > div:first-child { display:grid; gap:4px; }
+body.theme-florida-man .standings-table-heading h2 {
+  margin:0;
+  color:#fff;
+  font-family:Impact,"Arial Narrow",sans-serif;
+  font-size:clamp(24px,3vw,34px);
+  font-weight:400;
+  letter-spacing:.02em;
+  line-height:1;
+  text-transform:uppercase;
+  text-shadow:none;
+}
+body.theme-florida-man .standings-table-heading > div:first-child > span {
+  display:block;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#dbeef7;
+  font:800 10px/1.2 Arial,sans-serif;
+  letter-spacing:.08em;
+  transform:none;
+}
+body.theme-florida-man .standings-mode { display:flex; flex:0 0 auto; gap:7px; }
+body.theme-florida-man .standings-mode button {
+  min-width:104px;
+  padding:9px 14px 8px;
+  border:2px solid #fff;
+  background:transparent;
+  color:#fff;
+  font:400 18px/1 Impact,"Arial Narrow",sans-serif;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+body.theme-florida-man .standings-mode button.active {
+  background:#fff;
+  color:var(--lol-blue-dark);
+}
+body.theme-florida-man .standings-table-panel .table-wrap {
+  width:100%;
+  overflow-x:auto;
+  border:0;
+  border-top:0;
+}
+body.theme-florida-man .standings-table-panel table { min-width:1040px; }
+body.theme-florida-man .standings-table-panel thead { display:table-header-group; }
+body.theme-florida-man .standings-table-panel th {
+  position:relative;
+  top:auto;
+  padding:12px 10px;
+  line-height:1.15;
+  vertical-align:middle;
+}
+@media (max-width:700px){
+  body.theme-florida-man .standings-table-panel .panel-heading.standings-table-heading { align-items:stretch; flex-direction:column; }
+  body.theme-florida-man .standings-mode { width:100%; }
+  body.theme-florida-man .standings-mode button { flex:1 1 0; }
+}
+
+
+/* REVIEW FIX — remove obsolete masthead stripe completely */
+body.theme-florida-man .wordmark::after {
+  content:none !important;
+  display:none !important;
+  background:none !important;
+  border:0 !important;
+  height:0 !important;
+}
+body.theme-florida-man .standings-table-panel table { min-width:940px; }
+
+/* QA Batch 3 — suspect directory controls and Florida evidence portraits */
+.suspect-toolbar{display:grid;grid-template-columns:auto minmax(190px,1fr) minmax(150px,220px) auto;align-items:end;gap:12px}
+.suspect-filter-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.suspect-search,.suspect-sort{display:grid;gap:5px;font:800 .62rem/1 var(--font-sans);letter-spacing:.08em;text-transform:uppercase}
+.suspect-search input,.suspect-sort select{width:100%;min-height:38px;border:1px solid var(--ink);background:var(--paper);padding:8px 10px;font:700 .82rem/1.2 var(--font-sans);color:var(--ink)}
+.suspect-count{align-self:center;white-space:nowrap}
+.wanted-photo{background:#d7c8a2}
+.owner-directory-portrait{object-fit:cover}
+@media(max-width:900px){.suspect-toolbar{grid-template-columns:1fr 1fr}.suspect-count{white-space:normal}}
+@media(max-width:640px){.suspect-toolbar{grid-template-columns:1fr}.suspect-filter-buttons{width:100%}.suspect-filter-buttons button{flex:1}.suspect-count{width:auto}}
+
+
+/* QA Batch 3.1 — unified suspects controls, complete Florida wanted art, timeline alignment */
+body.theme-florida-man .suspect-toolbar{display:grid;grid-template-columns:auto minmax(220px,1fr) minmax(170px,220px) auto;align-items:center;gap:14px;margin:16px 0 20px;padding:14px 16px;border:2px solid var(--fm-black);background:#f8f0df;box-shadow:3px 3px 0 rgba(23,34,36,.16)}
+body.theme-florida-man .suspect-filter-buttons{display:inline-flex;gap:0;padding:3px;border:2px solid var(--fm-black);border-radius:999px;background:#fff9e7;overflow:hidden}
+body.theme-florida-man .suspect-filter-buttons button{min-height:34px;margin:0;border:0;border-radius:999px;background:transparent;padding:8px 14px;color:var(--fm-black);font:900 10px/1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:none}
+body.theme-florida-man .suspect-filter-buttons button:hover{background:rgba(32,91,111,.12)}
+body.theme-florida-man .suspect-filter-buttons button.active{background:var(--fm-blue);color:#fff}
+body.theme-florida-man .suspect-search,body.theme-florida-man .suspect-sort{align-self:stretch;display:grid;grid-template-rows:auto 38px;gap:5px}
+body.theme-florida-man .suspect-search input,body.theme-florida-man .suspect-sort select{height:38px;min-height:38px;border:2px solid var(--fm-black);background:#fffdf5;padding:7px 10px}
+body.theme-florida-man .suspect-count{align-self:center;padding:8px 10px;border-left:1px dotted var(--fm-black);font:800 10px/1.35 Arial,sans-serif;text-transform:uppercase}
+body.theme-florida-man .wanted-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+body.theme-florida-man .wanted-card{grid-template-columns:42% 58%;min-height:278px;border:2px solid #5e4c35;border-radius:2px;background:#f8edcf;box-shadow:4px 5px 0 rgba(46,36,24,.18)}
+body.theme-florida-man .wanted-card:hover{transform:translateY(-4px) rotate(-.15deg);box-shadow:7px 9px 0 rgba(46,36,24,.14)}
+body.theme-florida-man .wanted-photo{min-height:278px;border-right:2px solid #6d583c;background:#d7c39a}
+body.theme-florida-man .wanted-photo img{display:block;width:100%;height:100%;object-fit:cover;filter:none}
+body.theme-florida-man .wanted-copy{padding:44px 15px 14px}
+body.theme-florida-man .wanted-copy h3{font-size:1.72rem}
+body.theme-florida-man .wanted-record{gap:8px}
+body.theme-florida-man .wanted-charges{gap:6px}
+body.theme-florida-man .timeline-entry{box-sizing:border-box;grid-template-columns:58px minmax(0,1fr);align-items:start;min-height:68px;padding:12px 10px 12px 8px;border-left:6px solid transparent}
+body.theme-florida-man .timeline-entry.title{padding-left:8px;border-left-color:var(--fm-gold);background:linear-gradient(90deg,rgba(242,189,66,.35),transparent)}
+body.theme-florida-man .timeline-entry.sacko{padding-left:8px;border-left-color:var(--fm-orange);background:linear-gradient(90deg,rgba(239,123,45,.25),transparent)}
+body.theme-florida-man .timeline-entry.season{padding-left:8px}
+body.theme-florida-man .timeline-entry>b{display:block;width:58px;margin:0;line-height:1}
+body.theme-florida-man .timeline-entry>div{min-width:0;padding-top:0}
+body.theme-florida-man .timeline-entry strong,body.theme-florida-man .timeline-entry span{display:block}
+@media(max-width:1050px){body.theme-florida-man .wanted-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){body.theme-florida-man .suspect-toolbar{grid-template-columns:1fr 1fr}.theme-florida-man .suspect-count{border-left:0}}
+@media(max-width:640px){body.theme-florida-man .suspect-toolbar{grid-template-columns:1fr}.theme-florida-man .suspect-filter-buttons{width:100%}.theme-florida-man .suspect-filter-buttons button{flex:1}.theme-florida-man .wanted-grid{grid-template-columns:1fr}.theme-florida-man .wanted-card{grid-template-columns:38% 62%}}
+
+
+/* QA Batch 3.2 — normalized directory controls and audited Matt/Alex rivalry link */
+body.theme-florida-man .suspect-toolbar{
+  grid-template-columns:minmax(230px,auto) minmax(220px,1fr) minmax(180px,220px) auto;
+  align-items:end;
+}
+body.theme-florida-man .suspect-status,
+body.theme-florida-man .suspect-search,
+body.theme-florida-man .suspect-sort{
+  display:grid;
+  grid-template-rows:12px 42px;
+  gap:6px;
+  min-width:0;
+  align-self:stretch;
+}
+body.theme-florida-man .suspect-status>span,
+body.theme-florida-man .suspect-search>span,
+body.theme-florida-man .suspect-sort>span{
+  display:block;
+  font:900 10px/12px Arial,sans-serif;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--fm-black);
+}
+body.theme-florida-man .suspect-filter-buttons{
+  height:42px;
+  min-height:42px;
+  padding:3px;
+  box-sizing:border-box;
+  border-radius:4px;
+}
+body.theme-florida-man .suspect-filter-buttons button{
+  height:32px;
+  min-height:32px;
+  padding:0 14px;
+  border-radius:2px;
+  white-space:nowrap;
+}
+body.theme-florida-man .suspect-search input,
+body.theme-florida-man .suspect-sort select{
+  height:42px;
+  min-height:42px;
+  box-sizing:border-box;
+  margin:0;
+  border-radius:0;
+  font:700 13px/1 Arial,sans-serif;
+}
+body.theme-florida-man .suspect-count{
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  box-sizing:border-box;
+  margin-bottom:0;
+}
+@media(max-width:900px){
+  body.theme-florida-man .suspect-toolbar{grid-template-columns:1fr 1fr;align-items:end}
+  body.theme-florida-man .suspect-count{min-height:42px;border-left:0;padding-left:0}
+}
+@media(max-width:640px){
+  body.theme-florida-man .suspect-toolbar{grid-template-columns:1fr}
+  body.theme-florida-man .suspect-status,
+  body.theme-florida-man .suspect-search,
+  body.theme-florida-man .suspect-sort{width:100%}
+}
+
+/* QA Batch 4: Trophy Case */
+body.theme-florida-man .trophy-museum-hero{isolation:isolate}
+body.theme-florida-man .trophy-museum-hero:before{z-index:0;pointer-events:none}
+body.theme-florida-man .museum-hero-copy,body.theme-florida-man .museum-hero-object{position:relative;z-index:1}
+body.theme-florida-man .museum-hero-object{overflow:hidden}
+body.theme-florida-man .museum-hero-object img{position:relative;z-index:2;object-fit:contain}
+body.theme-florida-man .museum-plaque:after{content:none}
+body.theme-florida-man .champion-wall .panel-heading,body.theme-florida-man .collection-wing .panel-heading,body.theme-florida-man .performance-gallery .panel-heading{min-height:64px;align-items:center}
+body.theme-florida-man .champion-nameplate.dynasty{min-height:148px;grid-column:span 2;border-width:7px;box-shadow:0 10px 20px rgba(0,0,0,.32)}
+body.theme-florida-man .champion-nameplate.dynasty h3{font-size:clamp(1.45rem,2.2vw,2rem)}
+body.theme-florida-man .museum-plaque-grid{position:relative}
+body.theme-florida-man .museum-plaque-grid:before{content:"";position:absolute;left:47px;top:18px;bottom:18px;width:2px;background:rgba(31,40,50,.18);pointer-events:none}
+body.theme-florida-man .museum-plaque{z-index:1}
+@media(max-width:620px){body.theme-florida-man .champion-nameplate.dynasty{grid-column:auto;min-height:124px}body.theme-florida-man .museum-plaque-grid:before{left:34px}}
+
+
+/* QA Batch 4.1 — champion lead row and permanent-collection cleanup */
+body.theme-florida-man .champion-wall-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.theme-florida-man .champion-nameplate.dynasty,
+body.theme-florida-man .dynamic-title-wall .title-count-3,
+body.theme-florida-man .dynamic-title-wall .title-count-4{grid-column:span 1;transform:none}
+body.theme-florida-man .trophy-museum-hero:not(:has(.museum-hero-object)){grid-template-columns:minmax(0,1fr)}
+@media(max-width:620px){body.theme-florida-man .champion-wall-grid{grid-template-columns:1fr}}
+
+/* V0.9 canonical backlog — Batch 1 functional completion */
+body.theme-florida-man .game-day-grid{grid-template-columns:minmax(0,1fr)}
+body.theme-florida-man .rivalry-case-file{margin-bottom:18px;overflow:hidden}
+body.theme-florida-man .rivalry-case-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-bottom:1px solid #9f9686}
+body.theme-florida-man .rivalry-case-grid article{display:grid;align-content:start;gap:8px;min-width:0;padding:18px;border-right:1px dotted #8a8275;background:#fffdf6}
+body.theme-florida-man .rivalry-case-grid article:last-child{border-right:0}
+body.theme-florida-man .rivalry-case-grid article>span{font:900 10px/1 Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#665f54}
+body.theme-florida-man .rivalry-case-grid article>strong{font:900 30px/1 Georgia,serif;color:var(--fm-blue)}
+body.theme-florida-man .rivalry-case-grid article>small{font:12px/1.45 Georgia,serif;color:#39352f}
+body.theme-florida-man .series-status{margin:0;padding:16px 20px;background:#eee5cf;font:15px/1.5 Georgia,serif}
+body.theme-florida-man .series-status b{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:900px){body.theme-florida-man .rivalry-case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body.theme-florida-man .rivalry-case-grid article:nth-child(2){border-right:0}body.theme-florida-man .rivalry-case-grid article:nth-child(-n+2){border-bottom:1px dotted #8a8275}}
+@media(max-width:540px){body.theme-florida-man .rivalry-case-grid{grid-template-columns:1fr}body.theme-florida-man .rivalry-case-grid article{border-right:0;border-bottom:1px dotted #8a8275}body.theme-florida-man .rivalry-case-grid article:last-child{border-bottom:0}}
+
+/* ===== V0.9 Batch 2 — Commissioner's Office full-width government record ===== */
+body.theme-florida-man .commissioner-office-v2{display:grid;gap:18px;width:100%}
+body.theme-florida-man .commissioner-dossier{grid-template-columns:minmax(0,1fr) 190px;align-items:stretch;position:relative;overflow:hidden;background:linear-gradient(135deg,#fffaf0 0 73%,#e7dcc2 73%);border:2px solid var(--fm-black);border-top:10px solid var(--lol-blue-dark);box-shadow:6px 7px 0 rgba(31,40,50,.16)}
+body.theme-florida-man .commissioner-dossier:after{content:"OFFICIAL LEAGUE BUSINESS";position:absolute;right:205px;bottom:12px;font:900 9px/1 Arial,sans-serif;letter-spacing:.19em;color:rgba(25,36,44,.35)}
+body.theme-florida-man .commissioner-hero-copy{padding:28px 30px}
+body.theme-florida-man .commissioner-hero-copy h2{max-width:820px;margin:.2rem 0 .7rem;font:900 clamp(2.15rem,5vw,4.6rem)/.9 Georgia,serif;letter-spacing:-.045em}
+body.theme-florida-man .commissioner-hero-copy>p:last-of-type{max-width:850px;font-size:1rem;line-height:1.55}
+body.theme-florida-man .commissioner-hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;padding-top:14px;border-top:1px solid #786e5e;font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+body.theme-florida-man .commissioner-final-seal{margin:20px;min-height:190px;padding:15px;border:4px double var(--lol-blue-dark);border-radius:50%;background:#fffaf0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(1.5deg);box-shadow:inset 0 0 0 5px #fffaf0,inset 0 0 0 7px var(--lol-orange),0 3px 0 rgba(0,0,0,.14);color:var(--lol-blue-dark)}
+body.theme-florida-man .commissioner-final-seal img{width:82px;height:82px;border-radius:50%;object-fit:cover;border:2px solid var(--lol-blue-dark);margin-bottom:7px}
+body.theme-florida-man .commissioner-final-seal span{font:900 10px/1.1 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+body.theme-florida-man .commissioner-final-seal small{max-width:120px;margin-top:5px;font:700 8px/1.2 Arial,sans-serif;text-transform:uppercase}
+body.theme-florida-man .commissioner-workflow{margin:0}
+body.theme-florida-man .commissioner-module-stack{display:grid;gap:18px}
+body.theme-florida-man .commissioner-module-stack .office-step{position:relative;margin:0;overflow:hidden;border-left:8px solid var(--lol-blue-dark)}
+body.theme-florida-man .commissioner-module-stack .office-step:nth-child(4),body.theme-florida-man .commissioner-module-stack .office-step:nth-child(5),body.theme-florida-man .commissioner-module-stack .office-step:nth-child(6){border-left-color:var(--lol-orange)}
+body.theme-florida-man .commissioner-module-stack .office-step:nth-child(7){border-left-color:#28744b}
+body.theme-florida-man .office-step-number{position:absolute;right:16px;top:8px;z-index:2;font:900 42px/1 Georgia,serif;color:rgba(18,47,64,.09);pointer-events:none}
+body.theme-florida-man .office-module:before{display:none}
+body.theme-florida-man .office-module-body{padding:2px 18px 18px}
+body.theme-florida-man .office-form-wide{grid-template-columns:repeat(4,minmax(0,1fr));padding:18px;border:0;border-radius:0;background:transparent}
+body.theme-florida-man .office-form-wide label{display:grid;gap:6px;min-width:0;font:900 10px/1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+body.theme-florida-man .office-form-wide label span{min-height:10px}
+body.theme-florida-man .office-form-wide .office-field-span{grid-column:span 2}
+body.theme-florida-man .office-form-wide button{grid-column:1/-1;justify-self:start;min-width:250px}
+body.theme-florida-man .audit-ledger .audit-entries{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px}
+body.theme-florida-man .audit-ledger .audit-entries article{border:1px solid #afa48f;border-left:5px solid var(--lol-orange);background:rgba(255,255,255,.3)}
+body.theme-florida-man .source-custody ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;padding:18px;list-style:none;counter-reset:custody}
+body.theme-florida-man .source-custody li{counter-increment:custody;position:relative;padding:14px 14px 14px 45px;border-right:1px dotted #807767}
+body.theme-florida-man .source-custody li:last-child{border-right:0}
+body.theme-florida-man .source-custody li:before{content:counter(custody);position:absolute;left:8px;top:10px;width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:var(--lol-blue-dark);color:#fff;font:900 12px/1 Arial,sans-serif}
+body.theme-florida-man .source-custody li b,body.theme-florida-man .source-custody li span{display:block}
+body.theme-florida-man .source-custody li span{margin-top:5px;font-size:12px;color:#645d52}
+body.theme-florida-man .office-publication-body{display:grid;grid-template-columns:minmax(260px,.7fr) minmax(320px,1fr);gap:18px;padding:18px;align-items:start}
+body.theme-florida-man .office-publication-body .office-warning{margin:0}
+body.theme-florida-man .office-publication-body .office-buttons{padding:0;align-self:center}
+body.theme-florida-man .office-publication-body>.office-help{grid-column:2;margin:0}
+@media(max-width:900px){body.theme-florida-man .commissioner-dossier{grid-template-columns:1fr 160px}.theme-florida-man .commissioner-final-seal{min-height:160px;margin:14px}.theme-florida-man .office-form-wide{grid-template-columns:repeat(2,minmax(0,1fr))}.theme-florida-man .source-custody ol{grid-template-columns:repeat(2,1fr)}.theme-florida-man .source-custody li:nth-child(2){border-right:0}.theme-florida-man .source-custody li:nth-child(-n+2){border-bottom:1px dotted #807767}.theme-florida-man .office-publication-body{grid-template-columns:1fr}.theme-florida-man .office-publication-body>.office-help{grid-column:auto}}
+@media(max-width:650px){body.theme-florida-man .commissioner-dossier{grid-template-columns:1fr;background:#fffaf0}.theme-florida-man .commissioner-dossier:after{display:none}.theme-florida-man .commissioner-hero-copy{padding:20px 16px}.theme-florida-man .commissioner-final-seal{width:150px;min-height:150px;margin:0 16px 20px;border-radius:50%;justify-self:center}.theme-florida-man .commissioner-final-seal img{width:60px;height:60px}.theme-florida-man .office-form-wide{grid-template-columns:1fr}.theme-florida-man .office-form-wide .office-field-span{grid-column:auto}.theme-florida-man .office-form-wide button{min-width:0;width:100%}.theme-florida-man .audit-ledger .audit-entries{grid-template-columns:1fr}.theme-florida-man .source-custody ol{grid-template-columns:1fr}.theme-florida-man .source-custody li,.theme-florida-man .source-custody li:nth-child(2){border-right:0;border-bottom:1px dotted #807767}.theme-florida-man .source-custody li:last-child{border-bottom:0}}
+
+/* Batch 2 closeout: workflow + bulk final game entry */
+body.theme-florida-man .commissioner-file-status{margin:20px;min-height:190px;padding:18px;border:4px double var(--lol-blue-dark);background:#fffaf0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 0 0 5px #fffaf0,inset 0 0 0 7px var(--lol-orange),0 3px 0 rgba(0,0,0,.14);color:var(--lol-blue-dark)}
+body.theme-florida-man .commissioner-file-status span{font:900 10px/1 Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+body.theme-florida-man .commissioner-file-status strong{margin:10px 0;font:900 42px/1 Georgia,serif}
+body.theme-florida-man .commissioner-file-status small{max-width:135px;font:700 9px/1.35 Arial,sans-serif;text-transform:uppercase}
+body.theme-florida-man .bulk-game-form{padding:18px}
+body.theme-florida-man .bulk-game-header{display:grid;grid-template-columns:150px 130px minmax(0,1fr);gap:12px;align-items:end;margin-bottom:16px;padding:15px;border:2px solid var(--fm-black);background:#f8efd9}
+body.theme-florida-man .bulk-game-header label,.theme-florida-man .bulk-game-row label{display:grid;gap:6px;min-width:0;font:900 10px/1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+body.theme-florida-man .bulk-game-header input,.theme-florida-man .bulk-game-row input,.theme-florida-man .bulk-game-row select{width:100%;min-width:0;border:2px solid var(--fm-black);border-radius:6px;padding:10px;background:#fff;color:var(--fm-black);font:700 14px/1.2 Arial,sans-serif}
+body.theme-florida-man .bulk-game-guidance{display:grid;gap:4px;padding:0 6px}
+body.theme-florida-man .bulk-game-guidance strong{font:900 12px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+body.theme-florida-man .bulk-game-guidance span{font:13px/1.4 Georgia,serif;color:#625d53}
+body.theme-florida-man .bulk-game-rows{display:grid;gap:10px}
+body.theme-florida-man .bulk-game-row{display:grid;grid-template-columns:minmax(150px,1.4fr) 115px 42px minmax(150px,1.4fr) 115px 150px 42px;gap:10px;align-items:end;padding:13px;border:1px solid #938a7a;background:#fffaf0;box-shadow:2px 3px 0 rgba(31,40,50,.1)}
+body.theme-florida-man .bulk-game-vs{align-self:center;padding-top:15px;text-align:center;font:900 14px/1 Impact,"Arial Narrow",sans-serif}
+body.theme-florida-man .remove-bulk-game{height:42px;border:2px solid #9c3327;border-radius:6px;background:#fff;color:#9c3327;font:900 22px/1 Arial,sans-serif;cursor:pointer}
+body.theme-florida-man .bulk-game-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+body.theme-florida-man .bulk-game-actions button{border:2px solid var(--fm-black);border-radius:7px;padding:11px 16px;background:var(--lol-orange);color:var(--fm-black);font-weight:900;cursor:pointer}
+body.theme-florida-man .bulk-game-actions button.secondary{background:#fffaf0}
+@media(max-width:1050px){body.theme-florida-man .bulk-game-row{grid-template-columns:minmax(160px,1fr) 110px 36px minmax(160px,1fr) 110px}.theme-florida-man .bulk-game-row label:nth-of-type(5){grid-column:1/3}.theme-florida-man .remove-bulk-game{grid-column:5}}
+@media(max-width:700px){body.theme-florida-man .commissioner-file-status{min-height:135px;margin:0 16px 20px}.theme-florida-man .bulk-game-header{grid-template-columns:1fr 1fr}.theme-florida-man .bulk-game-guidance{grid-column:1/-1}.theme-florida-man .bulk-game-row{grid-template-columns:1fr 100px}.theme-florida-man .bulk-game-vs{grid-column:1/-1;padding:0}.theme-florida-man .bulk-game-row label:nth-of-type(5){grid-column:1/-1}.theme-florida-man .remove-bulk-game{grid-column:2;grid-row:4}.theme-florida-man .bulk-game-actions{display:grid}.theme-florida-man .bulk-game-actions button{width:100%}}
+
+/* Batch 3A UI refinements */
+body.theme-florida-man .history-year-outcomes{align-self:center;display:grid;gap:12px;margin:16px}
+body.theme-florida-man .history-year-outcomes .history-year-stamp{margin:0;min-width:180px}
+body.theme-florida-man .history-year-outcomes .sacko-stamp{border-color:var(--fm-orange,#c55422);color:var(--fm-orange,#c55422);transform:rotate(2deg)}
+body.theme-florida-man .record-list-heading h2{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1}
+body.theme-florida-man .almanac-heading{background:var(--fm-black,#071e2c);color:#fff;padding:14px 16px;border-bottom:4px solid var(--fm-orange,#c55422)}
+body.theme-florida-man .almanac-heading h2{color:#fff;margin:0}
+body.theme-florida-man .record-almanac-filters{display:grid;grid-template-columns:minmax(220px,1fr) minmax(180px,280px) auto;gap:12px;align-items:end;padding:14px 16px;background:#eee5d0;border-bottom:2px solid #837b6d}
+body.theme-florida-man .record-almanac-filters label{display:grid;gap:5px;font:900 .68rem/1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+body.theme-florida-man .record-almanac-filters input,body.theme-florida-man .record-almanac-filters select{min-height:42px;border:2px solid var(--fm-black,#071e2c);background:#fffdf5;padding:8px 10px;font:700 .9rem Arial,sans-serif}
+body.theme-florida-man .record-almanac-filters button{min-height:42px;border:2px solid var(--fm-black,#071e2c);background:var(--fm-blue,#234b65);color:#fff;padding:8px 14px;font-weight:900;text-transform:uppercase}
+body.theme-florida-man .keeper-rating.good,body.theme-florida-man .keeper-rating-strip .good{background:var(--fm-blue,#234b65);color:#fff}
+body.theme-florida-man .keeper-rating.neutral,body.theme-florida-man .keeper-rating-strip .neutral{background:#d5d1c6;color:#071e2c}
+body.theme-florida-man .keeper-rating.bad,body.theme-florida-man .keeper-rating-strip .bad{background:var(--fm-orange,#ef7b2d);color:#fff}
+body.theme-florida-man .rivalry-desk-heading h2,body.theme-florida-man .rivalry-desk-heading span,body.theme-florida-man .series-summary strong,body.theme-florida-man .series-summary span,body.theme-florida-man .series-summary small{font-family:Arial,sans-serif}
+body.theme-florida-man .series-summary strong{font-size:2.1rem;line-height:1;font-weight:900}
+body.theme-florida-man .series-summary span{font-size:.9rem;font-weight:900}
+body.theme-florida-man .series-summary small{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+body.theme-florida-man .matchup-matrix th .active-owner,body.theme-florida-man .matchup-matrix th .former-owner{display:block;padding:8px 7px;border:1px solid rgba(0,0,0,.25)}
+body.theme-florida-man .matchup-matrix th .active-owner{background:var(--fm-blue,#234b65);color:#fff}
+body.theme-florida-man .matchup-matrix th .active-owner a{color:#fff}
+body.theme-florida-man .matchup-matrix th .former-owner{background:#d5d1c6;color:#071e2c}
+body.theme-florida-man .matchup-matrix th .former-owner a{color:#071e2c}
+@media(max-width:1000px){body.theme-florida-man .history-year-outcomes{grid-column:2;justify-self:start;margin-top:0}}
+@media(max-width:700px){body.theme-florida-man .history-year-outcomes{grid-column:1;margin:0 18px 18px;width:calc(100% - 36px)}body.theme-florida-man .record-almanac-filters{grid-template-columns:1fr}}
+
+/* Batch 3A revision — sign-off corrections */
+body.theme-florida-man .history-year-stamp small:empty{display:none}
+body.theme-florida-man .record-almanac .panel-heading{background:var(--fm-black,#071e2c);color:#fff;border-bottom:4px solid var(--fm-orange,#c55422)}
+body.theme-florida-man .record-almanac .panel-heading h2,
+body.theme-florida-man .record-almanac .panel-heading span{color:#fff}
+body.theme-florida-man .record-almanac thead th{background:var(--fm-blue,#173f59);color:#fff}
+body.theme-florida-man .record-almanac thead button{width:100%;border:0;background:transparent;color:#fff;padding:0;text-align:left;font:inherit;text-transform:inherit;letter-spacing:inherit;cursor:pointer}
+body.theme-florida-man .record-almanac thead button:hover,
+body.theme-florida-man .record-almanac thead button:focus{text-decoration:underline;text-underline-offset:3px}
+body.theme-florida-man .keeper-rating-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+body.theme-florida-man .keeper-rating-strip span{min-height:150px;display:grid;place-content:center;gap:10px;border:4px solid var(--fm-black,#071e2c);box-shadow:7px 8px 0 rgba(7,30,44,.16);padding:20px;text-align:center;font:900 1rem/1 Arial,sans-serif;letter-spacing:.09em}
+body.theme-florida-man .keeper-rating-strip span b{display:block;font:900 clamp(2.8rem,6vw,4.5rem)/.9 Impact,"Arial Narrow",sans-serif;letter-spacing:0}
+body.theme-florida-man .series-summary strong{font-size:1.35rem;line-height:1.1}
+body.theme-florida-man .series-summary span{font-size:.82rem}
+body.theme-florida-man .matchup-matrix th.active-owner{background:var(--fm-blue,#234b65);color:#fff}
+body.theme-florida-man .matchup-matrix th.active-owner a{color:#fff}
+body.theme-florida-man .matchup-matrix th.former-owner{background:#d5d1c6;color:#071e2c}
+body.theme-florida-man .matchup-matrix th.former-owner a{color:#071e2c}
+@media(max-width:700px){body.theme-florida-man .keeper-rating-strip{grid-template-columns:1fr}body.theme-florida-man .keeper-rating-strip span{min-height:105px}}
+
+/* Batch 3A final fixes — shared sortable icons and rivalry owner status toggle */
+body.theme-florida-man .record-almanac thead th.record-sort-th{padding:0}
+body.theme-florida-man .record-almanac thead th.record-sort-th button{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;text-decoration:none}
+body.theme-florida-man .record-almanac thead th.record-sort-th button:hover,
+body.theme-florida-man .record-almanac thead th.record-sort-th button:focus-visible{background:rgba(255,255,255,.14);outline:none;text-decoration:none}
+body.theme-florida-man .record-sort-icon{display:inline-grid;place-items:center;min-width:14px;font-size:10px;line-height:1;opacity:.85}
+body.theme-florida-man .record-sort-th[aria-sort="ascending"],
+body.theme-florida-man .record-sort-th[aria-sort="descending"]{background:var(--fm-blue,#173f59)}
+body.theme-florida-man .rivalry-grid-heading{align-items:center;gap:16px}
+body.theme-florida-man .rivalry-owner-toggle{margin-left:auto;flex:0 0 auto}
+body.theme-florida-man .matchup-matrix th.active-owner{background:var(--fm-blue,#234b65)!important;color:#fff!important}
+body.theme-florida-man .matchup-matrix th.active-owner a{color:#fff!important}
+body.theme-florida-man .matchup-matrix th.former-owner{background:#d5d1c6!important;color:#071e2c!important}
+body.theme-florida-man .matchup-matrix th.former-owner a{color:#071e2c!important}
+body.theme-florida-man .matchup-matrix th.active-owner,
+body.theme-florida-man .matchup-matrix th.former-owner{border:1px solid rgba(0,0,0,.28);padding:9px 8px}
+body.theme-florida-man .matchup-matrix .grid-corner{background:var(--fm-black,#071e2c);color:#fff}
+@media(max-width:700px){body.theme-florida-man .rivalry-grid-heading{align-items:flex-start;flex-direction:column}.theme-florida-man .rivalry-owner-toggle{margin-left:0;width:100%}.theme-florida-man .rivalry-owner-toggle button{flex:1}}
+
+/* Batch 3A final correction — rivalry status mirrors Suspects logic */
+body.theme-florida-man .matchup-matrix thead th.active-owner,
+body.theme-florida-man .matchup-matrix tbody th.active-owner{
+  background:var(--fm-blue,#234b65)!important;
+  color:#fff!important;
+}
+body.theme-florida-man .matchup-matrix thead th.active-owner a,
+body.theme-florida-man .matchup-matrix tbody th.active-owner a{color:#fff!important}
+body.theme-florida-man .matchup-matrix thead th.former-owner,
+body.theme-florida-man .matchup-matrix tbody th.former-owner{
+  background:#d5d1c6!important;
+  color:#071e2c!important;
+}
+body.theme-florida-man .matchup-matrix thead th.former-owner a,
+body.theme-florida-man .matchup-matrix tbody th.former-owner a{color:#071e2c!important}

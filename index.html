@@ -3,37 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta id="siteDescription" name="description" content="Vandelay Industries Fantasy Football Division — official league archive.">
-  <title>Vandelay Industries | Fantasy Football Division</title>
+  <meta id="siteDescription" name="description" content="League of Losers — official fantasy football historical archive.">
+  <title>League of Losers | Historical Archive</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to league content</a>
   <div class="utility-strip">
     <div class="utility-inner">
-      <span id="utilityBrand">Vandelay Industries, Inc.</span>
-      <span id="utilityTagline" class="utility-right">Fantasy Football Division · Internal Use</span>
+      <span id="utilityBrand">League of Losers · Est. 2017</span>
+      <span id="utilityTagline" class="utility-right">Official Fantasy Football Historical Archive</span>
     </div>
   </div>
 
   <header class="site-header">
     <div class="header-inner">
-      <a id="wordmarkLink" class="wordmark" href="#overview" aria-label="Vandelay Industries home">
-        <span class="wordmark-v">V</span>
-        <img class="florida-masthead-art" src="assets/branding/league-of-losers-masthead.svg" alt="Florida Man Fantasy Football League — League of Losers">
+      <a id="wordmarkLink" class="wordmark" href="#overview" aria-label="League of Losers home">
+        <img class="archive-logo" src="assets/branding/league-of-losers-logo.jpg" alt="">
         <span class="wordmark-copy">
-          <strong id="brandTitle">Vandelay Industries</strong>
-          <small id="brandSubtitle">Fantasy Football Division</small>
+          <span class="masthead-eyebrow">The Official Historical Archive of</span>
+          <strong id="brandTitle">League of Losers</strong>
+          <small id="brandSubtitle">Fantasy Football · Established 2017</small>
         </span>
       </a>
 
-      <div class="header-controls">
+      <div class="header-controls" aria-label="Archive filters">
         <label>
-          <span id="leagueSelectLabel">League File</span>
+          <span id="leagueSelectLabel">League</span>
           <select id="leagueSelect"></select>
         </label>
         <label>
-          <span id="seasonSelectLabel">Fiscal Season</span>
+          <span id="seasonSelectLabel">Season</span>
           <select id="seasonSelect"></select>
         </label>
       </div>
@@ -41,17 +41,17 @@
 
     <nav class="main-nav" aria-label="Primary navigation">
       <div class="nav-inner">
-        <button class="nav-link active" data-view="overview">League History</button>
-        <button class="nav-link" data-view="standings">Corporate Performance</button>
-        <button class="nav-link" data-view="managers">Personnel Files</button>
-        <button class="nav-link" data-view="history">Executive Hall</button>
-        <button class="nav-link" data-view="records">Records Department</button>
-        <button class="nav-link" data-view="transactions">League Transactions</button>
-        <button class="nav-link" data-view="draft">Draft Center</button>
-        <button class="nav-link" data-view="games">Game Center</button>
-        <button class="nav-link" data-view="awards">Awards Center</button>
+        <button class="nav-link active" data-view="overview">Home</button>
+        <button class="nav-link" data-view="standings">Standings</button>
+        <button class="nav-link" data-view="managers">The Suspects</button>
+        <button class="nav-link" data-view="history">Champions</button>
+        <button class="nav-link" data-view="records">Record Book</button>
+        <button class="nav-link" data-view="transactions">Transactions</button>
+        <button class="nav-link" data-view="draft">Draft Board</button>
+        <button class="nav-link" data-view="games">Game Day</button>
+        <button class="nav-link" data-view="awards">Trophy Case</button>
         <button class="nav-link" data-view="search">Archive Search</button>
-        <button class="nav-link" data-view="office">Data Office</button>
+        <button class="nav-link" data-view="office">Commissioner’s Office</button>
       </div>
     </nav>
   </header>
@@ -59,19 +59,33 @@
   <main class="page-shell">
     <div class="page-heading">
       <div>
-        <p id="pageKicker" class="kicker">Official corporate archive</p>
-        <h1 id="pageTitle">League History</h1>
+        <p id="pageKicker" class="kicker">Official league archive</p>
+        <h1 id="pageTitle">Welcome to the Swamp</h1>
       </div>
-      <button id="shareButton" class="office-button">Copy File Link</button>
+      <button id="shareButton" class="office-button">Copy Page Link</button>
     </div>
-    <div class="florida-page-decor" aria-hidden="true"><img class="florida-palm florida-palm-left" src="assets/florida/palm.svg" alt=""><img class="florida-palm florida-palm-right" src="assets/florida/palm.svg" alt=""><span class="florida-stamp stamp-one">PUBLIC RECORD</span><span class="florida-stamp stamp-two">QUESTIONABLE DECISIONS</span></div>
     <section id="content" class="content" tabindex="-1" aria-live="polite"></section>
   </main>
 
   <footer class="site-footer">
-    <div id="footerBrand">Vandelay Industries · Fantasy Football Division</div>
-    <div id="footerTagline">Importing Championships. Exporting Excuses.</div>
-    <div class="florida-footer-scene" aria-hidden="true"><img src="assets/florida/gator-mascot.svg" alt=""><span>NO SHIRT · NO SHOES · NO GOOD DRAFT PICKS</span></div>
+    <div class="footer-main">
+      <div class="footer-identity">
+        <img src="assets/branding/league-of-losers-logo.jpg" alt="">
+        <div>
+          <strong id="footerBrand">League of Losers · Historical Archive</strong>
+          <span id="footerTagline">Every season. Every owner. Every bad decision.</span>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#overview">Home</a>
+        <a href="#standings">Standings</a>
+        <a href="#managers">Suspects</a>
+        <a href="#records">Records</a>
+        <a href="#awards">Trophy Case</a>
+        <a href="#office">Commissioner</a>
+      </nav>
+    </div>
+    <p class="footer-note">Facts are permanent. Statistics are derived. Trash talk is forever.</p>
   </footer>
 
   <script src="data/league-data.js"></script>
