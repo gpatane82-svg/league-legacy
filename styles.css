@@ -2950,3 +2950,759 @@ body.theme-florida-man .matchup-matrix tbody th.former-owner{
 }
 body.theme-florida-man .matchup-matrix thead th.former-owner a,
 body.theme-florida-man .matchup-matrix tbody th.former-owner a{color:#071e2c!important}
+
+/* SUSPECT DIRECTORY — approved sheriff case-folder composition */
+body.theme-florida-man .wanted-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;padding:8px 0 20px}
+body.theme-florida-man .case-folder-card{position:relative;isolation:isolate;display:grid;grid-template-columns:39% 61%;aspect-ratio:1.62/1;min-height:0;color:#171713;text-decoration:none;border:3px solid #30291f;border-radius:22px 22px 18px 18px;background:#e8d5aa;box-shadow:0 12px 18px rgba(20,13,7,.32),inset 0 0 0 1px rgba(255,255,255,.4);overflow:visible;transition:transform .16s ease,box-shadow .16s ease}
+body.theme-florida-man .case-folder-card:before{content:"";position:absolute;inset:0;z-index:-1;border-radius:18px;background:linear-gradient(100deg,rgba(255,255,255,.16),transparent 35%),radial-gradient(circle at 8% 90%,rgba(99,65,31,.16),transparent 15%),radial-gradient(circle at 93% 10%,rgba(94,63,30,.12),transparent 19%),repeating-linear-gradient(0deg,rgba(81,58,33,.025) 0 1px,transparent 1px 4px);pointer-events:none}
+body.theme-florida-man .folder-tab{position:absolute;z-index:-2;top:-23px;left:3%;width:48%;height:42px;border:3px solid #30291f;border-bottom:0;border-radius:22px 25px 0 0;background:#d1bd91;clip-path:polygon(0 0,84% 0,89% 31%,100% 31%,100% 100%,0 100%)}
+body.theme-florida-man .paperclip{position:absolute;z-index:5;top:-1px;left:21px;width:18px;height:72px;border:5px solid #8f8779;border-radius:12px;transform:rotate(8deg);box-shadow:inset 0 0 0 2px #d8d1c4,1px 2px 2px rgba(0,0,0,.25)}
+body.theme-florida-man .paperclip:after{content:"";position:absolute;inset:7px 3px 7px 3px;border:2px solid #aaa292;border-radius:9px}
+body.theme-florida-man .case-photo-panel{position:relative;margin:72px 0 0 25px;border:4px solid #28241e;background:#ada391;overflow:hidden;min-width:0}
+body.theme-florida-man .height-chart{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-around;padding:8px 0;background:repeating-linear-gradient(to bottom,transparent 0 calc(20% - 2px),rgba(35,31,25,.9) calc(20% - 2px) 20%);font:900 clamp(11px,1vw,18px)/1 Georgia,serif;color:#171713}
+body.theme-florida-man .height-chart span{padding-left:12px;z-index:1}
+body.theme-florida-man .case-character{position:absolute;z-index:2;inset:7% 2% 0;width:96%;height:93%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 4px 2px rgba(0,0,0,.3))}
+body.theme-florida-man .case-details{position:relative;display:flex;flex-direction:column;padding:42px 34px 27px 35px;min-width:0}
+body.theme-florida-man .case-topline{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+body.theme-florida-man .case-number{font:900 clamp(17px,1.55vw,29px)/1 var(--font-display,Impact,sans-serif);letter-spacing:.035em;color:#075674}
+body.theme-florida-man .case-status{padding:7px 12px 5px;border:3px solid #075674;font:900 clamp(10px,.82vw,15px)/1 Arial,sans-serif;letter-spacing:.12em;color:#075674;transform:rotate(-3deg);box-shadow:inset 0 0 0 1px rgba(7,86,116,.3)}
+body.theme-florida-man .case-details h3{margin:20px 0 3px;font:950 clamp(28px,2.6vw,50px)/.92 var(--font-display,Impact,sans-serif);letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.theme-florida-man .case-alias{margin:0;font:800 italic clamp(20px,2vw,38px)/1.05 Georgia,serif;color:#075674}
+body.theme-florida-man .case-rule{display:flex;align-items:center;gap:10px;margin:11px 0 15px;font-size:18px}
+body.theme-florida-man .case-rule:before,body.theme-florida-man .case-rule:after{content:"";height:2px;flex:1;background:#2c2821}
+body.theme-florida-man .case-franchise{display:grid;gap:5px;padding-bottom:15px;border-bottom:2px solid rgba(47,39,28,.55)}
+body.theme-florida-man .case-franchise span,.theme-florida-man .case-stats span{font:900 clamp(9px,.72vw,13px)/1 Arial,sans-serif;letter-spacing:.09em;color:#075674}
+body.theme-florida-man .case-franchise strong{font:950 clamp(19px,1.75vw,34px)/1.05 var(--font-display,Impact,sans-serif);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.theme-florida-man .case-stats{display:grid;grid-template-columns:1.45fr .75fr .95fr;align-items:end;margin-top:15px}
+body.theme-florida-man .case-stats>div{min-height:67px;padding:0 14px;border-left:1px solid rgba(47,39,28,.55);display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+body.theme-florida-man .case-stats>div:first-child{padding-left:0;border-left:0}
+body.theme-florida-man .case-stats strong{font:950 clamp(24px,2.2vw,43px)/.9 var(--font-display,Impact,sans-serif);white-space:nowrap}
+body.theme-florida-man .record-stat{display:grid!important;grid-template-columns:1fr auto;grid-template-rows:auto 1fr}
+body.theme-florida-man .record-stat>span{grid-column:1/-1}.theme-florida-man .record-stat>strong{grid-column:1}.theme-florida-man .record-stat>em{grid-column:2;align-self:end;font:950 clamp(17px,1.5vw,29px)/1 var(--font-display,Impact,sans-serif);font-style:normal}.theme-florida-man .record-stat small{display:block;font:900 9px/1 Arial,sans-serif;color:#075674;letter-spacing:.08em;text-align:center}
+body.theme-florida-man .case-badge{position:absolute;right:7%;top:37%;width:112px;height:112px;border:5px double rgba(75,63,44,.18);border-radius:50%;display:grid;place-items:center;font-size:43px;color:rgba(75,63,44,.18);transform:rotate(-8deg)}
+body.theme-florida-man .case-badge small{position:absolute;font:900 10px/1.1 Arial,sans-serif;text-align:center}
+body.theme-florida-man .case-button{align-self:center;margin-top:auto;min-width:68%;padding:15px 22px 13px;border-radius:5px;background:#123f58;color:#f1dfb5;box-shadow:0 5px 8px rgba(0,0,0,.3),inset 0 0 0 2px rgba(255,255,255,.08);font:950 clamp(13px,1.15vw,22px)/1 var(--font-display,Impact,sans-serif);letter-spacing:.08em;text-align:center}
+body.theme-florida-man .case-button b{margin-right:12px;font-size:1.1em}
+body.theme-florida-man .case-folder-card:hover,body.theme-florida-man .case-folder-card:focus-visible{transform:translateY(-5px) rotate(-.15deg);box-shadow:0 18px 22px rgba(20,13,7,.36);outline:3px solid #075674;outline-offset:4px}
+body.theme-florida-man .case-folder-card.is-archived .case-status{color:#604e37;border-color:#604e37}
+@media(max-width:1100px){body.theme-florida-man .wanted-grid{grid-template-columns:1fr}.theme-florida-man .case-folder-card{max-width:920px;width:100%;justify-self:center}.theme-florida-man .case-details h3{font-size:clamp(31px,5vw,48px)}}
+@media(max-width:650px){body.theme-florida-man .case-folder-card{grid-template-columns:38% 62%;aspect-ratio:1.25/1;border-radius:14px}.theme-florida-man .case-photo-panel{margin:54px 0 0 14px}.theme-florida-man .case-details{padding:25px 16px 16px}.theme-florida-man .case-details h3{margin-top:12px;font-size:24px}.theme-florida-man .case-alias{font-size:18px}.theme-florida-man .case-franchise strong{font-size:17px}.theme-florida-man .case-stats{grid-template-columns:1fr 1fr}.theme-florida-man .case-stats .record-stat{grid-column:1/-1}.theme-florida-man .case-stats strong{font-size:23px}.theme-florida-man .case-badge{display:none}.theme-florida-man .case-button{min-width:90%;padding:11px 8px;font-size:12px}.theme-florida-man .paperclip{left:10px;height:55px}}
+
+/* SUSPECT DIRECTORY v2 — measured from approved 1536×1024 source of truth */
+body.theme-florida-man .wanted-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:30px 28px;
+  align-items:start;
+}
+body.theme-florida-man .case-folder-card{
+  --case-blue:#153f5c;
+  --case-ink:#18140f;
+  position:relative;
+  display:grid;
+  grid-template-columns:40.1% 59.9%;
+  aspect-ratio:1.578/1;
+  border:0;
+  border-radius:0;
+  background:
+    linear-gradient(rgba(229,207,163,.12),rgba(229,207,163,.12)),
+    url('assets/sheriff/textures/paper-grain.png') center/540px repeat;
+  box-shadow:0 10px 17px rgba(15,9,5,.42);
+  clip-path:polygon(1.2% 4.4%,4.6% 1.4%,45.4% 1.5%,48.6% 5.1%,94.7% 5.1%,98.4% 8.2%,99.2% 96.1%,96.4% 98.7%,3.1% 98.7%,.9% 95.9%);
+  overflow:hidden;
+  isolation:isolate;
+}
+body.theme-florida-man .case-folder-card:before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:0;
+  background:
+    radial-gradient(ellipse at 3% 91%,rgba(91,52,24,.24) 0 6%,transparent 14%),
+    radial-gradient(ellipse at 94% 17%,rgba(95,58,29,.12),transparent 18%),
+    radial-gradient(circle at 76% 73%,rgba(91,53,21,.09),transparent 17%),
+    linear-gradient(92deg,rgba(255,255,255,.08),transparent 27%,rgba(94,59,29,.055) 63%,transparent 78%),
+    repeating-linear-gradient(0deg,rgba(60,44,28,.022) 0 1px,transparent 1px 4px);
+  mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-folder-card:after{
+  content:"";position:absolute;inset:0;z-index:20;pointer-events:none;
+  box-shadow:inset 0 0 0 2px rgba(53,39,25,.25),inset 0 0 26px rgba(78,48,22,.18);
+  clip-path:inherit;
+}
+body.theme-florida-man .folder-tab{
+  position:absolute;z-index:-2;left:4.2%;top:.6%;width:44.8%;height:8.3%;
+  border:0;border-radius:0;background:rgba(187,153,99,.42);
+  clip-path:polygon(0 0,88% 0,94% 47%,100% 47%,100% 100%,0 100%);
+}
+body.theme-florida-man .case-paperclip{
+  position:absolute;z-index:30;left:2.6%;top:4.8%;width:6.2%;height:22%;object-fit:contain;
+  transform:rotate(5deg);filter:drop-shadow(2px 3px 2px rgba(0,0,0,.38));
+}
+body.theme-florida-man .case-number{
+  position:absolute;z-index:12;left:12.9%;top:10.2%;
+  font:900 clamp(18px,1.65vw,31px)/1 var(--font-display,Impact,sans-serif);
+  letter-spacing:.055em;color:var(--case-blue);text-transform:uppercase;
+  filter:url("#none");opacity:.95;
+}
+body.theme-florida-man .case-status-stamp{
+  position:absolute;z-index:12;right:3.4%;top:9.1%;width:17.6%;height:auto;
+  transform:rotate(4deg);opacity:.92;mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-photo-panel{
+  position:relative;z-index:3;margin:20.2% 0 17.2% 5.1%;
+  border:4px solid rgba(28,24,19,.95);
+  border-radius:1.8% 1.8% 0 0;
+  background:#918b7d url('assets/sheriff/mugshot/height-chart.svg') center/100% 100% no-repeat;
+  overflow:hidden;box-shadow:inset 0 0 22px rgba(0,0,0,.28);
+}
+body.theme-florida-man .case-character{
+  position:absolute;z-index:2;inset:4.5% 0 0;width:100%;height:96%;
+  object-fit:contain;object-position:center bottom;filter:drop-shadow(0 4px 2px rgba(0,0,0,.28));
+}
+body.theme-florida-man .case-details{
+  position:relative;z-index:4;display:flex;flex-direction:column;
+  padding:20.3% 6.1% 8.2% 6.2%;min-width:0;
+}
+body.theme-florida-man .case-details h3{
+  margin:0 0 3.1%;font:950 clamp(25px,2.45vw,47px)/.92 var(--font-display,Impact,sans-serif);
+  letter-spacing:.022em;color:var(--case-ink);text-transform:uppercase;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+body.theme-florida-man .case-alias{
+  margin:0;font:800 italic clamp(17px,1.8vw,34px)/1.02 Georgia,serif;color:var(--case-blue);
+}
+body.theme-florida-man .case-rule{display:flex;align-items:center;gap:10px;margin:3.6% 0 6%;font-size:clamp(15px,1.4vw,25px)}
+body.theme-florida-man .case-rule:before,body.theme-florida-man .case-rule:after{content:"";height:2px;flex:1;background:rgba(29,24,18,.85)}
+body.theme-florida-man .case-franchise{display:grid;gap:3.5%;padding-bottom:6.6%;border-bottom:2px solid rgba(47,39,28,.55)}
+body.theme-florida-man .case-franchise span,.theme-florida-man .case-stats span{
+  font:900 clamp(9px,.72vw,14px)/1 var(--font-label,Georgia,serif);letter-spacing:.075em;color:var(--case-blue)
+}
+body.theme-florida-man .case-franchise strong{
+  margin-top:2%;font:950 clamp(19px,1.82vw,35px)/1 var(--font-display,Impact,sans-serif);
+  text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+body.theme-florida-man .case-stats{
+  display:grid;grid-template-columns:1.54fr .72fr .93fr;align-items:stretch;margin-top:5.4%;
+}
+body.theme-florida-man .case-stats>div{min-height:0;padding:0 8.5%;border-left:1.5px solid rgba(47,39,28,.58);display:flex;flex-direction:column;justify-content:flex-start;gap:10%}
+body.theme-florida-man .case-stats>div:first-child{padding-left:0;border-left:0}
+body.theme-florida-man .record-stat{display:flex!important}
+body.theme-florida-man .record-values{display:flex;align-items:flex-end;gap:6%;margin-top:auto}
+body.theme-florida-man .record-values strong{font:950 clamp(26px,2.35vw,45px)/.86 var(--font-display,Impact,sans-serif);white-space:nowrap}
+body.theme-florida-man .record-values em{padding-left:6%;border-left:1.5px solid rgba(47,39,28,.58);font:950 clamp(16px,1.45vw,28px)/.9 var(--font-display,Impact,sans-serif);font-style:normal;white-space:nowrap}
+body.theme-florida-man .record-values small{display:block;margin-top:5px;font:900 clamp(7px,.55vw,10px)/1 var(--font-label,Arial,sans-serif);letter-spacing:.08em;color:var(--case-blue);text-align:center}
+body.theme-florida-man .icon-stat>div{display:flex;align-items:center;gap:10%;margin-top:auto}
+body.theme-florida-man .icon-stat svg{width:clamp(24px,2.05vw,39px);height:auto;fill:var(--case-ink);flex:none}
+body.theme-florida-man .icon-stat strong{font:950 clamp(26px,2.15vw,42px)/.86 var(--font-display,Impact,sans-serif)}
+body.theme-florida-man .case-badge{
+  position:absolute;z-index:-1;right:3.2%;top:22.3%;width:32%;height:auto;border:0;border-radius:0;
+  opacity:.17;transform:rotate(-8deg);mix-blend-mode:multiply;filter:sepia(1) saturate(.35);
+}
+body.theme-florida-man .case-button{
+  display:flex;align-items:center;justify-content:center;gap:7%;align-self:center;
+  width:76%;min-width:0;margin-top:auto;padding:4.4% 5% 3.8%;border:1px solid #0d2e42;border-radius:4px;
+  background:linear-gradient(rgba(13,47,69,.96),rgba(9,37,56,.96)),url('assets/sheriff/textures/paper-grain.png') center/400px;
+  color:#ead7aa;box-shadow:0 5px 8px rgba(0,0,0,.32),inset 0 0 0 1px rgba(255,255,255,.08);
+  font:950 clamp(13px,1.18vw,23px)/1 var(--font-display,Impact,sans-serif);letter-spacing:.075em;text-align:center;
+}
+body.theme-florida-man .case-button svg{width:10%;height:auto;fill:none;stroke:currentColor;stroke-width:2.2}
+body.theme-florida-man .case-folder-card:hover,body.theme-florida-man .case-folder-card:focus-visible{transform:translateY(-4px);box-shadow:0 15px 22px rgba(20,13,7,.38);outline:3px solid var(--case-blue);outline-offset:4px}
+@media(max-width:1100px){body.theme-florida-man .wanted-grid{grid-template-columns:1fr}.theme-florida-man .case-folder-card{max-width:920px;width:100%;justify-self:center}.theme-florida-man .case-details h3{font-size:clamp(31px,5vw,48px)}}
+@media(max-width:650px){body.theme-florida-man .case-folder-card{grid-template-columns:40% 60%;aspect-ratio:1.36/1}.theme-florida-man .case-number{left:13%;top:9%;font-size:16px}.theme-florida-man .case-status-stamp{top:8%;width:20%}.theme-florida-man .case-photo-panel{margin-top:22%;margin-bottom:15%;border-width:3px}.theme-florida-man .case-details{padding:21% 5% 7%}.theme-florida-man .case-details h3{font-size:23px}.theme-florida-man .case-alias{font-size:17px}.theme-florida-man .case-franchise strong{font-size:17px}.theme-florida-man .case-stats{grid-template-columns:1.3fr .8fr}.theme-florida-man .case-stats .icon-stat:last-child{display:none}.theme-florida-man .record-values strong{font-size:25px}.theme-florida-man .case-button{width:88%;font-size:11px}.theme-florida-man .case-paperclip{width:8%;height:20%}}
+
+/* SUSPECT DIRECTORY v3 — component rebuild from approved gold-master proportions */
+body.theme-florida-man .wanted-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:34px 30px;
+  align-items:start;
+}
+body.theme-florida-man .case-folder-card{
+  --case-blue:#173f59;
+  --case-ink:#17130f;
+  position:relative;
+  display:block;
+  width:100%;
+  aspect-ratio:1.582/1;
+  overflow:hidden;
+  isolation:isolate;
+  border:0;
+  border-radius:0;
+  color:var(--case-ink);
+  background:
+    linear-gradient(rgba(220,196,151,.18),rgba(220,196,151,.18)),
+    url('assets/sheriff/textures/poster-paper.png') center/cover no-repeat;
+  clip-path:polygon(1.2% 4.5%,4.4% 1.2%,45.5% 1.2%,48.7% 5%,94.6% 5%,98.1% 8%,99.2% 95.8%,96.7% 98.6%,3.1% 98.7%,.8% 95.7%);
+  box-shadow:0 12px 20px rgba(24,14,7,.44);
+  transform:none;
+}
+body.theme-florida-man .case-folder-card:before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 2% 91%,rgba(82,43,16,.30) 0 7%,transparent 15%),
+    radial-gradient(ellipse at 96% 19%,rgba(95,50,17,.16),transparent 18%),
+    radial-gradient(circle at 69% 76%,rgba(84,47,18,.10),transparent 19%),
+    repeating-linear-gradient(0deg,rgba(55,38,23,.025) 0 1px,transparent 1px 4px);
+  mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-folder-card:after{
+  content:"";position:absolute;inset:0;z-index:40;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(52,35,20,.24),inset 0 0 28px rgba(77,44,18,.18);
+}
+body.theme-florida-man .folder-tab{
+  position:absolute;z-index:1;left:4%;top:.4%;width:44.5%;height:8.1%;
+  background:rgba(160,126,76,.28);
+  clip-path:polygon(0 0,88% 0,94% 45%,100% 45%,100% 100%,0 100%);
+}
+body.theme-florida-man .case-paperclip{
+  position:absolute;z-index:30;left:2.4%;top:4.2%;width:6.3%;height:22%;
+  object-fit:contain;transform:rotate(5deg);
+  filter:sepia(.25) contrast(.92) drop-shadow(2px 3px 2px rgba(0,0,0,.45));
+}
+body.theme-florida-man .case-number{
+  position:absolute;z-index:12;left:12.8%;top:10.5%;
+  font-family:Impact,"Arial Narrow",sans-serif;
+  font-size:clamp(17px,1.55vw,30px);font-weight:900;line-height:1;
+  letter-spacing:.045em;color:var(--case-blue);text-transform:uppercase;
+  opacity:.92;text-shadow:.4px .4px 0 rgba(23,63,89,.25);
+}
+body.theme-florida-man .case-status-stamp{
+  position:absolute;z-index:14;right:3.2%;top:9.1%;width:17.5%;height:auto;
+  transform:rotate(4deg);opacity:.86;mix-blend-mode:multiply;
+  filter:contrast(.82) saturate(.82);
+}
+body.theme-florida-man .case-photo-panel{
+  position:absolute;z-index:3;left:3.2%;top:17%;width:36.8%;height:63.8%;
+  margin:0;border:4px solid rgba(25,21,16,.95);border-radius:1.5%;
+  background:#8e897d url('assets/sheriff/mugshot/height-chart.svg') center/100% 100% no-repeat;
+  overflow:hidden;box-shadow:inset 0 0 19px rgba(0,0,0,.34);
+}
+body.theme-florida-man .case-character{
+  position:absolute;z-index:2;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 73%;
+  filter:drop-shadow(0 4px 2px rgba(0,0,0,.27));
+}
+body.theme-florida-man .case-character-garrett{object-fit:contain;object-position:center bottom;transform:scale(1.05);transform-origin:center bottom}
+body.theme-florida-man .case-character-azn{object-position:center 82%;transform:scale(1.18);transform-origin:center bottom}
+body.theme-florida-man .case-character-matthew{object-position:center 78%}
+body.theme-florida-man .case-character-daniel{object-position:center 80%}
+body.theme-florida-man .case-details{
+  position:absolute;z-index:4;left:42.3%;right:4.1%;top:18.1%;bottom:7.4%;
+  display:block;padding:0;min-width:0;
+}
+body.theme-florida-man .case-details h3{
+  position:absolute;left:0;right:0;top:0;margin:0;
+  color:var(--case-ink);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(25px,2.35vw,45px);font-weight:900;line-height:.94;
+  letter-spacing:.012em;text-shadow:.5px .5px 0 rgba(0,0,0,.15);
+}
+body.theme-florida-man .case-alias{display:none!important}
+body.theme-florida-man .case-rule{
+  position:absolute;left:0;right:0;top:22.5%;display:flex;align-items:center;gap:10px;margin:0;
+  font-size:clamp(13px,1.15vw,22px);color:var(--case-ink);
+}
+body.theme-florida-man .case-rule:before,body.theme-florida-man .case-rule:after{content:"";height:1.5px;flex:1;background:rgba(35,28,20,.82)}
+body.theme-florida-man .case-franchise{
+  position:absolute;left:0;right:0;top:31%;height:24%;display:block;padding:0 0 5.5%;
+  border-bottom:1.5px solid rgba(47,37,26,.55);
+}
+body.theme-florida-man .case-franchise span,body.theme-florida-man .case-stats span{
+  display:block;font-family:Georgia,"Times New Roman",serif;font-size:clamp(8px,.69vw,13px);
+  font-weight:900;line-height:1;letter-spacing:.07em;color:var(--case-blue);text-transform:uppercase;
+}
+body.theme-florida-man .case-franchise strong{
+  display:block;margin-top:4%;font-family:Impact,"Arial Narrow",sans-serif;
+  font-size:clamp(18px,1.62vw,31px);font-weight:900;line-height:1;text-transform:uppercase;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+body.theme-florida-man .case-stats{
+  position:absolute;left:0;right:0;top:60%;height:22%;display:grid;
+  grid-template-columns:1.48fr .72fr .86fr;align-items:stretch;margin:0;
+}
+body.theme-florida-man .case-stats>div{padding:0 8%;border-left:1.5px solid rgba(47,37,26,.55);display:flex;flex-direction:column;gap:0;min-width:0}
+body.theme-florida-man .case-stats>div:first-child{padding-left:0;border-left:0}
+body.theme-florida-man .record-values{display:flex;align-items:flex-end;gap:5%;margin-top:auto;min-width:0}
+body.theme-florida-man .record-values strong{
+  font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(23px,2.05vw,39px);font-weight:900;line-height:.86;white-space:nowrap;
+}
+body.theme-florida-man .record-values em{
+  padding-left:6%;border-left:1.5px solid rgba(47,37,26,.55);
+  font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(13px,1.15vw,22px);font-weight:900;line-height:.9;font-style:normal;white-space:nowrap;
+}
+body.theme-florida-man .record-values small{display:block;margin-top:4px;font:900 clamp(6px,.48vw,9px)/1 Arial,sans-serif;letter-spacing:.08em;color:var(--case-blue);text-align:center}
+body.theme-florida-man .icon-stat>div{display:flex;align-items:flex-end;gap:10%;margin-top:auto}
+body.theme-florida-man .icon-stat svg{width:clamp(20px,1.75vw,33px);height:auto;fill:var(--case-ink);flex:none}
+body.theme-florida-man .icon-stat strong{font-family:Impact,"Arial Narrow",sans-serif;font-size:clamp(23px,1.9vw,36px);font-weight:900;line-height:.86}
+body.theme-florida-man .case-badge{
+  position:absolute;z-index:-1;right:-1%;top:10%;width:31%;height:auto;border:0;
+  opacity:.14;transform:rotate(-7deg);mix-blend-mode:multiply;filter:sepia(1) saturate(.25) contrast(.8);
+}
+body.theme-florida-man .case-button{
+  position:absolute;left:14%;bottom:0;width:72%;height:14%;min-width:0;margin:0;padding:0 5%;
+  display:flex;align-items:center;justify-content:center;gap:7%;
+  border:1px solid #0a2c40;border-radius:4px;
+  background:linear-gradient(rgba(12,48,70,.94),rgba(8,36,54,.97)),url('assets/sheriff/textures/paper-grain.png') center/420px;
+  color:#ead5a6;box-shadow:0 5px 8px rgba(0,0,0,.34),inset 0 0 0 1px rgba(255,255,255,.08);
+  font-family:Georgia,"Times New Roman",serif;font-size:clamp(11px,1.08vw,21px);font-weight:900;line-height:1;letter-spacing:.065em;text-align:center;
+}
+body.theme-florida-man .case-button:before,body.theme-florida-man .case-button:after{content:"";position:absolute;top:50%;width:5px;height:5px;border-radius:50%;background:#19140f;transform:translateY(-50%)}
+body.theme-florida-man .case-button:before{left:4%}body.theme-florida-man .case-button:after{right:4%}
+body.theme-florida-man .case-button svg{width:9%;height:auto;fill:none;stroke:currentColor;stroke-width:2}
+body.theme-florida-man .case-folder-card:hover,body.theme-florida-man .case-folder-card:focus-visible{transform:translateY(-3px);box-shadow:0 16px 24px rgba(20,13,7,.4);outline:3px solid var(--case-blue);outline-offset:4px}
+@media(max-width:1100px){
+  body.theme-florida-man .wanted-grid{grid-template-columns:1fr}
+  body.theme-florida-man .case-folder-card{max-width:920px;justify-self:center}
+  body.theme-florida-man .case-details h3{font-size:clamp(29px,5vw,46px)}
+}
+@media(max-width:650px){
+  body.theme-florida-man .case-folder-card{aspect-ratio:1.42/1}
+  body.theme-florida-man .case-number{font-size:15px}
+  body.theme-florida-man .case-details h3{font-size:22px}
+  body.theme-florida-man .case-franchise strong{font-size:16px}
+  body.theme-florida-man .case-stats{grid-template-columns:1.35fr .72fr}
+  body.theme-florida-man .case-stats .icon-stat:last-child{display:none}
+  body.theme-florida-man .record-values strong{font-size:22px}
+  body.theme-florida-man .case-button{font-size:10px}
+}
+
+/* SUSPECT DIRECTORY v3.1 — approved texture + hardware correction */
+body.theme-florida-man .case-folder-card{
+  background:
+    linear-gradient(rgba(211,186,139,.06),rgba(211,186,139,.06)),
+    url('assets/sheriff/textures/approved-paper-texture.png') center/cover no-repeat;
+}
+body.theme-florida-man .case-folder-card:before{
+  background:
+    radial-gradient(ellipse at 2% 91%,rgba(78,42,17,.34) 0 6.5%,transparent 14.5%),
+    radial-gradient(ellipse at 23% 92%,rgba(92,54,23,.12),transparent 15%),
+    radial-gradient(ellipse at 95% 19%,rgba(91,50,20,.14),transparent 18%),
+    radial-gradient(circle at 68% 76%,rgba(82,47,20,.10),transparent 18%),
+    linear-gradient(92deg,rgba(255,255,255,.055),transparent 22%,rgba(74,46,23,.06) 59%,transparent 81%),
+    repeating-linear-gradient(0deg,rgba(46,31,19,.022) 0 1px,transparent 1px 4px);
+  mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-folder-card:after{
+  box-shadow:
+    inset 0 0 0 1px rgba(50,34,20,.23),
+    inset 0 0 30px rgba(71,39,16,.20),
+    inset 0 -8px 13px rgba(67,38,18,.13);
+}
+body.theme-florida-man .case-paperclip{
+  left:1.65%;top:2.25%;width:8.1%;height:27%;
+  transform:rotate(4deg);
+  filter:drop-shadow(2px 4px 2px rgba(0,0,0,.42));
+}
+body.theme-florida-man .case-status-stamp{
+  right:2.45%;top:7.2%;width:19.5%;
+  transform:rotate(4deg);opacity:.96;mix-blend-mode:multiply;filter:none;
+}
+body.theme-florida-man .case-badge{
+  right:-1.8%;top:8.5%;width:35%;opacity:.48;
+  transform:rotate(-2deg);mix-blend-mode:multiply;filter:none;
+}
+
+
+/* SUSPECT DIRECTORY v4.1 — preserve approved v4 styling; clean texture + stat fit corrections */
+body.theme-florida-man .case-folder-card{
+  background:
+    linear-gradient(rgba(211,186,139,.035),rgba(211,186,139,.035)),
+    url('assets/sheriff/textures/approved-paper-clean.png') center/cover no-repeat;
+}
+body.theme-florida-man .case-stats{
+  grid-template-columns:minmax(0,1.42fr) minmax(82px,.72fr) minmax(105px,1fr);
+  column-gap:0;
+}
+body.theme-florida-man .case-stats>div{
+  padding-left:6%;padding-right:6%;min-width:0;
+}
+body.theme-florida-man .case-stats>div:last-child{
+  padding-left:5%;padding-right:0;
+}
+body.theme-florida-man .case-stats span{
+  font-size:clamp(7px,.61vw,11px);
+  letter-spacing:.045em;
+  white-space:nowrap;
+}
+body.theme-florida-man .record-values{gap:4%;}
+body.theme-florida-man .record-values strong,
+body.theme-florida-man .record-values em,
+body.theme-florida-man .icon-stat strong{
+  font-family:Impact,"Arial Narrow",sans-serif;
+  font-size:clamp(21px,1.78vw,34px);
+  font-weight:900;line-height:.88;
+}
+body.theme-florida-man .record-values em{padding-left:4%;}
+body.theme-florida-man .icon-stat>div{gap:8%;}
+body.theme-florida-man .icon-stat svg{width:clamp(19px,1.55vw,29px);}
+body.theme-florida-man .case-stats>div:last-child span{font-size:clamp(7px,.56vw,10px);}
+@media(max-width:650px){
+  body.theme-florida-man .case-stats{grid-template-columns:1.2fr .72fr .88fr;}
+  body.theme-florida-man .case-stats .icon-stat:last-child{display:flex;}
+  body.theme-florida-man .record-values strong,
+  body.theme-florida-man .record-values em,
+  body.theme-florida-man .icon-stat strong{font-size:19px;}
+  body.theme-florida-man .case-stats span{font-size:6px;}
+}
+
+
+/* SUSPECT DIRECTORY v7 — production asset assembly from approved source */
+body.theme-florida-man .case-folder-card{
+  aspect-ratio:1.685/1;
+  background:#d5bd90 url('assets/sheriff/textures/folder-paper-clean.webp') center/100% 100% no-repeat;
+  clip-path:polygon(1.2% 4.6%,4.2% 1.2%,45.6% 1.2%,48.7% 5%,94.7% 5%,98.2% 8%,99.15% 95.7%,96.7% 98.6%,3.1% 98.7%,.8% 95.7%);
+  box-shadow:0 12px 20px rgba(24,14,7,.42);
+}
+body.theme-florida-man .case-folder-card:before{
+  content:"";position:absolute;inset:0;z-index:38;pointer-events:none;
+  background:url('assets/sheriff/textures/folder-edge-wear-overlay.png') center/100% 100% no-repeat;
+  mix-blend-mode:multiply;opacity:.9;
+}
+body.theme-florida-man .case-folder-card:after{
+  content:"";position:absolute;inset:0;z-index:40;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(52,35,20,.2),inset 0 0 22px rgba(77,44,18,.12);
+}
+body.theme-florida-man .folder-tab{
+  left:4.1%;top:.4%;width:44.4%;height:8.2%;
+  background:rgba(137,100,54,.30);
+  clip-path:polygon(0 0,88% 0,94% 45%,100% 45%,100% 100%,0 100%);
+  mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-paperclip{
+  left:2.1%;top:2.0%;width:7.7%;height:25.5%;object-fit:contain;
+  transform:rotate(3deg);filter:drop-shadow(2px 4px 2px rgba(0,0,0,.42));
+}
+body.theme-florida-man .case-number{left:12.7%;top:10.6%;font-size:clamp(17px,1.42vw,28px);}
+body.theme-florida-man .case-status-stamp{
+  right:3.2%;top:8.2%;width:18.2%;transform:rotate(4deg);
+  opacity:.93;mix-blend-mode:multiply;filter:none;
+}
+body.theme-florida-man .case-photo-panel{
+  left:3.25%;top:17%;width:36.75%;height:63.7%;border-width:3px;
+  box-shadow:inset 0 0 16px rgba(0,0,0,.28);
+}
+body.theme-florida-man .case-details{left:42.5%;right:4.1%;top:18.2%;bottom:7.2%;}
+body.theme-florida-man .case-details h3{font-size:clamp(25px,2.18vw,42px);letter-spacing:.008em;}
+body.theme-florida-man .case-rule{top:22.3%;}
+body.theme-florida-man .case-franchise{top:31%;height:24%;}
+body.theme-florida-man .case-franchise span,body.theme-florida-man .case-stats span{
+  font-size:clamp(8px,.64vw,12px);letter-spacing:.055em;
+}
+body.theme-florida-man .case-franchise strong{font-size:clamp(18px,1.52vw,29px);margin-top:3.6%;}
+body.theme-florida-man .case-stats{
+  top:60%;height:22.5%;
+  grid-template-columns:minmax(0,1.48fr) minmax(72px,.72fr) minmax(100px,.98fr);
+}
+body.theme-florida-man .case-stats>div{padding-left:6%;padding-right:6%;}
+body.theme-florida-man .case-stats>div:first-child{padding-left:0;padding-right:5%;}
+body.theme-florida-man .case-stats>div:last-child{padding-left:5%;padding-right:0;}
+body.theme-florida-man .case-stats>div:last-child span{font-size:clamp(7px,.54vw,10px);letter-spacing:.025em;}
+body.theme-florida-man .record-values{gap:4%;}
+body.theme-florida-man .record-values strong,
+body.theme-florida-man .record-values em,
+body.theme-florida-man .icon-stat strong{
+  font-family:Impact,"Arial Narrow",sans-serif;
+  font-size:clamp(21px,1.7vw,32px);font-weight:900;line-height:.88;
+}
+body.theme-florida-man .record-values em{padding-left:4%;}
+body.theme-florida-man .record-values small{font-size:clamp(6px,.43vw,8px);}
+body.theme-florida-man .icon-stat>div{gap:8%;}
+body.theme-florida-man .icon-stat svg{width:clamp(18px,1.45vw,27px);}
+body.theme-florida-man .case-badge{
+  z-index:-1;right:-.6%;top:9%;width:32%;opacity:.18;
+  transform:rotate(-2deg);mix-blend-mode:multiply;filter:sepia(.75) saturate(.45) contrast(.88);
+}
+body.theme-florida-man .case-button{left:15%;bottom:0;width:70%;height:14%;font-size:clamp(11px,1.02vw,20px);}
+@media(max-width:650px){
+  body.theme-florida-man .case-folder-card{aspect-ratio:1.48/1;}
+  body.theme-florida-man .case-stats{grid-template-columns:1.32fr .68fr .92fr;}
+  body.theme-florida-man .record-values strong,
+  body.theme-florida-man .record-values em,
+  body.theme-florida-man .icon-stat strong{font-size:18px;}
+  body.theme-florida-man .case-stats span{font-size:6px;}
+}
+
+/* SUSPECT DIRECTORY v8 — uniform stat line, matching archived stamp, stronger badge */
+body.theme-florida-man .case-status-stamp{
+  width:18.6%;
+  height:auto;
+  object-fit:contain;
+}
+body.theme-florida-man .case-folder-card.is-archived .case-status-stamp{
+  right:2.8%;
+  top:7.8%;
+  width:19.2%;
+  transform:rotate(4deg);
+  opacity:.94;
+  mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-stats{
+  grid-template-columns:minmax(0,1.5fr) minmax(70px,.72fr) minmax(102px,.98fr);
+  align-items:stretch;
+}
+body.theme-florida-man .case-stats>div{
+  justify-content:space-between;
+}
+body.theme-florida-man .record-values,
+body.theme-florida-man .icon-stat>div{
+  min-height:42px;
+  margin-top:auto;
+  align-items:flex-end;
+}
+body.theme-florida-man .record-values strong,
+body.theme-florida-man .record-values em,
+body.theme-florida-man .icon-stat strong{
+  font-family:Impact,"Arial Narrow",sans-serif;
+  font-size:clamp(20px,1.62vw,31px);
+  font-weight:900;
+  line-height:.86;
+}
+body.theme-florida-man .record-values em{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  padding-left:5%;
+}
+body.theme-florida-man .record-values small{
+  order:-1;
+  margin:0 0 5px;
+  font-size:clamp(6px,.46vw,9px);
+  line-height:1;
+}
+body.theme-florida-man .icon-stat svg{
+  width:clamp(18px,1.45vw,27px);
+  align-self:flex-end;
+}
+body.theme-florida-man .case-badge{
+  opacity:.31;
+  right:-.4%;
+  top:8.5%;
+  width:32.5%;
+  filter:sepia(.45) saturate(.55) contrast(.95);
+}
+@media(max-width:650px){
+  body.theme-florida-man .record-values strong,
+  body.theme-florida-man .record-values em,
+  body.theme-florida-man .icon-stat strong{font-size:18px;}
+  body.theme-florida-man .record-values,
+  body.theme-florida-man .icon-stat>div{min-height:30px;}
+}
+
+/* SUSPECT DIRECTORY v9 — compact manager-only stack and matched archive stamp */
+body.theme-florida-man .case-folder-card.is-archived .case-status-stamp{
+  right:2.8%;
+  top:7.1%;
+  width:18.6%;
+  transform:none;
+  opacity:1;
+  mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-details h3{
+  top:0;
+}
+body.theme-florida-man .case-rule{
+  top:13.5%;
+}
+body.theme-florida-man .case-franchise{
+  top:20.5%;
+  height:27.5%;
+  padding-bottom:5%;
+}
+body.theme-florida-man .case-franchise strong{
+  margin-top:3.2%;
+}
+body.theme-florida-man .case-stats{
+  top:52.5%;
+  height:27%;
+}
+body.theme-florida-man .case-button{
+  bottom:0;
+}
+@media(max-width:650px){
+  body.theme-florida-man .case-rule{top:15%;}
+  body.theme-florida-man .case-franchise{top:23%;height:25%;}
+  body.theme-florida-man .case-stats{top:54%;height:25%;}
+}
+
+/* SUSPECT DIRECTORY v10 — final approved card polish */
+body.theme-florida-man .case-details{
+  top:17.2%;
+  bottom:7.2%;
+}
+body.theme-florida-man .case-details h3{
+  top:0;
+}
+body.theme-florida-man .case-rule{
+  top:13.2%;
+}
+body.theme-florida-man .case-franchise{
+  top:20%;
+  height:26%;
+  padding-bottom:4.5%;
+}
+body.theme-florida-man .case-stats{
+  top:50.8%;
+  height:29%;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:stretch;
+  margin:0;
+}
+body.theme-florida-man .case-stats>.case-stat{
+  min-width:0;
+  padding:0 7%;
+  border-left:1.5px solid rgba(47,39,28,.58);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:8%;
+}
+body.theme-florida-man .case-stats>.case-stat:first-child{
+  border-left:0;
+  padding-left:0;
+}
+body.theme-florida-man .case-stats>.case-stat:last-child{
+  padding-right:0;
+}
+body.theme-florida-man .case-stats .case-stat>span{
+  display:block;
+  min-height:1.2em;
+  font-size:clamp(7px,.54vw,10px);
+  line-height:1.05;
+  letter-spacing:.035em;
+  white-space:nowrap;
+  overflow:visible;
+}
+body.theme-florida-man .case-stat-value{
+  min-height:42px;
+  margin-top:auto;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-start;
+  gap:8%;
+}
+body.theme-florida-man .case-stat-value strong{
+  font-family:Impact,"Arial Narrow",sans-serif;
+  font-size:clamp(20px,1.62vw,31px);
+  font-weight:900;
+  line-height:.86;
+  white-space:nowrap;
+}
+body.theme-florida-man .case-stat-value svg{
+  width:clamp(17px,1.35vw,25px);
+  height:auto;
+  flex:none;
+  fill:var(--case-ink,#17130f);
+}
+body.theme-florida-man .case-stat-win .case-stat-value,
+body.theme-florida-man .case-stat-seasons .case-stat-value,
+body.theme-florida-man .case-stat-titles .case-stat-value{
+  justify-content:center;
+}
+body.theme-florida-man .case-badge{
+  opacity:.34;
+  right:-.4%;
+  top:8.2%;
+  width:32.5%;
+  filter:sepia(.4) saturate(.5) contrast(.94);
+}
+body.theme-florida-man .case-status-stamp,
+body.theme-florida-man .case-folder-card.is-archived .case-status-stamp{
+  right:3.2%;
+  top:8.2%;
+  width:18.6%;
+  transform:rotate(4deg);
+  opacity:.95;
+  mix-blend-mode:multiply;
+}
+@media(max-width:650px){
+  body.theme-florida-man .case-rule{top:14.5%;}
+  body.theme-florida-man .case-franchise{top:22%;height:24%;}
+  body.theme-florida-man .case-stats{top:50.5%;height:29%;grid-template-columns:repeat(4,minmax(0,1fr));}
+  body.theme-florida-man .case-stats>.case-stat{padding-left:4%;padding-right:4%;}
+  body.theme-florida-man .case-stats .case-stat>span{font-size:5.5px;letter-spacing:.01em;}
+  body.theme-florida-man .case-stat-value{min-height:28px;gap:4%;}
+  body.theme-florida-man .case-stat-value strong{font-size:16px;}
+  body.theme-florida-man .case-stat-value svg{width:14px;}
+}
+
+/* SUSPECT DIRECTORY v10.1 — locked status angle and balanced stat headers */
+body.theme-florida-man .case-status-stamp,
+body.theme-florida-man .case-folder-card.is-active .case-status-stamp,
+body.theme-florida-man .case-folder-card.is-archived .case-status-stamp{
+  right:3.2%;
+  top:8.2%;
+  width:18.6%;
+  transform:rotate(4deg);
+  transform-origin:50% 50%;
+  opacity:.95;
+  mix-blend-mode:multiply;
+}
+body.theme-florida-man .case-stats>.case-stat{
+  padding-left:6%;
+  padding-right:6%;
+  align-items:center;
+  text-align:center;
+}
+body.theme-florida-man .case-stats>.case-stat:first-child{
+  padding-left:0;
+  padding-right:6%;
+}
+body.theme-florida-man .case-stats>.case-stat:last-child{
+  padding-left:6%;
+  padding-right:0;
+}
+body.theme-florida-man .case-stats .case-stat>span{
+  width:100%;
+  min-height:1.2em;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  font-size:clamp(7px,.56vw,10.5px);
+  line-height:1;
+  letter-spacing:.025em;
+  white-space:nowrap;
+}
+body.theme-florida-man .case-stat-value,
+body.theme-florida-man .case-stat-record .case-stat-value,
+body.theme-florida-man .case-stat-win .case-stat-value,
+body.theme-florida-man .case-stat-seasons .case-stat-value,
+body.theme-florida-man .case-stat-titles .case-stat-value{
+  width:100%;
+  justify-content:center;
+}
+@media(max-width:650px){
+  body.theme-florida-man .case-stats .case-stat>span{
+    font-size:5.7px;
+    letter-spacing:0;
+  }
+}
+
+/* Portrait full-bleed correction — CSS crop only; source PNGs remain untouched. */
+body.theme-florida-man .case-photo-panel{overflow:hidden;}
+body.theme-florida-man .case-character,
+body.theme-florida-man .case-character-garrett,
+body.theme-florida-man .case-character-azn,
+body.theme-florida-man .case-character-matthew,
+body.theme-florida-man .case-character-daniel{
+  inset:-4%;
+  width:108%;
+  height:108%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center center;
+  transform:none;
+  transform-origin:center center;
+}
+
+/* SUSPECT DIRECTORY v10.4 — crop baked portrait borders on selected active-owner art */
+body.theme-florida-man .case-character-garrett,
+body.theme-florida-man .case-character-jos,
+body.theme-florida-man .case-character-travis,
+body.theme-florida-man .case-character-gabriella,
+body.theme-florida-man .case-character-caleb,
+body.theme-florida-man .case-character-adam{
+  inset:-10%;
+  width:120%;
+  height:120%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center center;
+  transform:none;
+}

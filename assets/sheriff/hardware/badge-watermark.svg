@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+<g fill="none" stroke="#4e422f" stroke-width="8" opacity=".55">
+<path d="M150 13l31 66 72-12-36 63 50 53-73 9-13 73-31-66-66 38 12-73-67-31 66-31-38-66 73 12z"/>
+<circle cx="150" cy="150" r="73"/><circle cx="150" cy="150" r="55"/>
+</g>
+<g fill="#4e422f" opacity=".55" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900">
+<text x="150" y="120" font-size="23">LOLSO</text><text x="150" y="184" font-size="18">FLORIDA</text>
+<path d="M136 165v-35h28v35z"/><path d="M124 165h52v9h-52z"/>
+</g></svg>

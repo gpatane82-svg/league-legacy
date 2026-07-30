@@ -189,7 +189,7 @@ const customPortraitLookup = Object.fromEntries(
 );
 const portraitPath = managerId => {
   const normalizedId = String(managerId || "").toLowerCase();
-  if(currentTheme()==="florida-man") return `assets/portraits/wanted/${slug(normalizedId)}.svg`;
+  if(currentTheme()==="florida-man") return `assets/portraits/suspects/${slug(normalizedId)}.png`;
   return customPortraitLookup[normalizedId] || `assets/portraits/${slug(normalizedId)}.svg`;
 };
 const hallPortraitPath = managerId => customPortraits[managerId] || portraitPath(managerId);
@@ -374,15 +374,43 @@ function floridaManagers(){
     return {m,rank:competitionRank};
   });
   const activeCount=activeIds.size;
+  const aliases={garrett:"The Commissioner",clyde:"The Big Snapper",jos:"Airboat Jos",joe:"Airboat Jos",gabriella:"Lady Flamingo",adam:"Iggy Pop",azn:"The Python",william:"The Rooster",travis:"Lime Slice",connor:"Cafecito",caleb:"Bitey",matthew:"Claw Daddy",daniel:"Palm Daddy",luke:"Slow & Low",matt:"Coco Loco",stephen:"Puff Daddy",brett:"Pinchy",marcus:"Flipper",josh:"Traffic Cone",preston:"Sunburn",michael:"Hammer Time"};
+  const caseNumbers={garrett:"017",clyde:"004",jos:"002",joe:"002",gabriella:"0174",adam:"012",azn:"001",william:"010",travis:"007",connor:"020",caleb:"016",matthew:"003",daniel:"006",luke:"005",matt:"008",stephen:"009",brett:"011",marcus:"014",josh:"013",preston:"015",michael:"018"};
+  const preferredOrder=["garrett","clyde","jos","joe","gabriella","adam","azn","william","travis","connor","caleb","matthew","daniel","luke","matt","stephen","brett","marcus","josh","preston","michael"];
+  if(all && state.ownerSort==="wanted") managers.sort((a,b)=>{
+    const aa=activeIds.has(a.id)?0:1, bb=activeIds.has(b.id)?0:1;
+    if(aa!==bb)return aa-bb;
+    const ai=preferredOrder.indexOf(String(a.id).toLowerCase()), bi=preferredOrder.indexOf(String(b.id).toLowerCase());
+    return (ai<0?999:ai)-(bi<0?999:bi);
+  });
   const card=({m,rank})=>{
     const row=m.seasonRow;
     const titles=championships.filter(x=>loserManagerId(x.winner)===m.id);
-    const sackos=sackoLedger.filter(x=>loserManagerId(x.winner)===m.id);
-    const record=row?`${row.wins}-${row.losses}-${row.ties}`:`${m.wins}-${m.losses}-${m.ties}`;
+    const record=row?`${row.wins}-${row.losses}`:`${m.wins}-${m.losses}`;
     const rate=row?((row.wins+row.losses+row.ties)?(row.wins+row.ties*.5)/(row.wins+row.losses+row.ties):0):m.winPct;
-    const points=row?.pointsFor??m.pointsFor;
     const active=activeIds.has(m.id);
-    return `<a class="wanted-card ${state.ownerSort==='wanted'&&rank===1?'most-wanted':''}" href="${managerHref(m.id)}"><div class="wanted-rank"><span>${state.ownerSort==='wanted'?'MOST WANTED':'FILE ORDER'}</span><strong>#${rank}</strong></div><div class="wanted-photo">${portrait(m.id,m.name,"owner-directory-portrait")}<span class="owner-status ${active?'active':'former'}">${active?'ACTIVE':'ARCHIVED'}</span></div><div class="wanted-copy"><div class="wanted-file">CASE ${esc(m.id)} · ${m.firstSeason}–${m.lastSeason}</div><h3>${esc(m.name)}</h3><p class="wanted-alias">CURRENT FRANCHISE: <b>${esc(currentTeam(m.id))}</b></p><div class="wanted-record"><strong>${record}</strong><span>${pct(rate)} win rate</span></div><div class="wanted-charges"><span><b>${titles.length}</b> Title${titles.length===1?'':'s'}</span><span><b>${sackos.length}</b> Sacko${sackos.length===1?'':'s'}</span><span><b>${fmt.format(points)}</b> PF</span></div><div class="wanted-years">${titles.length?`Champion: ${titles.map(x=>x.year).sort((a,b)=>b-a).join(', ')}`:'No championships on file'}${sackos.length?` · Sacko: ${sackos.map(x=>x.year).sort((a,b)=>b-a).join(', ')}`:''}</div><div class="owner-card-cta">Open full rap sheet <b>→</b></div></div></a>`;
+    const key=String(m.id).toLowerCase();
+    const caseNo=caseNumbers[key]||String(rank).padStart(3,"0");
+    return `<a class="case-folder-card ${active?'is-active':'is-archived'}" href="${managerHref(m.id)}" aria-label="View case file for ${esc(m.name)}">
+      <span class="folder-tab" aria-hidden="true"></span>
+      <img class="case-paperclip" src="assets/sheriff/hardware/paperclip-approved.png" alt="" aria-hidden="true">
+      <div class="case-number">CASE #${caseNo}</div>
+      <img class="case-status-stamp" src="assets/sheriff/hardware/${active?'active-stamp-approved.png':'archived-stamp-approved.png'}" alt="${active?'Active':'Archived'}">
+      <div class="case-photo-panel"><img class="case-character case-character-${slug(key)}" src="${portraitPath(m.id)}" alt="Suspect illustration of ${esc(m.name)}"></div>
+      <div class="case-details">
+        <h3>${esc(m.name)}</h3>
+        <div class="case-rule" aria-hidden="true"><span>★</span></div>
+        <div class="case-franchise"><span>CURRENT FRANCHISE</span><strong>${esc(currentTeam(m.id))}</strong></div>
+        <div class="case-stats">
+          <div class="case-stat case-stat-record"><span>RECORD</span><div class="case-stat-value"><strong>${record}</strong></div></div>
+          <div class="case-stat case-stat-win"><span>WIN %</span><div class="case-stat-value"><strong>${pct(rate)}</strong></div></div>
+          <div class="case-stat case-stat-seasons"><span>SEASONS</span><div class="case-stat-value"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 7h6v8h24V7h6v8h5a5 5 0 0 1 5 5v35a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V20a5 5 0 0 1 5-5h5V7Zm40 22H10v25h44V29ZM16 35h7v7h-7v-7Zm12 0h7v7h-7v-7Zm12 0h7v7h-7v-7ZM16 46h7v7h-7v-7Zm12 0h7v7h-7v-7Zm12 0h7v7h-7v-7Z"/></svg><strong>${m.seasons}</strong></div></div>
+          <div class="case-stat case-stat-titles"><span>CHAMPIONSHIPS</span><div class="case-stat-value"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M19 7h26v7h11v9c0 10-7 18-17 20-1 5-4 8-7 10h11v6H21v-6h11c-4-2-6-5-7-10-10-2-17-10-17-20v-9h11V7Zm0 13h-5v3c0 6 4 11 10 13-3-5-5-10-5-16Zm26 0c0 6-2 11-5 16 6-2 10-7 10-13v-3h-5Z"/></svg><strong>${titles.length}</strong></div></div>
+        </div>
+        <img class="case-badge" src="assets/sheriff/hardware/badge-watermark-approved.png" alt="" aria-hidden="true">
+        <span class="case-button"><svg viewBox="0 0 64 46" aria-hidden="true"><path d="M3 10h20l5 6h33v27H3V10Zm4 5v23h49V21H26l-5-6H7Z"/></svg>VIEW CASE FILE</span>
+      </div>
+    </a>`;
   };
   return `<section class="owner-directory-front"><header class="owner-directory-mast paper-panel"><div><span class="document-code">League of Losers · Public Records Division</span><h2>The Suspects</h2><p>${all?'Permanent owner identities ranked by titles, career wins and production.':`${state.season} personnel ranked by certified season finish.`}</p></div><div class="directory-seal"><strong>${managers.length}</strong><span>FILES<br>DISPLAYED</span></div></header><div class="suspect-toolbar" aria-label="Owner directory controls"><div class="suspect-status"><span>Status</span><div class="suspect-filter-buttons" role="group" aria-label="Owner status filter"><button type="button" data-owner-filter="all" class="${state.ownerFilter==='all'?'active':''}">All Owners</button><button type="button" data-owner-filter="active" class="${state.ownerFilter==='active'?'active':''}">Active Owners</button></div></div><label class="suspect-search"><span>Search files</span><input id="ownerSearch" type="search" value="${esc(state.ownerQuery)}" placeholder="Owner or franchise"></label><label class="suspect-sort"><span>Sort by</span><select id="ownerSort"><option value="wanted" ${state.ownerSort==='wanted'?'selected':''}>Most Wanted</option><option value="name" ${state.ownerSort==='name'?'selected':''}>Owner Name</option><option value="wins" ${state.ownerSort==='wins'?'selected':''}>Wins</option><option value="points" ${state.ownerSort==='points'?'selected':''}>Points For</option><option value="titles" ${state.ownerSort==='titles'?'selected':''}>Titles</option><option value="sackos" ${state.ownerSort==='sackos'?'selected':''}>Sackos</option></select></label><span class="suspect-count">${activeCount} active · ${currentLeague().managers.length} permanent files</span></div><div class="owner-directory-stats"><article><span>Permanent Owners</span><strong>${currentLeague().managers.length}</strong></article><article><span>Currently Active</span><strong>${activeCount}</strong></article><article><span>Certified Titles</span><strong>${championships.length}</strong></article><article><span>Documented Sackos</span><strong>${sackoLedger.length}</strong></article></div><div class="wanted-grid">${ranked.map(card).join('')||'<div class="empty">No owner files match this filter.</div>'}</div></section>`;
 }

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 131" role="img" aria-label="Archived">
+  <defs>
+    <filter id="rough" x="-8%" y="-12%" width="116%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="17" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.7" xChannelSelector="R" yChannelSelector="G" result="distorted"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" seed="9" result="grain"/>
+      <feComposite in="grain" in2="distorted" operator="in" result="grainMask"/>
+      <feColorMatrix in="grainMask" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .22 0" result="fadedGrain"/>
+      <feBlend in="distorted" in2="fadedGrain" mode="screen"/>
+    </filter>
+  </defs>
+  <g transform="rotate(4 133 65.5)" fill="none" stroke="#5d4933" filter="url(#rough)">
+    <rect x="13" y="16" width="240" height="99" rx="2" stroke-width="8"/>
+    <rect x="24" y="27" width="218" height="77" rx="1" stroke-width="4"/>
+    <path d="M18 21l13 2M42 18l10 1M219 18l18 3M18 107l16-2M228 108l15-2" stroke-width="3" opacity=".55"/>
+  </g>
+  <text x="133" y="81" text-anchor="middle" font-family="Impact, Arial Black, Arial, sans-serif" font-size="43" font-weight="900" letter-spacing="3" fill="#5d4933" transform="rotate(4 133 65.5)" filter="url(#rough)">ARCHIVED</text>
+</svg>
