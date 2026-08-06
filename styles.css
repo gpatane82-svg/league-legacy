@@ -7296,3 +7296,163 @@ body.theme-florida-man.view-overview article.lol-lead-story > .lol-lead-deck{
   body.theme-florida-man.view-overview article.lol-lead-story > h2,
   body.theme-florida-man.view-overview article.lol-lead-story > .lol-lead-deck{max-width:100%!important;}
 }
+
+/* ======================================================================
+   GLOBAL MASTHEAD ALIGNMENT — Home is the approved source of truth
+   Applies the approved Home masthead and navigation to every view while
+   leaving all page-body backgrounds and page-specific content untouched.
+   ====================================================================== */
+body.theme-florida-man .utility-strip{
+  height:40px!important;
+  background:#073a58!important;
+  border-bottom:2px solid #ee5b17!important;
+}
+body.theme-florida-man .utility-inner{
+  max-width:1500px!important;
+  height:40px!important;
+  padding:0 26px!important;
+  font:700 13px/40px Arial,sans-serif!important;
+  letter-spacing:.1em!important;
+}
+body.theme-florida-man .site-header{
+  position:relative!important;
+  min-height:0!important;
+  background-color:rgba(242,229,197,.90)!important;
+  background-image:
+    linear-gradient(rgba(244,233,205,.58),rgba(244,233,205,.58)),
+    url('assets/theme-v2/florida-archive-map-palms-v3.webp')!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-position:center,center 18%!important;
+  background-size:cover,2150px auto!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+body.theme-florida-man .site-header::after{
+  display:block!important;
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background:url('assets/theme-v2/sheriff-badge-watermark.png') 66% 48%/185px auto no-repeat!important;
+  opacity:.17!important;
+}
+body.theme-florida-man .header-inner{
+  max-width:1500px!important;
+  min-height:194px!important;
+  padding:16px 26px 12px!important;
+  align-items:center!important;
+  position:relative!important;
+  z-index:1!important;
+}
+body.theme-florida-man .wordmark{
+  gap:26px!important;
+  align-items:center!important;
+}
+body.theme-florida-man .archive-logo{
+  width:154px!important;
+  height:154px!important;
+  border:3px solid #171817!important;
+  border-radius:0!important;
+  box-shadow:6px 6px 0 rgba(7,58,88,.55),0 0 0 4px #ee5b17!important;
+}
+body.theme-florida-man .wordmark-copy{
+  gap:8px!important;
+  align-items:flex-start!important;
+  max-width:780px!important;
+}
+body.theme-florida-man .masthead-eyebrow{
+  color:#873c20!important;
+  font:800 14px/1 Arial,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+  margin-bottom:0!important;
+}
+body.theme-florida-man .wordmark-copy strong{
+  display:block!important;
+  color:#0b4f73!important;
+  font-family:"Bebas Neue","PT Sans Narrow","Liberation Sans Narrow",sans-serif!important;
+  font-size:78px!important;
+  font-weight:700!important;
+  line-height:.88!important;
+  letter-spacing:.015em!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important;
+  text-shadow:2px 2px 0 rgba(255,255,255,.55)!important;
+}
+body.theme-florida-man .wordmark-copy small{
+  color:#a24420!important;
+  font:800 15px/1 Arial,sans-serif!important;
+  letter-spacing:.19em!important;
+  text-transform:uppercase!important;
+}
+body.theme-florida-man .header-controls{
+  width:420px!important;
+  padding:18px!important;
+  background:rgba(245,234,205,.88)!important;
+  border:1px solid rgba(76,63,43,.45)!important;
+  box-shadow:4px 5px 0 rgba(55,47,33,.14)!important;
+  gap:16px!important;
+}
+body.theme-florida-man .header-controls label{
+  font:800 10px/1 Arial,sans-serif!important;
+  letter-spacing:.13em!important;
+  color:#605a4b!important;
+}
+body.theme-florida-man .header-controls select{
+  min-width:180px!important;
+  height:33px!important;
+  border:1px solid #5c564a!important;
+  box-shadow:none!important;
+  background:#f9f4e7!important;
+  font-size:12px!important;
+}
+body.theme-florida-man .main-nav{
+  position:relative!important;
+  z-index:2!important;
+  background:#073a58!important;
+  border:0!important;
+  border-bottom:2px solid rgba(0,0,0,.25)!important;
+  box-shadow:0 5px 10px rgba(0,0,0,.18)!important;
+}
+body.theme-florida-man .nav-inner{
+  max-width:1500px!important;
+  padding:0 26px!important;
+}
+body.theme-florida-man .nav-link{
+  height:54px!important;
+  padding:0 22px!important;
+  font-family:"Bebas Neue","PT Sans Narrow","Liberation Sans Narrow",sans-serif!important;
+  font-size:17px!important;
+  font-weight:700!important;
+  letter-spacing:.01em!important;
+  border-right:1px solid rgba(255,255,255,.20)!important;
+  color:#f8f0dd!important;
+}
+body.theme-florida-man .nav-link:hover,
+body.theme-florida-man .nav-link.active{
+  background:#ee5b17!important;
+}
+body.theme-florida-man .nav-link[data-view="transactions"]{
+  display:none!important;
+}
+
+@media(max-width:1100px){
+  body.theme-florida-man .wordmark-copy strong{font-size:70px!important}
+  body.theme-florida-man .archive-logo{width:125px!important;height:125px!important}
+}
+
+/* ======================================================================
+   GOLD MASTER V2.7 — remove obsolete masthead artwork on every view
+   Home's cleaned masthead is the global source of truth.
+   ====================================================================== */
+body.theme-florida-man .wordmark{
+  background:transparent!important;
+}
+body.theme-florida-man .wordmark::before,
+body.theme-florida-man .wordmark::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
