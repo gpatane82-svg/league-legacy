@@ -18,3 +18,4 @@ Open `index.html`, or serve this folder with any static web server.
 Upload the **contents of this folder** to the repository root used by GitHub Pages, commit the changes, and hard-refresh the published site after deployment.
 
 See `BATCH-5-RELEASE-QA.md` and `QA-REPORT.md` for the final validation summary.
+
