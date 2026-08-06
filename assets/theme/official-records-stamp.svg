@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Official Records stamp">
+  <g transform="rotate(-5 160 160)" fill="none" stroke="#a54728" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="160" cy="160" r="137" stroke-width="5"/>
+    <circle cx="160" cy="160" r="124" stroke-width="2"/>
+    <circle cx="160" cy="160" r="92" stroke-width="3"/>
+    <path d="M70 116h180M70 204h180" stroke-width="3"/>
+    <path d="M88 77l4 9 10 1-8 7 2 10-8-5-9 5 2-10-8-7 10-1zM232 77l4 9 10 1-8 7 2 10-8-5-9 5 2-10-8-7 10-1z" fill="#a54728" stroke="none"/>
+    <path d="M95 232l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1zM225 232l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#a54728" stroke="none"/>
+  </g>
+  <g transform="rotate(-5 160 160)" fill="#a54728" text-anchor="middle" font-family="Special Elite, Courier New, monospace" font-weight="700">
+    <text x="160" y="68" font-size="24" letter-spacing="5">OFFICIAL</text>
+    <text x="160" y="174" font-size="45" letter-spacing="2">RECORDS</text>
+    <text x="160" y="266" font-size="22" letter-spacing="4">EST. 2017</text>
+  </g>
+  <g opacity=".24" fill="#a54728">
+    <circle cx="55" cy="150" r="2"/><circle cx="84" cy="247" r="2.5"/><circle cx="258" cy="121" r="2"/><circle cx="219" cy="279" r="1.8"/><circle cx="139" cy="29" r="2"/>
+  </g>
+</svg>

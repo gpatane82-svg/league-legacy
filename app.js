@@ -275,15 +275,22 @@ function floridaOverview(){
   const sackoCount=loserRaw.sackos.length;
   return `<div class="lol-front-page lol-front-page-v2">
     <section class="lol-edition-banner" aria-label="League of Losers front page">
-      <div class="lol-edition-meta"><span>LEAGUE OF LOSERS · OFFICIAL HISTORICAL ARCHIVE</span><span>VOL. ${league.seasons.length} · ${seasonLabel} EDITION</span></div>
-      <div class="lol-breaking-strip"><strong>THE RECORD</strong><span>${season} champion and Sacko results pulled from the certified league history.</span><button data-go="awards">OPEN TROPHY CASE →</button></div>
+      
+      <div class="lol-edition-paper">
+        <div class="lol-paper-surface" aria-hidden="true"></div>
+        <img class="lol-office-seal-img" src="assets/theme/official-records-final.png" alt="Official records stamp">
+        <div class="lol-office-title"><span>★</span><div><h2>FLORIDA FANTASY SHERIFF’S OFFICE</h2><p>SERVING THE STATE OF FLORIDA FANTASY FOOTBALL SINCE 2017</p></div><span>★</span></div>
+        <div class="lol-volume-box"><b>VOL. ${league.seasons.length}</b><span>${seasonLabel}</span><small>EDITION</small></div>
+        <div class="lol-breaking-strip"><strong>DEPARTMENT BULLETIN</strong><span>${season} champion and Sacko results pulled from the certified league history.</span><button data-go="awards">OPEN TROPHY CASE →</button></div>
+      </div>
     </section>
 
     <section class="lol-front-grid lol-front-grid-v2">
       <article class="lol-lead-story">
-        <div class="lol-section-label">FRONT PAGE · ${season} FINAL REPORT</div>
+        <div class="lol-paper-surface" aria-hidden="true"></div>
+        <div class="lol-case-meta"><span class="lol-case-status">CASE STATUS: CLOSED</span><span class="lol-case-rule"></span><span class="lol-section-label">CASE FILE · ${season} FINAL REPORT</span></div>
         <h2>${championName?`${esc(championTeam)} CLAIMS THE TITLE`:`${season} TITLE FILE PENDING`}</h2>
-        <p class="lol-lead-deck">${championName?`${esc(championTeam)} — owned by ${managerLink(championManagerId,championName)} — is entered into the permanent archive as the ${season} League of Losers champion.`:`No championship fact is available for ${season}.`}</p>
+        <div class="lol-case-closed-anchor" aria-hidden="true"></div><p class="lol-lead-deck">${championName?`${esc(championTeam)} — owned by ${managerLink(championManagerId,championName)} — is entered into the permanent archive as the ${season} League of Losers champion.`:`No championship fact is available for ${season}.`}</p>
         <div class="lol-verdict-grid">
           <article class="lol-verdict-card champion">
             <span>LEAGUE CHAMPION</span><img class="official-outcome-seal" src="assets/seals/champion-seal-approved.png" alt="Official Champion seal"><strong>${esc(championTeam||"PENDING")}</strong>
@@ -310,25 +317,25 @@ function floridaOverview(){
 
     <section class="lol-mid-grid lol-mid-grid-v2">
       <article class="lol-column-story paper-panel">
-        <div class="lol-section-label">ABOUT THE ARCHIVE</div>
+        <div class="lol-section-label">ABOUT THE DEPARTMENT ARCHIVE</div>
         <h2>EVERY SEASON. EVERY OWNER. EVERY BAD DECISION.</h2>
         <p class="lol-dropcap">League Legacy preserves the League of Losers as a living historical archive. Owner identity remains permanent while team names, branding and season results stay attached to the year in which they occurred.</p>
         <p>The season selector changes the edition without rewriting history. Scores and outcomes remain facts; career totals and rankings are derived from those facts.</p>
         <button class="text-link-button" data-go="search">SEARCH THE ARCHIVE →</button>
       </article>
       <aside class="lol-leaders-board paper-panel">
-        <div class="lol-rail-heading"><span>ALL-TIME WIN LEADERS</span><button data-go="managers">OWNER FILES →</button></div>
+        <div class="lol-rail-heading"><span>MOST WANTED · CAREER WINS</span><button data-go="managers">OWNER FILES →</button></div>
         <ol>${allTime.map((m,i)=>`<li><b>${i+1}</b><span>${managerLink(m.id,m.name)}<small>${m.championships} title${m.championships===1?"":"s"}</small></span><strong>${m.wins}</strong></li>`).join("")}</ol>
       </aside>
     </section>
 
     <section class="lol-title-race lol-title-race-v2">
-      <div class="lol-title-race-copy"><span class="lol-section-label">CHAMPIONSHIP LEDGER</span><h2>WHO OWNS THE SWAMP?</h2><p>Ranked by certified championships, with career wins as the tiebreaker.</p></div>
+      <div class="lol-title-race-copy"><span class="lol-section-label">OFFICIAL CHAMPIONSHIP LEDGER</span><h2>WHO OWNS THE SWAMP?</h2><p>Ranked by certified championships, with career wins as the tiebreaker.</p></div>
       <div class="lol-title-podium">${titleLeaders.map((m,i)=>`<article class="place-${i+1}"><span>${i===0?"TITLE LEADER":`#${i+1}`}</span><strong>${m.championships}</strong><h3>${managerLink(m.id,m.name)}</h3><small>${m.wins} career wins</small></article>`).join("")}</div>
     </section>
 
-    <nav class="lol-section-directory" aria-label="Explore the archive">
-      ${[["standings","STANDINGS","Season and career tables"],["games","GAME DAY","Scores and matchups"],["draft","DRAFT BOARD","Draft and keeper history"],["records","RECORD BOOK","League records"],["managers","THE SUSPECTS","Permanent owner files"],["awards","TROPHY CASE","Champions and Sackos"]].map(([go,title,sub],i)=>`<button data-go="${go}"><b>${String(i+1).padStart(2,"0")}</b><span><strong>${title}</strong><small>${sub}</small></span><i>→</i></button>`).join("")}
+    <nav class="lol-section-directory" aria-label="Explore department records">
+      ${[["standings","STANDINGS","Certified season and career tables"],["games","GAME DAY","Incident reports and matchups"],["draft","DRAFT BOARD","Draft and keeper evidence"],["records","RECORD BOOK","Official department records"],["managers","THE SUSPECTS","Permanent suspect files"],["awards","TROPHY CASE","Champions and Sacko records"]].map(([go,title,sub],i)=>`<button data-go="${go}"><b>${String(i+1).padStart(2,"0")}</b><span><strong>${title}</strong><small>${sub}</small></span><i>→</i></button>`).join("")}
     </nav>
   </div>`;
 }

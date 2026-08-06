@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Official records stamp">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="17" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2"/>
+    </filter>
+    <mask id="distress">
+      <rect width="500" height="500" fill="white"/>
+      <filter id="speckle"><feTurbulence type="fractalNoise" baseFrequency=".12" numOctaves="2" seed="8"/><feComponentTransfer><feFuncA type="table" tableValues="0 0 .15 .9"/></feComponentTransfer></filter>
+      <rect width="500" height="500" filter="url(#speckle)" opacity=".22"/>
+    </mask>
+    <path id="topArc" d="M92 250 A158 158 0 0 1 408 250"/>
+    <path id="bottomArc" d="M408 272 A158 158 0 0 1 92 272"/>
+  </defs>
+  <g fill="none" stroke="#a7472c" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)" mask="url(#distress)">
+    <circle cx="250" cy="250" r="205" stroke-width="12"/>
+    <circle cx="250" cy="250" r="181" stroke-width="4"/>
+    <circle cx="250" cy="250" r="149" stroke-width="3" stroke-dasharray="7 9"/>
+    <path d="M85 212h330M85 292h330" stroke-width="5"/>
+    <path d="M117 236h266M117 268h266" stroke-width="2"/>
+  </g>
+  <g fill="#a7472c" font-family="Georgia,serif" font-weight="700" text-anchor="middle" filter="url(#rough)" mask="url(#distress)">
+    <text font-size="38" letter-spacing="7"><textPath href="#topArc" startOffset="50%">OFFICIAL</textPath></text>
+    <text y="272" font-family="Arial Narrow,Arial,sans-serif" font-size="74" letter-spacing="3">RECORDS</text>
+    <text font-size="27" letter-spacing="5"><textPath href="#bottomArc" startOffset="50%">EST. 2017</textPath></text>
+    <text x="102" y="263" font-size="34">★</text><text x="398" y="263" font-size="34">★</text>
+  </g>
+</svg>

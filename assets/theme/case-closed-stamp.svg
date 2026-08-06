@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 360" role="img" aria-label="Case Closed stamp">
+  <g transform="rotate(7 160 160)" fill="none" stroke="#b85b39" stroke-linecap="round" stroke-linejoin="round" opacity=".76">
+    <circle cx="160" cy="145" r="126" stroke-width="5"/>
+    <circle cx="160" cy="145" r="112" stroke-width="2"/>
+    <path d="M89 80l4 9 10 1-8 7 2 10-8-5-9 5 2-10-8-7 10-1zM231 80l4 9 10 1-8 7 2 10-8-5-9 5 2-10-8-7 10-1z" fill="#b85b39" stroke="none"/>
+  </g>
+  <g transform="rotate(7 160 160)" fill="#b85b39" text-anchor="middle" font-family="Bebas Neue, Impact, sans-serif" font-weight="700" opacity=".76">
+    <text x="160" y="137" font-size="55" letter-spacing="2">CASE</text>
+    <text x="160" y="191" font-size="55" letter-spacing="2">CLOSED</text>
+  </g>
+  <g transform="translate(160 265) rotate(4)" fill="none" stroke="#b85b39" stroke-width="7" stroke-linecap="round" opacity=".68">
+    <path d="M0 66C-4 40-3 11 2-40"/>
+    <path d="M1-30C-36-49-61-53-86-47C-54-35-31-27-4-18"/>
+    <path d="M1-31C35-50 62-53 88-46C58-35 32-27 5-18"/>
+    <path d="M2-31C-22-66-34-81-46-93C-26-81-11-65 6-39"/>
+    <path d="M2-31C25-67 37-81 50-94C30-81 14-64-3-39"/>
+    <path d="M0-29C-8-67-9-88-7-108"/>
+    <path d="M0 66C-15 80-28 91-43 98M0 66C15 80 28 91 43 98"/>
+  </g>
+  <g opacity=".20" fill="#b85b39"><circle cx="49" cy="168" r="2"/><circle cx="279" cy="135" r="2.5"/><circle cx="222" cy="40" r="2"/></g>
+</svg>

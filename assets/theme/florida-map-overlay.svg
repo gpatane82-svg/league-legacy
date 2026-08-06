@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200">
+  <defs>
+    <filter id="rough"><feTurbulence baseFrequency=".018" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2"/></filter>
+    <pattern id="grid" width="115" height="115" patternUnits="userSpaceOnUse">
+      <path d="M0 0H115M0 0V115" fill="none" stroke="#496e77" stroke-opacity=".13" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1800" height="1200" fill="#e7d7b2"/>
+  <rect width="1800" height="1200" fill="url(#grid)" opacity=".38"/>
+  <g fill="none" stroke="#315f6c" stroke-opacity=".19" filter="url(#rough)">
+    <path d="M-50 190C210 140 340 245 570 183S940 90 1180 180s390 72 680-5"/>
+    <path d="M-80 355C160 282 340 390 590 320s365-98 620-23 403 48 700-30"/>
+    <path d="M-90 585C170 520 340 626 620 550s400-95 655-12 390 47 650-34"/>
+    <path d="M-30 845C180 782 395 872 630 812s420-84 650-4 380 48 610-31"/>
+    <path d="M1420 75c-64 72-117 174-138 271-21 98 13 188 74 265 50 64 66 123 30 208-27 65-84 136-54 213 22 58 84 94 118 138" stroke-width="5"/>
+    <path d="M1420 75c-29 17-58 38-78 67-24 34-28 80-27 121 2 61 6 124 34 179 19 37 51 68 61 108 12 48-10 96-27 143-19 55-28 119 3 168 27 42 80 67 97 114 18 48-7 99-31 143" stroke-width="2"/>
+    <path d="M1422 76l-37-5-39 24-18 55-9 64 9 74 27 74 47 61 35 75 4 80-27 88-24 94 17 84 64 73 33 84-20 85-47 78-62 30-45-37-21-78-39-65-38-76-20-88 10-93 31-87 5-79-35-70-55-58-27-71 10-86 29-89 14-91 1-77 31-77 51-63z" stroke-width="3"/>
+    <path d="M1265 138l-86-22-79 17-66-13-66 24-75-10-74 20" stroke-width="2"/>
+  </g>
+  <g fill="#274f59" fill-opacity=".16" font-family="Georgia,serif" font-style="italic">
+    <text x="38" y="970" font-size="35">Gulf</text><text x="42" y="1012" font-size="35">of</text><text x="35" y="1054" font-size="35">Mexico</text>
+    <text x="1450" y="1080" font-size="23" transform="rotate(-8 1450 1080)">FLORIDA ARCHIVE</text>
+  </g>
+  <g fill="#234e58" fill-opacity=".18">
+    <path d="M103 248c20-68 55-102 89-108-20 39-27 77-20 116l-23-51-13 62-12-60-29 54 8-13z"/>
+    <path d="M159 258h11v180h-11z"/>
+    <path d="M1595 802c20-68 55-102 89-108-20 39-27 77-20 116l-23-51-13 62-12-60-29 54 8-13z"/>
+    <path d="M1651 812h11v180h-11z"/>
+    <path d="M1480 230c16-55 45-82 72-87-16 32-21 63-16 94l-18-41-11 50-10-48-24 43 7-11z"/>
+    <path d="M1525 236h9v145h-9z"/>
+  </g>
+  <rect width="1800" height="1200" fill="#fff6dc" opacity=".3"/>
+</svg>

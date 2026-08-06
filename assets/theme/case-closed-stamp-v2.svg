@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 560" role="img" aria-label="Case closed stamp">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="21" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter>
+    <mask id="distress"><rect width="500" height="560" fill="white"/><filter id="s"><feTurbulence type="fractalNoise" baseFrequency=".11" numOctaves="2" seed="11"/><feComponentTransfer><feFuncA type="table" tableValues="0 0 .2 .95"/></feComponentTransfer></filter><rect width="500" height="560" filter="url(#s)" opacity=".23"/></mask>
+  </defs>
+  <g stroke="#b9573d" fill="none" filter="url(#rough)" mask="url(#distress)">
+    <circle cx="250" cy="232" r="190" stroke-width="12"/>
+    <circle cx="250" cy="232" r="164" stroke-width="4"/>
+    <path d="M120 155h260M105 306h290" stroke-width="4"/>
+    <path d="M155 426c38-42 61-76 76-132M345 426c-38-42-61-76-76-132" stroke-width="7"/>
+    <path d="M250 308c-12 48-12 97 0 146M250 350c-29-15-51-34-69-58M250 350c29-15 51-34 69-58M250 395c-27-11-48-26-67-47M250 395c27-11 48-26 67-47" stroke-width="6"/>
+  </g>
+  <g fill="#b9573d" text-anchor="middle" filter="url(#rough)" mask="url(#distress)">
+    <text x="250" y="205" font-family="Arial Narrow,Arial,sans-serif" font-size="76" font-weight="900" letter-spacing="2">CASE</text>
+    <text x="250" y="282" font-family="Arial Narrow,Arial,sans-serif" font-size="76" font-weight="900" letter-spacing="1">CLOSED</text>
+    <text x="250" y="105" font-family="Georgia,serif" font-size="28" letter-spacing="12">★★★★★</text>
+  </g>
+</svg>

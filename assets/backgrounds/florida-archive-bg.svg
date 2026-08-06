@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <defs>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" seed="31"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .10"/></feComponentTransfer>
+    </filter>
+    <filter id="rough"><feTurbulence baseFrequency=".012" numOctaves="2" seed="8" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
+  </defs>
+  <rect width="1800" height="1200" fill="#e6d5af"/>
+  <rect width="1800" height="1200" fill="#fff8e7" opacity=".28"/>
+  <g opacity=".12" fill="none" stroke="#214f63" stroke-width="1.7" filter="url(#rough)">
+    <path d="M70 176C260 98 474 113 662 170c154 47 318 48 482 18 191-35 356-24 568 50"/>
+    <path d="M48 260c236-70 426-47 622 4 182 48 374 44 550 4 187-43 347-36 535 31"/>
+    <path d="M36 902c236-68 470-54 696 12 170 50 330 43 500 2 201-48 377-38 548 22"/>
+    <path d="M1008 112c-75 38-123 103-130 184-7 87 32 152 47 216 12 54 7 102 35 147 24 38 68 66 93 107 37 59 35 133 62 196 23 54 67 101 119 128 36 19 86 31 117 2 24-22 14-58-9-78-24-21-58-27-80-50-27-29-30-70-42-108-21-68-66-120-80-191-15-76 10-156-8-230-15-57-64-114-124-173z"/>
+    <path d="M994 230c51-19 108-22 160-9M986 305c63-18 131-18 195 0M995 386c63-10 126-2 185 20M1013 476c51 5 101 20 145 48M1042 578c40 16 75 41 102 73M1087 691c33 21 58 50 73 84"/>
+    <path d="M1238 226l54-18 40 26 54-2 29 35-18 51 25 45-28 48 8 54-42 34-9 55-50 20-25 51-56 4-38 42-54-12-50 29-47-30-57 9-34-44-56-7-20-52-48-23 4-56-37-40 20-52-18-52 39-36 2-57 52-18 23-50 56 6 40-39 51 19 50-25z"/>
+    <circle cx="1290" cy="408" r="91"/><circle cx="1290" cy="408" r="72"/>
+  </g>
+  <g opacity=".095" fill="#1c4658">
+    <path d="M0 1200h185c-7-107-22-213-3-315 14-70 60-138 128-177-86 28-147 82-184 153 11-104-18-199-105-263 52 83 61 176 37 268-24-70-72-125-117-170 44 97 62 199 109 280z"/>
+    <path d="M1625 1200h175V620c-70 49-105 113-107 191-27-66-77-116-140-149 61 62 92 136 91 215-43-59-98-99-163-124 59 50 108 112 139 185-44-35-94-57-146-69 69 44 128 106 186 174z"/>
+    <path d="M146 0h128c-2 58 5 111 26 158-38-37-80-61-126-74 40 28 72 65 96 112-45-27-87-39-126-38 37 18 70 45 99 81-40-14-76-18-108-9 39 11 75 32 109 62H93c19-100 34-196 53-292z"/>
+  </g>
+  <g opacity=".08" fill="none" stroke="#b44d1d" stroke-width="2">
+    <circle cx="350" cy="322" r="106"/><circle cx="350" cy="322" r="84"/><path d="M273 322h154M350 245v154"/>
+    <circle cx="1495" cy="858" r="92"/><circle cx="1495" cy="858" r="73"/><path d="M1429 858h132M1495 792v132"/>
+  </g>
+  <g opacity=".11" fill="#173f51" font-family="Georgia,serif" font-style="italic">
+    <text x="42" y="840" font-size="27">Gulf</text><text x="40" y="873" font-size="27">of</text><text x="34" y="906" font-size="27">Mexico</text>
+    <text x="1260" y="1040" font-size="22">FLORIDA</text>
+  </g>
+  <rect width="1800" height="1200" filter="url(#grain)" opacity=".50"/>
+</svg>
