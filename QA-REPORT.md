@@ -42,3 +42,4 @@ That is 22 successful league/route render checks with no runtime exceptions in t
 ## Hosted verification still required
 
 GitHub Pages caching, MIME handling, and hosted responsive rendering can only be confirmed after the final ZIP is committed. Use the post-commit checklist in `BATCH-5-RELEASE-QA.md` after deployment.
+
