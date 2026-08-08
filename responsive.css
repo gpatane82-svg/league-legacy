@@ -1,0 +1,1292 @@
+/* ======================================================================
+   League of Losers — Responsive Production Pass
+   Desktop design remains canonical. This file only adapts <= 1024px.
+   ====================================================================== */
+
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,video,canvas{max-width:100%;height:auto}
+button,select,a{touch-action:manipulation}
+
+@media (max-width:1024px){
+  body.theme-florida-man .header-inner,
+  body.theme-florida-man .nav-inner,
+  body.theme-florida-man .page-shell,
+  body.theme-florida-man .utility-inner,
+  body.theme-florida-man .footer-main{
+    width:100%!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+  }
+  body.theme-florida-man .page-shell{padding-left:20px!important;padding-right:20px!important}
+
+  /* keep wide data useful rather than crushing columns */
+  body.theme-florida-man table{min-width:680px}
+  body.theme-florida-man .table-wrap,
+  body.theme-florida-man .standings-table-wrap,
+  body.theme-florida-man .record-table-wrap,
+  body.theme-florida-man .draft-table-wrap,
+  body.theme-florida-man .game-table-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important}
+}
+
+@media (max-width:760px){
+  /* Utility strip */
+  body.theme-florida-man .utility-strip{height:auto!important;min-height:34px!important}
+  body.theme-florida-man .utility-inner{
+    min-height:34px!important;height:auto!important;padding:8px 14px!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    font-size:10px!important;line-height:1.2!important;text-align:center!important;letter-spacing:.08em!important;
+  }
+  body.theme-florida-man .utility-right{display:none!important}
+
+  /* Global masthead — compact but still the approved Home design */
+  body.theme-florida-man .site-header{
+    background-position:center,center 18%!important;
+    background-size:cover,1050px auto!important;
+  }
+  body.theme-florida-man .site-header::after{
+    background-position:82% 31%!important;background-size:110px auto!important;opacity:.11!important;
+  }
+  body.theme-florida-man .header-inner{
+    min-height:0!important;padding:16px 16px 14px!important;
+    display:grid!important;grid-template-columns:1fr!important;gap:16px!important;align-items:start!important;
+  }
+  body.theme-florida-man .wordmark{
+    width:100%!important;display:grid!important;grid-template-columns:84px minmax(0,1fr)!important;
+    gap:16px!important;align-items:center!important;
+  }
+  body.theme-florida-man .archive-logo{
+    width:82px!important;height:82px!important;border-width:2px!important;
+    box-shadow:4px 4px 0 rgba(7,58,88,.55),0 0 0 3px #ee5b17!important;
+  }
+  body.theme-florida-man .wordmark-copy{min-width:0!important;gap:5px!important}
+  body.theme-florida-man .masthead-eyebrow{font-size:9px!important;letter-spacing:.11em!important;white-space:normal!important}
+  body.theme-florida-man .wordmark-copy strong{
+    font-size:clamp(38px,11vw,56px)!important;line-height:.86!important;white-space:normal!important;
+    overflow-wrap:normal!important;word-break:normal!important;text-wrap:balance!important;
+  }
+  body.theme-florida-man .wordmark-copy small{font-size:9px!important;line-height:1.2!important;letter-spacing:.11em!important}
+
+  /* Filters become a compact two-column control card */
+  body.theme-florida-man .header-controls{
+    position:static!important;transform:none!important;width:100%!important;max-width:none!important;
+    padding:12px!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:10px!important;box-sizing:border-box!important;
+  }
+  body.theme-florida-man .header-controls label{min-width:0!important;gap:5px!important}
+  body.theme-florida-man .header-controls select{
+    width:100%!important;min-width:0!important;height:42px!important;font-size:16px!important;padding:0 8px!important;
+  }
+
+  /* Navigation stays one row and swipeable, avoiding a giant mobile menu */
+  body.theme-florida-man .main-nav{position:relative!important}
+  body.theme-florida-man .nav-inner{
+    display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;scroll-snap-type:x proximity!important;
+    padding:0 8px!important;scrollbar-width:none!important;
+  }
+  body.theme-florida-man .nav-inner::-webkit-scrollbar{display:none!important}
+  body.theme-florida-man .nav-link{
+    flex:0 0 auto!important;height:48px!important;min-height:48px!important;padding:0 15px!important;
+    font-size:15px!important;white-space:nowrap!important;scroll-snap-align:start!important;
+  }
+
+  body.theme-florida-man .page-shell{padding:14px 12px 42px!important}
+  body.theme-florida-man .content{min-width:0!important}
+
+  /* Home front page */
+  body.theme-florida-man.view-overview{
+    background-position:center top,center 130px!important;background-size:cover,1080px auto!important;
+  }
+  body.theme-florida-man.view-overview .lol-front-page-v2{gap:14px!important}
+  body.theme-florida-man.view-overview .lol-edition-paper{
+    min-height:0!important;display:grid!important;grid-template-columns:72px minmax(0,1fr)!important;
+    gap:12px!important;padding:15px!important;clip-path:none!important;align-items:start!important;
+  }
+  body.theme-florida-man.view-overview .lol-edition-paper::before{display:none!important}
+  body.theme-florida-man.view-overview .lol-office-seal-img{width:68px!important;height:68px!important;align-self:start!important}
+  body.theme-florida-man.view-overview .lol-office-title{
+    grid-template-columns:16px minmax(0,1fr) 16px!important;gap:7px!important;padding-top:8px!important;
+  }
+  body.theme-florida-man.view-overview .lol-office-title>span{font-size:17px!important}
+  body.theme-florida-man.view-overview .lol-office-title h2{
+    font-size:clamp(28px,8vw,40px)!important;white-space:normal!important;line-height:.95!important;
+  }
+  body.theme-florida-man.view-overview .lol-office-title p{font-size:10px!important;line-height:1.2!important;letter-spacing:.07em!important}
+  body.theme-florida-man.view-overview .lol-volume-box{
+    grid-column:1!important;grid-row:2!important;width:68px!important;min-height:68px!important;padding:7px 4px!important;
+  }
+  body.theme-florida-man.view-overview .lol-volume-box b{font-size:14px!important}
+  body.theme-florida-man.view-overview .lol-volume-box span,body.theme-florida-man.view-overview .lol-volume-box small{font-size:9px!important}
+  body.theme-florida-man.view-overview .lol-breaking-strip{
+    grid-column:2!important;grid-row:2!important;padding:0!important;align-self:stretch!important;
+  }
+  body.theme-florida-man.view-overview .lol-breaking-strip strong{font-size:20px!important}
+  body.theme-florida-man.view-overview .lol-breaking-strip span{padding:10px 11px!important;font-size:11px!important;line-height:1.3!important}
+  body.theme-florida-man.view-overview .lol-breaking-strip button{font-size:11px!important;min-height:40px!important}
+
+  body.theme-florida-man.view-overview .lol-front-grid-v2,
+  body.theme-florida-man.view-overview .lol-mid-grid-v2{
+    display:grid!important;grid-template-columns:1fr!important;gap:14px!important;
+  }
+  body.theme-florida-man.view-overview .lol-lead-story{
+    min-height:0!important;padding:20px 18px 22px!important;clip-path:none!important;
+  }
+  body.theme-florida-man.view-overview .lol-lead-story::before,
+  body.theme-florida-man.view-overview .lol-lead-story::after,
+  body.theme-florida-man.view-overview article.lol-lead-story>.lol-case-closed-anchor{display:none!important}
+  body.theme-florida-man.view-overview .lol-case-meta{flex-wrap:wrap!important;margin-bottom:12px!important}
+  body.theme-florida-man.view-overview .lol-lead-story>h2{
+    max-width:100%!important;font-size:clamp(42px,13vw,66px)!important;line-height:.9!important;margin-bottom:14px!important;
+  }
+  body.theme-florida-man.view-overview .lol-lead-deck{
+    max-width:100%!important;font-size:18px!important;line-height:1.42!important;margin-bottom:18px!important;
+  }
+  body.theme-florida-man.view-overview .lol-verdict-grid{grid-template-columns:1fr!important;gap:12px!important}
+  body.theme-florida-man.view-overview .lol-verdict-card{
+    min-height:118px!important;grid-template-columns:56px minmax(0,1fr)!important;padding:13px 14px!important;
+  }
+  body.theme-florida-man.view-overview .lol-verdict-card>strong{font-size:28px!important}
+  body.theme-florida-man.view-overview .lol-verdict-card>small{font-size:15px!important}
+
+  body.theme-florida-man.view-overview .lol-standings-snapshot li{
+    grid-template-columns:32px minmax(0,1fr) auto!important;padding:9px 12px!important;gap:8px!important;
+  }
+  body.theme-florida-man.view-overview .lol-standings-snapshot li a{font-size:16px!important}
+  body.theme-florida-man.view-overview .lol-archive-totals{grid-template-columns:1fr 1fr!important}
+  body.theme-florida-man.view-overview .lol-archive-totals>div{min-height:84px!important}
+  body.theme-florida-man.view-overview .lol-archive-totals strong{font-size:34px!important}
+
+  /* General cards/grids: collapse dense desktop structures gracefully */
+  body.theme-florida-man .dashboard-grid,
+  body.theme-florida-man .summary-grid,
+  body.theme-florida-man .record-grid,
+  body.theme-florida-man .awards-grid,
+  body.theme-florida-man .archive-grid,
+  body.theme-florida-man .search-grid,
+  body.theme-florida-man .office-grid,
+  body.theme-florida-man .draft-grid,
+  body.theme-florida-man .game-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  /* Forms */
+  body.theme-florida-man input,
+  body.theme-florida-man select,
+  body.theme-florida-man textarea,
+  body.theme-florida-man button{max-width:100%}
+  body.theme-florida-man input:not([type="checkbox"]):not([type="radio"]),
+  body.theme-florida-man select,
+  body.theme-florida-man textarea{font-size:16px!important}
+
+  /* Tables become horizontal swipe areas instead of crushed unreadable columns */
+  body.theme-florida-man .table-wrap,
+  body.theme-florida-man .standings-table-wrap,
+  body.theme-florida-man .record-table-wrap,
+  body.theme-florida-man .draft-table-wrap,
+  body.theme-florida-man .game-table-wrap,
+  body.theme-florida-man .paper-panel:has(table){
+    overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;
+  }
+  body.theme-florida-man table{min-width:620px!important;font-size:12px!important}
+  body.theme-florida-man th,body.theme-florida-man td{padding-left:8px!important;padding-right:8px!important}
+
+  /* Footer */
+  body.theme-florida-man .footer-main{padding:22px 14px!important;gap:18px!important;flex-direction:column!important;align-items:flex-start!important}
+  body.theme-florida-man .footer-nav{display:flex!important;flex-wrap:wrap!important;gap:10px 16px!important}
+}
+
+@media (max-width:480px){
+  body.theme-florida-man .header-inner{padding:14px 12px 12px!important;gap:14px!important}
+  body.theme-florida-man .wordmark{grid-template-columns:68px minmax(0,1fr)!important;gap:12px!important}
+  body.theme-florida-man .archive-logo{width:66px!important;height:66px!important}
+  body.theme-florida-man .masthead-eyebrow{display:none!important}
+  body.theme-florida-man .wordmark-copy strong{font-size:clamp(34px,11vw,46px)!important}
+  body.theme-florida-man .wordmark-copy small{font-size:8px!important;letter-spacing:.08em!important}
+  body.theme-florida-man .header-controls{padding:10px!important;gap:8px!important}
+  body.theme-florida-man .nav-link{height:46px!important;min-height:46px!important;padding:0 13px!important;font-size:14px!important}
+  body.theme-florida-man .page-shell{padding:12px 9px 36px!important}
+
+  body.theme-florida-man.view-overview .lol-edition-paper{grid-template-columns:1fr!important;padding:14px!important}
+  body.theme-florida-man.view-overview .lol-office-seal-img{width:76px!important;height:76px!important;justify-self:center!important}
+  body.theme-florida-man.view-overview .lol-office-title{grid-column:1!important;text-align:center!important}
+  body.theme-florida-man.view-overview .lol-volume-box{grid-column:1!important;grid-row:auto!important;justify-self:center!important;width:88px!important}
+  body.theme-florida-man.view-overview .lol-breaking-strip{grid-column:1!important;grid-row:auto!important}
+  body.theme-florida-man.view-overview .lol-breaking-strip strong{text-align:center!important}
+  body.theme-florida-man.view-overview .lol-breaking-strip button{justify-self:center!important}
+  body.theme-florida-man.view-overview .lol-lead-story{padding:18px 14px 20px!important}
+  body.theme-florida-man.view-overview .lol-lead-story>h2{font-size:clamp(38px,13vw,54px)!important}
+  body.theme-florida-man.view-overview .lol-lead-deck{font-size:17px!important}
+  body.theme-florida-man.view-overview .lol-archive-totals{grid-template-columns:1fr!important}
+
+  body.theme-florida-man table{min-width:580px!important}
+}
+
+/* ======================================================================
+   V3 mobile-first stabilization — preserve all content, reflow instead of shrink.
+   Desktop remains untouched (>760px).
+   ====================================================================== */
+@media (max-width:760px){
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+  body.theme-florida-man{min-width:0!important}
+  body.theme-florida-man .site-header,
+  body.theme-florida-man .header-inner,
+  body.theme-florida-man .main-nav,
+  body.theme-florida-man .nav-inner,
+  body.theme-florida-man .page-shell,
+  body.theme-florida-man .content,
+  body.theme-florida-man #content,
+  body.theme-florida-man main{min-width:0!important;max-width:100%!important}
+
+  /* Masthead: true phone composition, no clipped title or controls. */
+  body.theme-florida-man .header-inner{
+    width:100%!important;
+    padding:14px 12px 12px!important;
+    display:block!important;
+  }
+  body.theme-florida-man .wordmark{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    display:grid!important;
+    grid-template-columns:64px minmax(0,1fr)!important;
+    gap:11px!important;
+    align-items:center!important;
+    overflow:visible!important;
+  }
+  body.theme-florida-man .archive-logo{
+    width:62px!important;height:78px!important;
+    object-fit:cover!important;
+    justify-self:start!important;
+  }
+  body.theme-florida-man .wordmark-copy{
+    min-width:0!important;width:100%!important;display:block!important;
+  }
+  body.theme-florida-man .masthead-eyebrow{
+    display:block!important;
+    font-size:8px!important;line-height:1.15!important;letter-spacing:.08em!important;
+    white-space:normal!important;margin:0 0 4px!important;
+  }
+  body.theme-florida-man .wordmark-copy strong{
+    display:block!important;width:100%!important;max-width:100%!important;
+    font-size:clamp(28px,9vw,38px)!important;line-height:.9!important;
+    letter-spacing:-.045em!important;white-space:normal!important;
+    overflow:visible!important;text-overflow:clip!important;overflow-wrap:normal!important;
+  }
+  body.theme-florida-man .wordmark-copy small{
+    display:block!important;margin-top:6px!important;
+    font-size:8px!important;line-height:1.2!important;letter-spacing:.08em!important;
+    white-space:normal!important;overflow-wrap:anywhere!important;
+  }
+  body.theme-florida-man .header-controls{
+    position:static!important;inset:auto!important;transform:none!important;
+    width:100%!important;max-width:100%!important;margin:14px 0 0!important;
+    display:grid!important;grid-template-columns:1fr!important;gap:9px!important;padding:10px!important;
+  }
+  body.theme-florida-man .header-controls label{width:100%!important;min-width:0!important}
+  body.theme-florida-man .header-controls select{width:100%!important;max-width:100%!important;min-width:0!important;height:44px!important}
+
+  /* Keep every destination available with a horizontal swipe nav. */
+  body.theme-florida-man .nav-inner{
+    width:100%!important;max-width:100%!important;padding:0!important;
+    justify-content:flex-start!important;overflow-x:auto!important;overflow-y:hidden!important;
+  }
+  body.theme-florida-man .nav-link{
+    flex:0 0 auto!important;min-width:max-content!important;
+    height:48px!important;padding:0 15px!important;font-size:13px!important;
+  }
+
+  body.theme-florida-man .page-shell{
+    width:100%!important;padding:12px 10px 42px!important;overflow:visible!important;
+  }
+  body.theme-florida-man .content,
+  body.theme-florida-man #content{width:100%!important;overflow:visible!important}
+
+  /* Universal mobile safety: no component may silently push the page wider. */
+  body.theme-florida-man .paper-panel,
+  body.theme-florida-man section,
+  body.theme-florida-man article,
+  body.theme-florida-man aside,
+  body.theme-florida-man header,
+  body.theme-florida-man form,
+  body.theme-florida-man .owner-directory-front,
+  body.theme-florida-man .owner-directory-mast,
+  body.theme-florida-man .suspect-toolbar,
+  body.theme-florida-man .owner-directory-stats,
+  body.theme-florida-man .wanted-grid,
+  body.theme-florida-man .case-folder-card{
+    max-width:100%!important;min-width:0!important;
+  }
+  body.theme-florida-man h1,body.theme-florida-man h2,body.theme-florida-man h3,
+  body.theme-florida-man p,body.theme-florida-man strong,body.theme-florida-man small,
+  body.theme-florida-man span,body.theme-florida-man a{
+    overflow-wrap:anywhere;
+  }
+
+  /* Suspects: keep the complete directory, but make each control/card phone-native. */
+  body.theme-florida-man.view-managers .owner-directory-mast{
+    display:grid!important;grid-template-columns:1fr!important;gap:16px!important;
+    padding:20px 16px!important;
+  }
+  body.theme-florida-man.view-managers .owner-directory-mast>div:first-child{min-width:0!important}
+  body.theme-florida-man.view-managers .owner-directory-mast h2{
+    font-size:clamp(42px,14vw,62px)!important;line-height:.88!important;white-space:normal!important;
+  }
+  body.theme-florida-man.view-managers .owner-directory-mast p{
+    max-width:100%!important;font-size:16px!important;line-height:1.35!important;
+  }
+  body.theme-florida-man.view-managers .directory-seal{
+    justify-self:start!important;max-width:100%!important;transform:none!important;
+  }
+  body.theme-florida-man.view-managers .suspect-toolbar{
+    display:grid!important;grid-template-columns:1fr!important;gap:12px!important;padding:13px!important;
+  }
+  body.theme-florida-man.view-managers .suspect-status,
+  body.theme-florida-man.view-managers .suspect-search,
+  body.theme-florida-man.view-managers .suspect-sort{width:100%!important;min-width:0!important}
+  body.theme-florida-man.view-managers .suspect-filter-buttons{
+    width:100%!important;display:grid!important;grid-template-columns:1fr 1fr!important;border-radius:7px!important;
+  }
+  body.theme-florida-man.view-managers .suspect-filter-buttons button{
+    min-width:0!important;min-height:44px!important;padding:9px 7px!important;border-radius:4px!important;
+  }
+  body.theme-florida-man.view-managers .suspect-search input,
+  body.theme-florida-man.view-managers .suspect-sort select{width:100%!important;height:44px!important}
+  body.theme-florida-man.view-managers .suspect-count{width:100%!important;border-left:0!important;padding:4px 0!important;white-space:normal!important}
+  body.theme-florida-man.view-managers .owner-directory-stats{grid-template-columns:1fr 1fr!important}
+  body.theme-florida-man.view-managers .owner-directory-stats article{min-width:0!important;padding:11px!important}
+  body.theme-florida-man.view-managers .wanted-grid{grid-template-columns:1fr!important;gap:22px!important}
+  body.theme-florida-man.view-managers .case-folder-card{
+    width:100%!important;aspect-ratio:auto!important;min-height:0!important;
+    display:grid!important;grid-template-columns:112px minmax(0,1fr)!important;
+    clip-path:none!important;border-radius:8px!important;overflow:hidden!important;
+  }
+  body.theme-florida-man.view-managers .case-photo-panel{margin:44px 0 14px 12px!important;min-height:220px!important}
+  body.theme-florida-man.view-managers .case-details{padding:20px 14px 16px!important;min-width:0!important}
+  body.theme-florida-man.view-managers .case-details h3,
+  body.theme-florida-man.view-managers .case-franchise strong{white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+  body.theme-florida-man.view-managers .case-details h3{font-size:27px!important}
+  body.theme-florida-man.view-managers .case-stats{grid-template-columns:1fr!important;gap:7px!important}
+  body.theme-florida-man.view-managers .case-stats>div{min-height:0!important;border-left:0!important;border-top:1px solid rgba(47,39,28,.35)!important;padding:7px 0 0!important}
+  body.theme-florida-man.view-managers .case-button{width:100%!important;min-width:0!important;min-height:44px!important}
+
+  /* Home: long single-column newspaper; keep all substantive information. */
+  body.theme-florida-man.view-overview .lol-front-page-v2{width:100%!important}
+  body.theme-florida-man.view-overview .lol-edition-paper{
+    width:100%!important;display:flex!important;flex-direction:column!important;gap:12px!important;padding:16px!important;
+  }
+  body.theme-florida-man.view-overview .lol-office-seal-img{width:78px!important;height:78px!important;align-self:center!important}
+  body.theme-florida-man.view-overview .lol-office-title{width:100%!important;text-align:center!important}
+  body.theme-florida-man.view-overview .lol-office-title h2{font-size:clamp(28px,9vw,40px)!important}
+  body.theme-florida-man.view-overview .lol-volume-box{align-self:center!important;width:92px!important}
+  body.theme-florida-man.view-overview .lol-breaking-strip{width:100%!important}
+  body.theme-florida-man.view-overview .lol-front-grid-v2,
+  body.theme-florida-man.view-overview .lol-mid-grid-v2{grid-template-columns:1fr!important;width:100%!important}
+  body.theme-florida-man.view-overview .lol-lead-story{width:100%!important;padding:18px 14px 20px!important}
+  body.theme-florida-man.view-overview .lol-lead-story>h2{font-size:clamp(38px,12vw,52px)!important;white-space:normal!important}
+  body.theme-florida-man.view-overview .lol-verdict-grid{grid-template-columns:1fr!important}
+  body.theme-florida-man.view-overview .lol-section-directory{grid-template-columns:1fr!important}
+
+  /* Dense information pages: preserve every column with an explicit scroll area. */
+  body.theme-florida-man .table-wrap,
+  body.theme-florida-man .standings-table-wrap,
+  body.theme-florida-man .record-table-wrap,
+  body.theme-florida-man .draft-table-wrap,
+  body.theme-florida-man .game-table-wrap,
+  body.theme-florida-man .paper-panel:has(table){
+    width:100%!important;max-width:100%!important;overflow-x:auto!important;overflow-y:visible!important;
+    -webkit-overflow-scrolling:touch!important;overscroll-behavior-inline:contain!important;
+  }
+  body.theme-florida-man table{width:max-content!important;min-width:720px!important;max-width:none!important}
+  body.theme-florida-man th,body.theme-florida-man td{white-space:nowrap!important}
+
+  /* Generic split layouts collapse to vertical without dropping content. */
+  body.theme-florida-man .standings-layout,
+  body.theme-florida-man .history-layout,
+  body.theme-florida-man .records-layout,
+  body.theme-florida-man .game-center-grid,
+  body.theme-florida-man .draft-grid,
+  body.theme-florida-man .awards-layout,
+  body.theme-florida-man .owner-feature-grid,
+  body.theme-florida-man .owner-history-grid,
+  body.theme-florida-man .archive-search-controls,
+  body.theme-florida-man .archive-search-results{grid-template-columns:1fr!important}
+
+  /* Tap targets */
+  body.theme-florida-man button,
+  body.theme-florida-man input:not([type=checkbox]):not([type=radio]),
+  body.theme-florida-man select{min-height:44px}
+}
+
+@media (max-width:430px){
+  body.theme-florida-man .utility-inner{font-size:9px!important;padding:7px 8px!important}
+  body.theme-florida-man .header-inner{padding-inline:9px!important}
+  body.theme-florida-man .wordmark{grid-template-columns:56px minmax(0,1fr)!important;gap:9px!important}
+  body.theme-florida-man .archive-logo{width:54px!important;height:68px!important}
+  body.theme-florida-man .wordmark-copy strong{font-size:clamp(26px,8.8vw,35px)!important}
+  body.theme-florida-man .header-controls{margin-top:11px!important;padding:9px!important}
+  body.theme-florida-man .page-shell{padding-inline:8px!important}
+  body.theme-florida-man.view-managers .owner-directory-stats{grid-template-columns:1fr!important}
+  body.theme-florida-man.view-managers .case-folder-card{grid-template-columns:96px minmax(0,1fr)!important}
+  body.theme-florida-man.view-managers .case-photo-panel{margin-left:8px!important}
+  body.theme-florida-man.view-managers .case-details{padding-inline:11px!important}
+}
+
+/* ======================================================================
+   V3.1 — Home masthead parity on mobile
+   Home has higher-specificity desktop masthead rules in styles.css. Mirror
+   the canonical mobile masthead here with equally specific selectors so the
+   Home header renders exactly like every other page below 760px.
+   ====================================================================== */
+@media (max-width:760px){
+  body.theme-florida-man.view-overview .site-header{
+    background-position:center,center 18%!important;
+    background-size:cover,1050px auto!important;
+  }
+  body.theme-florida-man.view-overview .header-inner{
+    width:100%!important;min-height:0!important;height:auto!important;
+    padding:14px 12px 12px!important;
+    display:block!important;grid-template-columns:none!important;gap:0!important;
+    align-items:initial!important;
+  }
+  body.theme-florida-man.view-overview .wordmark{
+    width:100%!important;height:auto!important;min-height:0!important;max-width:100%!important;
+    display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;
+    gap:11px!important;align-items:center!important;overflow:visible!important;
+  }
+  body.theme-florida-man.view-overview .archive-logo{
+    width:62px!important;height:78px!important;min-width:0!important;max-width:62px!important;
+    object-fit:cover!important;justify-self:start!important;
+  }
+  body.theme-florida-man.view-overview .wordmark-copy{
+    min-width:0!important;width:100%!important;max-width:100%!important;
+    display:block!important;gap:0!important;align-items:initial!important;
+  }
+  body.theme-florida-man.view-overview .masthead-eyebrow{
+    display:block!important;font-size:8px!important;line-height:1.15!important;
+    letter-spacing:.08em!important;white-space:normal!important;margin:0 0 4px!important;
+  }
+  body.theme-florida-man.view-overview .wordmark-copy strong{
+    display:block!important;width:100%!important;max-width:100%!important;
+    font-size:clamp(28px,9vw,38px)!important;line-height:.9!important;
+    letter-spacing:-.045em!important;white-space:normal!important;
+    overflow:visible!important;text-overflow:clip!important;overflow-wrap:normal!important;
+  }
+  body.theme-florida-man.view-overview .wordmark-copy small{
+    display:block!important;margin-top:6px!important;
+    font-size:8px!important;line-height:1.2!important;letter-spacing:.08em!important;
+    white-space:normal!important;overflow-wrap:anywhere!important;
+  }
+  body.theme-florida-man.view-overview .header-controls{
+    position:static!important;inset:auto!important;transform:none!important;
+    width:100%!important;max-width:100%!important;margin:14px 0 0!important;
+    display:grid!important;grid-template-columns:1fr!important;gap:9px!important;
+    padding:10px!important;box-sizing:border-box!important;
+  }
+  body.theme-florida-man.view-overview .header-controls label{
+    width:100%!important;min-width:0!important;gap:5px!important;
+  }
+  body.theme-florida-man.view-overview .header-controls select{
+    width:100%!important;max-width:100%!important;min-width:0!important;
+    height:44px!important;font-size:16px!important;padding:0 8px!important;
+  }
+}
+
+@media (max-width:430px){
+  body.theme-florida-man.view-overview .header-inner{padding:14px 9px 12px!important}
+  body.theme-florida-man.view-overview .wordmark{
+    grid-template-columns:56px minmax(0,1fr)!important;gap:9px!important;
+  }
+  body.theme-florida-man.view-overview .archive-logo{
+    width:54px!important;height:68px!important;max-width:54px!important;
+  }
+  body.theme-florida-man.view-overview .wordmark-copy strong{
+    font-size:clamp(26px,8.8vw,35px)!important;
+  }
+  body.theme-florida-man.view-overview .header-controls{
+    margin-top:11px!important;padding:9px!important;
+  }
+}
+
+/* ========================================================================== 
+   V3.2 MOBILE FORMAT QA — final override layer
+   Desktop is intentionally untouched. These rules prioritize complete content,
+   readable wrapping and predictable vertical flow on phone-sized screens.
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Never split display headings into single letters/syllables. */
+  body.theme-florida-man h1,
+  body.theme-florida-man h2,
+  body.theme-florida-man h3,
+  body.theme-florida-man h4,
+  body.theme-florida-man .museum-kicker,
+  body.theme-florida-man .panel-heading h2,
+  body.theme-florida-man .document-code {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  body.theme-florida-man .page-shell,
+  body.theme-florida-man #content,
+  body.theme-florida-man .content,
+  body.theme-florida-man .paper-panel {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Common cards / modules: let content determine height instead of desktop geometry. */
+  body.theme-florida-man .paper-panel,
+  body.theme-florida-man .stat-card,
+  body.theme-florida-man .award-card,
+  body.theme-florida-man .search-result-card,
+  body.theme-florida-man .museum-plaque,
+  body.theme-florida-man .champion-nameplate,
+  body.theme-florida-man .award-ribbon-card,
+  body.theme-florida-man .season-honor {
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* ---------------- Suspects directory ---------------- */
+  body.theme-florida-man.view-managers .wanted-grid {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 14px 0 24px !important;
+    width: 100% !important;
+  }
+  body.theme-florida-man.view-managers .case-folder-card {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    grid-template-columns: 112px minmax(0,1fr) !important;
+    grid-template-rows: auto !important;
+    clip-path: none !important;
+    overflow: hidden !important;
+    border: 2px solid #30291f !important;
+    border-radius: 8px !important;
+    padding: 50px 10px 12px !important;
+    background-size: cover !important;
+  }
+  body.theme-florida-man.view-managers .case-folder-card::before,
+  body.theme-florida-man.view-managers .case-folder-card::after {
+    clip-path: none !important;
+    border-radius: 6px !important;
+  }
+  body.theme-florida-man.view-managers .folder-tab { display:none !important; }
+  body.theme-florida-man.view-managers .case-paperclip {
+    width: 28px !important;
+    height: 58px !important;
+    left: 8px !important;
+    top: 4px !important;
+  }
+  body.theme-florida-man.view-managers .case-number {
+    left: 45px !important;
+    top: 15px !important;
+    font-size: 14px !important;
+  }
+  body.theme-florida-man.view-managers .case-status-stamp {
+    right: 8px !important;
+    top: 8px !important;
+    width: 78px !important;
+    max-width: 28% !important;
+  }
+  body.theme-florida-man.view-managers .case-photo-panel {
+    position: relative !important;
+    inset: auto !important;
+    margin: 0 !important;
+    width: 104px !important;
+    min-height: 185px !important;
+    align-self: stretch !important;
+    border-width: 3px !important;
+  }
+  body.theme-florida-man.view-managers .case-character {
+    position:absolute !important;
+    inset: 4px 0 0 !important;
+    width:100% !important;
+    height:calc(100% - 4px) !important;
+  }
+  body.theme-florida-man.view-managers .case-details {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 2px 4px 0 12px !important;
+    min-width: 0 !important;
+  }
+  body.theme-florida-man.view-managers .case-details h3 {
+    position: static !important;
+    margin: 0 0 7px !important;
+    font-size: 27px !important;
+    line-height: .95 !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+  body.theme-florida-man.view-managers .case-rule {
+    position: static !important;
+    margin: 0 0 8px !important;
+    min-height: 8px !important;
+  }
+  body.theme-florida-man.view-managers .case-franchise {
+    position: static !important;
+    height: auto !important;
+    padding: 0 0 9px !important;
+    margin-bottom: 9px !important;
+  }
+  body.theme-florida-man.view-managers .case-franchise strong {
+    margin-top: 4px !important;
+    font-size: 17px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+  body.theme-florida-man.view-managers .case-stats {
+    position: static !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 7px !important;
+    margin: 0 0 10px !important;
+  }
+  body.theme-florida-man.view-managers .case-stats > div {
+    display:flex !important;
+    min-width:0 !important;
+    padding:7px 5px !important;
+    border:1px solid rgba(47,37,26,.34) !important;
+  }
+  body.theme-florida-man.view-managers .case-stat-value,
+  body.theme-florida-man.view-managers .case-stat-value strong {
+    font-size: 18px !important;
+    line-height: 1 !important;
+  }
+  body.theme-florida-man.view-managers .case-stat-value svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+  body.theme-florida-man.view-managers .case-badge { display:none !important; }
+  body.theme-florida-man.view-managers .case-button {
+    position: static !important;
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    margin-top: auto !important;
+    font-size: 11px !important;
+  }
+
+  /* ---------------- Trophy Case ---------------- */
+  body.theme-florida-man.view-awards .trophy-museum-hero {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 20px 16px !important;
+    overflow: hidden !important;
+  }
+  body.theme-florida-man.view-awards .museum-hero-copy {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  body.theme-florida-man.view-awards .museum-hero-copy h2 {
+    width: 100% !important;
+    margin: 6px 0 12px !important;
+    font-size: clamp(32px, 10.5vw, 44px) !important;
+    line-height: .92 !important;
+    letter-spacing: -.025em !important;
+    overflow: visible !important;
+  }
+  body.theme-florida-man.view-awards .museum-hero-copy > p:last-of-type {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+  body.theme-florida-man.view-awards .museum-hero-stats {
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+  }
+  body.theme-florida-man.view-awards .museum-hero-object,
+  body.theme-florida-man.view-awards .trophy-header-seal {
+    position: static !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 8px !important;
+    place-items: center !important;
+  }
+  body.theme-florida-man.view-awards .trophy-header-seal img,
+  body.theme-florida-man.view-awards .museum-hero-object img {
+    width: 170px !important;
+    max-width: 70vw !important;
+    height: auto !important;
+  }
+  body.theme-florida-man.view-awards .champion-wall-grid,
+  body.theme-florida-man.view-awards .museum-collection-grid,
+  body.theme-florida-man.view-awards .museum-plaque-grid,
+  body.theme-florida-man.view-awards .award-ribbon-grid,
+  body.theme-florida-man.view-awards .season-honors-grid {
+    grid-template-columns: 1fr !important;
+    width:100% !important;
+  }
+  body.theme-florida-man.view-awards .museum-plaque {
+    display:grid !important;
+    grid-template-columns: 48px minmax(0,1fr) !important;
+    min-height: 0 !important;
+    padding-bottom: 12px !important;
+  }
+  body.theme-florida-man.view-awards .museum-icon.official-seal-icon {
+    grid-column: 1 / -1 !important;
+    width: 130px !important;
+    height: auto !important;
+    min-height:0 !important;
+    justify-self:center !important;
+    padding:8px 0 !important;
+  }
+
+  /* ---------------- Home / record / history headings ---------------- */
+  body.theme-florida-man.view-overview .lol-lead-story > h2,
+  body.theme-florida-man.view-history .history-hero h2,
+  body.theme-florida-man.view-records .record-hero h2,
+  body.theme-florida-man .panel-heading h2 {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  /* Footer: remove desktop minimum-height/spacing behavior. */
+  body.theme-florida-man .site-footer,
+  body.theme-florida-man footer {
+    min-height: 0 !important;
+    height: auto !important;
+    margin-top: 24px !important;
+  }
+  body.theme-florida-man .footer-inner {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+    padding:18px 12px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body.theme-florida-man.view-managers .case-folder-card {
+    grid-template-columns: 96px minmax(0,1fr) !important;
+    padding-left:8px !important;
+    padding-right:8px !important;
+  }
+  body.theme-florida-man.view-managers .case-photo-panel {
+    width: 90px !important;
+    min-height: 170px !important;
+  }
+  body.theme-florida-man.view-managers .case-details { padding-left:9px !important; }
+  body.theme-florida-man.view-managers .case-details h3 { font-size:24px !important; }
+  body.theme-florida-man.view-awards .museum-hero-copy h2 { font-size:36px !important; }
+}
+
+/* ========================================================================== 
+   V3.3 MOBILE POLISH — selector breathing room, unified module headers,
+   clean rail headings, and trophy hero reflow. Desktop remains untouched.
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Safari select controls need real inset space on the trailing edge. */
+  body.theme-florida-man .header-controls,
+  body.theme-florida-man.view-overview .header-controls {
+    padding: 10px 14px 10px 10px !important;
+    overflow: hidden !important;
+  }
+  body.theme-florida-man .header-controls label,
+  body.theme-florida-man.view-overview .header-controls label {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-right: 2px !important;
+  }
+  body.theme-florida-man .header-controls select,
+  body.theme-florida-man.view-overview .header-controls select {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 34px !important;
+    margin: 0 !important;
+  }
+
+  /* Home Most Wanted rail: no fixed-height clipping on a narrow viewport. */
+  body.theme-florida-man .lol-leaders-board .lol-rail-heading {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 58px !important;
+    padding: 9px 12px 8px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    text-align: center !important;
+    line-height: 1.15 !important;
+  }
+  body.theme-florida-man .lol-leaders-board .lol-rail-heading span {
+    display: block !important;
+    width: 100% !important;
+    font-size: 11px !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-align: center !important;
+  }
+  body.theme-florida-man .lol-leaders-board .lol-rail-heading button {
+    display: block !important;
+    width: auto !important;
+    min-height: 26px !important;
+    margin: 0 auto !important;
+    padding: 2px 6px !important;
+    font-size: 9px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    justify-self: center !important;
+  }
+
+  /* Department module headers: orange star + title share one centered line.
+     Optional badge/subtitle gets its own centered second line. */
+  body.theme-florida-man .panel-heading:not(.standings-table-heading) {
+    width: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: auto auto !important;
+    grid-template-rows: auto auto !important;
+    justify-content: center !important;
+    align-items: center !important;
+    column-gap: 8px !important;
+    row-gap: 7px !important;
+    padding: 13px 12px 11px !important;
+    text-align: center !important;
+  }
+  body.theme-florida-man .panel-heading:not(.standings-table-heading)::before {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: center !important;
+    justify-self: end !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+  body.theme-florida-man .panel-heading:not(.standings-table-heading) h2 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: calc(100vw - 76px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: clamp(20px, 6vw, 27px) !important;
+    line-height: 1.02 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+  body.theme-florida-man .panel-heading:not(.standings-table-heading) > span {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    justify-self: center !important;
+    width: auto !important;
+    max-width: calc(100% - 16px) !important;
+    margin: 0 !important;
+    transform: none !important;
+    text-align: center !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+  }
+  /* Headers without a secondary badge should not reserve an empty second row. */
+  body.theme-florida-man .panel-heading:not(.standings-table-heading):not(:has(> span)) {
+    grid-template-rows: auto !important;
+  }
+
+  /* Trophy Case hero: text first at full width, smaller seal underneath. */
+  body.theme-florida-man .trophy-museum-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+    padding: 20px 16px !important;
+    overflow: hidden !important;
+  }
+  body.theme-florida-man .trophy-museum-hero::before {
+    font-size: 9px !important;
+    right: -54px !important;
+    top: 16px !important;
+    opacity: .7 !important;
+  }
+  body.theme-florida-man .museum-hero-copy {
+    order: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+  body.theme-florida-man .museum-hero-copy .document-code,
+  body.theme-florida-man .museum-hero-copy .museum-kicker {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+  body.theme-florida-man .museum-hero-copy h2 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 7px 0 12px !important;
+    font-size: clamp(33px, 10vw, 42px) !important;
+    line-height: .92 !important;
+    letter-spacing: -.02em !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+  body.theme-florida-man .museum-hero-copy > p:last-of-type {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.42 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+  body.theme-florida-man .museum-hero-stats {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 16px !important;
+  }
+  body.theme-florida-man .museum-hero-stats span {
+    min-width: 0 !important;
+    padding: 8px !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+  }
+  body.theme-florida-man .museum-hero-object,
+  body.theme-florida-man .museum-hero-object.official-hero-seal,
+  body.theme-florida-man .trophy-header-seal {
+    order: 2 !important;
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    border-width: 5px !important;
+  }
+  body.theme-florida-man .museum-hero-object img,
+  body.theme-florida-man .museum-hero-object.official-hero-seal img,
+  body.theme-florida-man .trophy-header-seal img {
+    position: static !important;
+    width: 118px !important;
+    max-width: 42vw !important;
+    height: auto !important;
+    max-height: 130px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+  }
+  body.theme-florida-man .museum-hero-object strong { font-size: 24px !important; }
+  body.theme-florida-man .museum-hero-object span { font-size: 9px !important; }
+}
+
+@media (max-width: 430px) {
+  body.theme-florida-man .header-controls,
+  body.theme-florida-man.view-overview .header-controls {
+    padding-right: 13px !important;
+  }
+  body.theme-florida-man .panel-heading:not(.standings-table-heading) h2 {
+    font-size: clamp(19px, 6vw, 25px) !important;
+    max-width: calc(100vw - 70px) !important;
+  }
+  body.theme-florida-man .museum-hero-stats { grid-template-columns: 1fr !important; }
+  body.theme-florida-man .museum-hero-object img,
+  body.theme-florida-man .museum-hero-object.official-hero-seal img,
+  body.theme-florida-man .trophy-header-seal img { width: 108px !important; }
+}
+
+/* ========================================================================== 
+   V3.4 MOBILE HEADER PARITY — one canonical phone masthead on every route.
+   Fixes asymmetric filter inset caused by width:100% + legacy sizing, and
+   removes Home-only mobile variance by applying the same geometry everywhere.
+   ========================================================================== */
+@media (max-width: 767px) {
+  body.theme-florida-man .header-inner,
+  body.theme-florida-man.view-overview .header-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 12px 10px 10px !important;
+    display: block !important;
+  }
+
+  body.theme-florida-man .wordmark,
+  body.theme-florida-man.view-overview .wordmark {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: 56px minmax(0,1fr) !important;
+    gap: 9px !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+
+  body.theme-florida-man .archive-logo,
+  body.theme-florida-man.view-overview .archive-logo {
+    width: 54px !important;
+    max-width: 54px !important;
+    height: 68px !important;
+    min-width: 0 !important;
+    object-fit: cover !important;
+    justify-self: start !important;
+  }
+
+  body.theme-florida-man .wordmark-copy,
+  body.theme-florida-man.view-overview .wordmark-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    display: block !important;
+    gap: 0 !important;
+  }
+
+  body.theme-florida-man .masthead-eyebrow,
+  body.theme-florida-man.view-overview .masthead-eyebrow {
+    display: block !important;
+    margin: 0 0 3px !important;
+    font-size: 7px !important;
+    line-height: 1.12 !important;
+    letter-spacing: .075em !important;
+    white-space: normal !important;
+  }
+
+  body.theme-florida-man .wordmark-copy strong,
+  body.theme-florida-man.view-overview .wordmark-copy strong {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: clamp(25px, 8.4vw, 34px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.04em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  body.theme-florida-man .wordmark-copy small,
+  body.theme-florida-man.view-overview .wordmark-copy small {
+    display: block !important;
+    margin: 5px 0 0 !important;
+    font-size: 7px !important;
+    line-height: 1.15 !important;
+    letter-spacing: .075em !important;
+    white-space: normal !important;
+  }
+
+  /* Use auto width inside the padded masthead rather than 100%; this prevents
+     Safari's control box from visually running into the right viewport edge. */
+  body.theme-florida-man .header-controls,
+  body.theme-florida-man.view-overview .header-controls {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 11px 2px 0 !important;
+    padding: 9px 10px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    overflow: visible !important;
+  }
+
+  body.theme-florida-man .header-controls label,
+  body.theme-florida-man.view-overview .header-controls label {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.theme-florida-man .header-controls select,
+  body.theme-florida-man.view-overview .header-controls select {
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    margin: 0 !important;
+    padding: 0 34px 0 9px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body.theme-florida-man .header-inner,
+  body.theme-florida-man.view-overview .header-inner {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  body.theme-florida-man .header-controls,
+  body.theme-florida-man.view-overview .header-controls {
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+/* V3.5 — keep the Home record label on the same mobile content edge as every other page. */
+@media (max-width: 768px){
+  body.theme-florida-man.view-overview .lol-edition-banner::before{
+    margin-left:0!important;
+    margin-right:0!important;
+    padding-left:0!important;
+    transform:none!important;
+  }
+}
+
+/* ========================================================================== 
+   V3.6 MOBILE SHELL PARITY — exact Home/route header + nav + record-label lock.
+   ========================================================================== */
+@media (max-width: 760px) {
+  /* Home had higher-specificity desktop masthead typography. Force the exact
+     same phone utility treatment used by every other route. */
+  body.theme-florida-man.view-overview .utility-strip {
+    height: auto !important;
+    min-height: 34px !important;
+  }
+  body.theme-florida-man.view-overview .utility-inner {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 34px !important;
+    height: auto !important;
+    padding: 8px 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font: 700 10px/1.2 Arial, sans-serif !important;
+    letter-spacing: .08em !important;
+    text-align: center !important;
+  }
+
+  /* Home also retained its larger desktop nav because of .view-overview
+     specificity. Make nav geometry literally identical on all routes. */
+  body.theme-florida-man.view-overview .main-nav,
+  body.theme-florida-man .main-nav {
+    min-height: 48px !important;
+  }
+  body.theme-florida-man.view-overview .nav-inner,
+  body.theme-florida-man .nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  body.theme-florida-man.view-overview .nav-link,
+  body.theme-florida-man .nav-link {
+    flex: 0 0 auto !important;
+    min-width: max-content !important;
+    width: auto !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 15px !important;
+    font-family: "Bebas Neue", "PT Sans Narrow", "Liberation Sans Narrow", sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 48px !important;
+    letter-spacing: .01em !important;
+    white-space: nowrap !important;
+  }
+
+  /* On Home the label was being drawn inside the first newspaper component,
+     which inherently shifted it right/down. Use the same .content::before
+     marker as every other route and remove the Home-only duplicate. */
+  body.theme-florida-man.view-overview .content::before {
+    content: "PERMANENT LEAGUE RECORD" !important;
+    display: block !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    color: rgba(5,43,64,.65) !important;
+    font: 800 10px/1.2 "Arial Narrow", Impact, sans-serif !important;
+    letter-spacing: .18em !important;
+  }
+  body.theme-florida-man.view-overview .lol-edition-banner::before {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body.theme-florida-man.view-overview .utility-inner,
+  body.theme-florida-man .utility-inner {
+    font-size: 9px !important;
+    padding: 7px 8px !important;
+  }
+  body.theme-florida-man.view-overview .nav-link,
+  body.theme-florida-man .nav-link {
+    height: 46px !important;
+    min-height: 46px !important;
+    line-height: 46px !important;
+    padding: 0 13px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ================================================================
+   V3.7 — HOME MOBILE RECORD-KICKER PARITY
+   Home retained a higher-specificity desktop .page-shell inset (30px),
+   so its shared PERMANENT LEAGUE RECORD marker sat farther right than
+   every other route. Lock the Home shell to the exact mobile shell inset.
+   ================================================================ */
+@media (max-width:760px){
+  body.theme-florida-man.view-overview .page-shell{
+    width:100%!important;
+    max-width:100%!important;
+    padding:12px 10px 42px!important;
+    overflow:visible!important;
+  }
+  body.theme-florida-man.view-overview .content::before{
+    margin:0 0 14px!important;
+    padding:0!important;
+  }
+}

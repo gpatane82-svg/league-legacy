@@ -104,7 +104,7 @@ const SHELL_COPY = Object.freeze({
     nav: {
       overview: "Home", standings: "Standings", managers: "The Suspects",
       history: "Champions", records: "Record Book", transactions: "Transactions",
-      draft: "Draft Board", games: "Game Day", awards: "Trophy Case", search: "Archive Search", office: "Commissioner’s Office"
+      draft: "Keepers", games: "Game Day", awards: "Trophy Case", search: "Archive Search", office: "Commissioner’s Office"
     }
   }
 });
@@ -122,8 +122,8 @@ function applyLeagueTheme() {
   utilityTagline.textContent = copy.utilityTagline;
   brandTitle.textContent = copy.brandTitle;
   brandSubtitle.textContent = copy.brandSubtitle;
-  pageKicker.textContent = copy.kicker;
-  shareButton.textContent = copy.share;
+  if (pageKicker) pageKicker.textContent = copy.kicker;
+  if (shareButton) shareButton.textContent = copy.share;
   footerBrand.textContent = copy.footerBrand;
   footerTagline.textContent = copy.footerTagline;
   if (siteDescription) siteDescription.setAttribute("content", copy.description);
@@ -982,11 +982,11 @@ function bindRecordSort(){
   }));
 }
 
-function render(preserveScroll=false){applyLeagueTheme();const league=currentLeague();if(state.season!=="all"&&!league.seasons.includes(Number(state.season)))state.season="all";if(state.view==="manager"&&!managerById(state.managerId)){state.view="managers";state.managerId=null;}const title=titleFor(state.view);document.body.classList.toggle("view-overview",state.view==="overview");document.body.classList.toggle("view-manager",state.view==="manager");document.body.classList.toggle("view-managers",state.view==="managers");pageTitle.textContent=title;document.title=`${title} | ${shellCopy().titleSuffix}`;navButtons.forEach(btn=>btn.classList.toggle("active",btn.dataset.view===(state.view==="manager"?"managers":state.view)));seasonSelect.value=String(state.season);localStorage.setItem(`season:${state.leagueId}`,String(state.season));content.innerHTML=({overview,standings,managers,manager:managerFile,history,records,transactions:commissionerOffice,draft:draftCenter,games:gameCenter,awards:awardsCenter,search:searchCenter,office:commissionerOffice}[state.view]||overview)();bindInternalLinks();if(state.view==="standings"){if(currentTheme()==="florida-man"){bindStandingsMode();bindPerformanceSort();}else if(!isAllSeasons())bindPerformanceSort();}if(state.view==="managers"&&currentTheme()==="florida-man")bindOwnerFilters();if(state.view==="draft"&&currentTheme()==="florida-man")bindKeeperFilters();if(state.view==="games"&&currentTheme()==="florida-man")bindGameExplorer();if(state.view==="records"&&currentTheme()==="florida-man")bindRecordSort();if(state.view==="transactions"&&currentTheme()==="florida-man")bindCommissionerOffice();if(state.view==="search")bindSearchCenter();if(state.view==="office")bindCommissionerOffice();if(!preserveScroll){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)window.scrollTo({top:0,behavior:"smooth"});else window.scrollTo(0,0);}}
+function render(preserveScroll=false){applyLeagueTheme();const league=currentLeague();if(state.season!=="all"&&!league.seasons.includes(Number(state.season)))state.season="all";if(state.view==="manager"&&!managerById(state.managerId)){state.view="managers";state.managerId=null;}const title=titleFor(state.view);document.body.classList.toggle("view-overview",state.view==="overview");document.body.classList.toggle("view-manager",state.view==="manager");document.body.classList.toggle("view-managers",state.view==="managers");if(pageTitle)pageTitle.textContent=title;document.title=`${title} | ${shellCopy().titleSuffix}`;navButtons.forEach(btn=>btn.classList.toggle("active",btn.dataset.view===(state.view==="manager"?"managers":state.view)));seasonSelect.value=String(state.season);localStorage.setItem(`season:${state.leagueId}`,String(state.season));content.innerHTML=({overview,standings,managers,manager:managerFile,history,records,transactions:commissionerOffice,draft:draftCenter,games:gameCenter,awards:awardsCenter,search:searchCenter,office:commissionerOffice}[state.view]||overview)();bindInternalLinks();if(state.view==="standings"){if(currentTheme()==="florida-man"){bindStandingsMode();bindPerformanceSort();}else if(!isAllSeasons())bindPerformanceSort();}if(state.view==="managers"&&currentTheme()==="florida-man")bindOwnerFilters();if(state.view==="draft"&&currentTheme()==="florida-man")bindKeeperFilters();if(state.view==="games"&&currentTheme()==="florida-man")bindGameExplorer();if(state.view==="records"&&currentTheme()==="florida-man")bindRecordSort();if(state.view==="transactions"&&currentTheme()==="florida-man")bindCommissionerOffice();if(state.view==="search")bindSearchCenter();if(state.view==="office")bindCommissionerOffice();if(!preserveScroll){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)window.scrollTo({top:0,behavior:"smooth"});else window.scrollTo(0,0);}}
 function populate(){leagueSelect.innerHTML=Object.values(data).map(l=>`<option value="${l.id}">${esc(l.name)}</option>`).join("");if(!data[state.leagueId])state.leagueId=Object.keys(data)[0];leagueSelect.value=state.leagueId;const league=currentLeague();seasonSelect.innerHTML=`<option value="all">All Seasons</option>`+[...league.seasons].reverse().map(y=>`<option value="${y}">${y}</option>`).join("");const remembered=localStorage.getItem(`season:${state.leagueId}`);if(state.season===null||state.season===undefined)state.season=remembered==="all"||league.seasons.includes(Number(remembered))?(remembered==="all"?"all":Number(remembered)):"all";seasonSelect.value=String(state.season);}
 leagueSelect.addEventListener("change",e=>{state.leagueId=e.target.value;localStorage.setItem("leagueId",state.leagueId);state.season="all";populate();if(state.view==="manager"&&!managerById(state.managerId))location.hash="managers";else render();});
 seasonSelect.addEventListener("change",e=>{state.season=e.target.value==="all"?"all":Number(e.target.value);localStorage.setItem(`season:${state.leagueId}`,String(state.season));render();});
 navButtons.forEach(b=>b.addEventListener("click",()=>location.hash=b.dataset.view));
 window.addEventListener("hashchange",()=>{parseHash();render();});
-document.querySelector("#shareButton").addEventListener("click",async()=>{const b=document.querySelector("#shareButton");try{await navigator.clipboard.writeText(location.href);b.textContent=shellCopy().copied;setTimeout(()=>b.textContent=shellCopy().share,1400);}catch{alert("Copy the address from your browser to share this page.");}});
+
 parseHash();populate();render();
