@@ -132,8 +132,9 @@ function applyLeagueTheme() {
   if (seasonSelectLabel) seasonSelectLabel.textContent = copy.seasonLabel;
   navButtons.forEach(button => {
     const isFlorida = theme === "florida-man";
-    const hidden = (isFlorida && ["transactions"].includes(button.dataset.view))
-      || (!isFlorida && button.dataset.view === "office");
+    const hidden = isFlorida
+      ? ["transactions"].includes(button.dataset.view)
+      : ["draft","games","awards","search","office"].includes(button.dataset.view);
     button.hidden = hidden;
     button.textContent = copy.nav[button.dataset.view] || button.textContent;
     button.setAttribute("aria-hidden", hidden ? "true" : "false");
@@ -184,13 +185,19 @@ const customPortraits = {
   "Chandler":"assets/portraits/custom/chandler.jpg",
   "Brian":"assets/portraits/custom/brian.jpg"
 };
+const themedPortraits = new Set([
+  "tina","stanley","dan","gabriella","jos","richard","marianne","debbie",
+  "andrew","tom","billy","david","elliott","jonathan","mike","jon","merritt"
+]);
 const customPortraitLookup = Object.fromEntries(
   Object.entries(customPortraits).map(([name, path]) => [String(name).toLowerCase(), path])
 );
 const portraitPath = managerId => {
   const normalizedId = String(managerId || "").toLowerCase();
   if(currentTheme()==="florida-man") return `assets/portraits/suspects/${slug(normalizedId)}.png`;
-  return customPortraitLookup[normalizedId] || `assets/portraits/${slug(normalizedId)}.svg`;
+  return customPortraitLookup[normalizedId] || (themedPortraits.has(normalizedId)
+    ? `assets/portraits/seinfeld/${slug(normalizedId)}.webp`
+    : `assets/portraits/${slug(normalizedId)}.svg`);
 };
 const hallPortraitPath = managerId => customPortraits[managerId] || portraitPath(managerId);
 
@@ -251,6 +258,84 @@ function franchiseForOwnerSeason(owner,season){
   const row=currentLeague().rows.find(r=>Number(r.season)===Number(season)&&(r.managerId===id||loserCanonicalName(r.manager)===loserCanonicalName(owner)));
   return row?.team||loserCanonicalName(owner);
 }
+
+
+
+function artSortableHeading(label,index,type="number"){
+  return `<th class="sortable-th art-sortable-th" aria-sort="none"><button type="button" class="sort-button" data-art-sort="${index}" data-art-sort-type="${type}">${label}<span class="art-sort-icon" aria-hidden="true">↕</span></button></th>`;
+}
+function bindArtTableSort(){
+  document.querySelectorAll("[data-art-sort]").forEach(btn=>btn.addEventListener("click",()=>{
+    const table=btn.closest("table"),body=table?.tBodies?.[0]; if(!body)return;
+    const index=Number(btn.dataset.artSort), type=btn.dataset.artSortType||"number";
+    const next=btn.dataset.direction==="asc"?"desc":"asc";
+    table.querySelectorAll("[data-art-sort]").forEach(other=>{
+      if(other!==btn) delete other.dataset.direction;
+      other.closest("th")?.setAttribute("aria-sort","none");
+      const icon=other.querySelector(".art-sort-icon"); if(icon)icon.textContent="↕";
+    });
+    btn.dataset.direction=next;
+    btn.closest("th")?.setAttribute("aria-sort",next==="asc"?"ascending":"descending");
+    const icon=btn.querySelector(".art-sort-icon"); if(icon)icon.textContent=next==="asc"?"▲":"▼";
+    const value=row=>{
+      const cell=row.cells[index];
+      const raw=cell?.dataset.sortValue ?? cell?.textContent?.trim() ?? "";
+      if(type==="text")return String(raw).toLowerCase();
+      const n=Number(raw); if(Number.isFinite(n))return n;
+      return parseFloat(String(raw).replace(/[^0-9+.-]/g,""))||0;
+    };
+    [...body.rows].sort((a,b)=>{
+      const av=value(a),bv=value(b);
+      const cmp=type==="text"?String(av).localeCompare(String(bv),undefined,{numeric:true,sensitivity:"base"}):av-bv;
+      return next==="asc"?cmp:-cmp;
+    }).forEach(row=>body.appendChild(row));
+  }));
+}
+
+/* === APPROVED ART VANDELAY ENGINE (isolated from League of Losers) === */
+function artOverview(){const league=currentLeague(),all=isAllSeasons(),season=all?latestSeason():state.season,rows=sortedStandings(league.rows.filter(r=>r.season===season)),champion=league.champions.find(c=>c.season===season),leader=rows[0],totalGames=Math.round(league.managers.reduce((s,m)=>s+m.wins+m.losses+m.ties,0)/2),top=[...league.managers].sort((a,b)=>b.wins-a.wins).slice(0,5),max=Math.max(...top.map(m=>m.wins),1),titleCount=league.champions.length;return `<div class="headquarters-grid"><section class="corporate-hero"><div class="document-code">Permanent Corporate Archive · ${league.seasons[0]}–${latestSeason()}</div><h2 class="hero-title">${all?"League History":"Annual League Review"}</h2><p class="hero-copy">${all?`The complete history of the ${esc(league.name)} across ${league.seasons.length} seasons, including every champion, franchise, executive, transaction and performance record.`:`The certified ${season} record for the ${esc(league.name)}.`}</p><div class="hero-seal">Vandelay<br>Industries<br>Official</div></section><aside class="paper-panel champion-panel"><div class="panel-ribbon"><span>${all?"Most Recent Champion":"Executive of the Year"}</span><span>${season}</span></div><div class="champion-portrait">${champion?portrait(champion.managerId,champion.manager,"champion-photo"):'<div class="portrait-placeholder">VI</div>'}</div><div class="champion-copy"><div class="year">League Champion</div><h2>${esc(champion?.team||"Pending")}</h2><p>${champion?`${managerLink(champion.managerId,champion.manager)} · ${champion.record}`:"Awaiting final certification"}</p></div></aside></div><div class="stats-grid"><article class="stat-card"><div class="stat-label">Years in Operation</div><div class="stat-value">${league.seasons.length}</div><div class="stat-note">${league.seasons[0]}–${latestSeason()}</div></article><article class="stat-card"><div class="stat-label">Certified Champions</div><div class="stat-value">${titleCount}</div><div class="stat-note">Every title in Executive Hall</div></article><article class="stat-card"><div class="stat-label">Personnel on File</div><div class="stat-value">${league.managers.length}</div><div class="stat-note">Unique Manager Adjust IDs</div></article><article class="stat-card"><div class="stat-label">Recorded Matchups</div><div class="stat-value">${totalGames}</div><div class="stat-note">Regular-season results</div></article></div><div class="lower-grid"><section class="paper-panel memo"><div class="panel-heading"><h2>Company Memorandum</h2><span>Permanent Record</span></div><div class="memo-meta"><strong>TO:</strong><span>All Fantasy Football Division Personnel</span><strong>FROM:</strong><span>Office of the Commissioner</span><strong>RE:</strong><span>${all?"Complete League History":`${season} Annual Performance Review`}</span></div><p>${all?`This archive combines all ${league.seasons.length} seasons into one permanent corporate record. Use the Fiscal Season selector to isolate any individual year.`:`The ${season} records have been reviewed and entered into the permanent corporate archive.`}</p><p>${champion?`${managerLink(champion.managerId,champion.manager)}, representing ${esc(champion.team)}, is the ${season} League Champion.`:"Championship certification remains pending."}</p></section><aside class="paper-panel"><div class="panel-heading"><h2>Department Directory</h2><span>Extension List</span></div><div class="department-links">${[["standings","Corporate Performance"],["managers","Personnel Files"],["history","Executive Hall"],["records","Records Department"],["transactions","League Transactions"]].map(([go,label])=>`<button class="department-link" data-go="${go}"><span>${label}</span><span>→</span></button>`).join("")}</div></aside></div><section class="paper-panel all-time-panel"><div class="panel-heading"><h2>All-Time Wins</h2><span>Senior Personnel</span></div><div class="bar-chart">${top.map(m=>`<div class="bar-row"><span>${managerLink(m.id,m.name)}</span><span class="bar-track"><span class="bar-fill" style="width:${m.wins/max*100}%"></span></span><strong>${m.wins}</strong></div>`).join("")}</div></section>`;}
+
+function artStandings(){
+  if(!isAllSeasons())return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>${state.season} Annual Performance Report</h2><span>${esc(currentLeague().name)}</span></div>${standingsTable(seasonRows())}</section>`;
+  const rows=aggregateManagers();
+  return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>All-Time Corporate Performance</h2><span>Click any heading to sort</span></div><div class="table-wrap"><table class="sortable-table art-sortable-table"><thead><tr>${artSortableHeading("Career Rank",0)}${artSortableHeading("Executive",1,"text")}${artSortableHeading("Career Record",2)}${artSortableHeading("Win %",3)}${artSortableHeading("Seasons",4)}${artSortableHeading("Playoffs",5)}${artSortableHeading("Championships",6)}${artSortableHeading("Production",7)}</tr></thead><tbody>${rows.map(r=>{const games=r.wins+r.losses+r.ties,rate=games?(r.wins+r.ties*.5)/games:0;return `<tr><td data-sort-value="${r.overallRank}"><span class="rank-cell ${r.overallRank===1?"first":""}">${r.overallRank}</span></td><td data-sort-value="${esc(r.manager)}">${managerLink(r.managerId,r.manager)}</td><td data-sort-value="${(r.wins*10000)+(r.ties*100)-r.losses}">${r.wins}-${r.losses}</td><td data-sort-value="${rate}">${pct(rate)}</td><td data-sort-value="${r.seasons}">${r.seasons}</td><td data-sort-value="${r.playoffs}">${r.playoffs}</td><td data-sort-value="${r.championships}">${r.championships}</td><td data-sort-value="${Number(r.pointsFor)||0}">${fmt.format(r.pointsFor)}</td></tr>`}).join("")}</tbody></table></div></section>`;
+}
+
+function artManagers(){
+  if(isAllSeasons()){
+    const rows=[...currentLeague().managers].sort((a,b)=>b.wins-a.wins);
+    return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>Complete Personnel Directory</h2><span>Click any heading to sort</span></div><div class="table-wrap"><table class="sortable-table art-sortable-table"><thead><tr>${artSortableHeading("Employee",0,"text")}${artSortableHeading("Active Years",1)}${artSortableHeading("Career Record",2)}${artSortableHeading("Success Rate",3)}${artSortableHeading("Playoffs",4)}${artSortableHeading("Championships",5)}${artSortableHeading("Production",6)}</tr></thead><tbody>${rows.map(m=>`<tr><td data-sort-value="${esc(m.name)}"><a class="manager-cell manager-card-link" href="${managerHref(m.id)}"><span><strong>${esc(m.name)}</strong><br><small>${m.teams.length} franchise name${m.teams.length===1?"":"s"}</small></span></a></td><td data-sort-value="${m.firstSeason}">${m.firstSeason}–${m.lastSeason}</td><td data-sort-value="${(m.wins*10000)+(m.ties*100)-m.losses}">${m.wins}-${m.losses}-${m.ties}</td><td data-sort-value="${Number(m.winPct)||0}">${pct(m.winPct)}</td><td data-sort-value="${m.playoffs}">${m.playoffs}</td><td data-sort-value="${m.championships}">${m.championships}</td><td data-sort-value="${Number(m.pointsFor)||0}">${fmt.format(m.pointsFor)}</td></tr>`).join("")}</tbody></table></div></section>`;
+  }
+  const rows=sortedStandings(seasonRows());
+  return `<section class="paper-panel table-panel"><div class="panel-heading"><h2>${state.season} Personnel Directory</h2><span>Click any heading to sort · click an employee to open the complete file</span></div><div class="table-wrap"><table class="sortable-table art-sortable-table"><thead><tr>${artSortableHeading("Employee",0,"text")}${artSortableHeading("Franchise",1,"text")}${artSortableHeading("Season Record",2)}${artSortableHeading("Success Rate",3)}${artSortableHeading("Overall Rank",4)}${artSortableHeading("Final Finish",5)}${artSortableHeading("Production",6)}</tr></thead><tbody>${rows.map(r=>{const m=managerById(r.managerId),games=r.wins+r.losses+r.ties,rate=games?(r.wins+r.ties*.5)/games:0;return `<tr><td data-sort-value="${esc(r.manager)}"><a class="manager-cell manager-card-link" href="${managerHref(r.managerId)}"><span><strong>${esc(r.manager)}</strong><br><small>${m?.firstSeason||state.season}–${m?.lastSeason||state.season}</small></span></a></td><td data-sort-value="${esc(r.team)}"><strong>${esc(r.team)}</strong></td><td data-sort-value="${(r.wins*10000)+(r.ties*100)-r.losses}">${r.wins}-${r.losses}-${r.ties}</td><td data-sort-value="${rate}">${pct(rate)}</td><td data-sort-value="${r.overallRank??999}">#${r.overallRank}</td><td data-sort-value="${r.playoffRank??999}">${r.playoffRank?`#${r.playoffRank}`:"—"}</td><td data-sort-value="${Number(r.pointsFor)||0}">${fmt.format(r.pointsFor)}</td></tr>`}).join("")}</tbody></table></div></section>`;
+}
+
+function artChampionPlaque(c){return `<article class="champion-plaque"><div class="hall-frame"><a href="${managerHref(c.managerId)}"><img class="hall-portrait" src="${hallPortraitPath(c.managerId)}" alt="${esc(c.manager)} — League Champion ${c.season}"></a></div><div class="hall-nameplate"><h3>${esc(c.manager)}</h3><div class="hall-rule"></div><p class="hall-title">League Champion · ${c.season}</p><p class="hall-team">${esc(c.team)}</p><p class="hall-record">Record: ${esc(c.record)} · Season Points: ${fmt.format(c.pointsFor)}</p></div></article>`;}
+
+function artHistory(){
+  const champions=[...currentLeague().champions]
+    .filter(c=>isAllSeasons()||c.season===state.season)
+    .sort((a,b)=>b.season-a.season);
+  if(!champions.length)return `<div class="empty">No championship record is available for this season.</div>`;
+  return `<section class="executive-hall"><header class="hall-masthead"><span></span><div><h2>Executive Hall</h2><p>${isAllSeasons()?"Where Legends Are Recognized":`${state.season} League Champion`}</p></div><span></span></header><div class="hall-gallery ${champions.length===1?"single":""}">${champions.map(artChampionPlaque).join("")}</div></section>`;
+}
+
+function artRecordCard(label,value,note,managerId=null){const linkedNote=managerId?managerLink(managerId,note,"record-manager-link"):esc(note);return `<article class="stat-card record-card"><div class="stat-label">${esc(label)}</div><div class="stat-value">${esc(value)}</div><div class="stat-note">${linkedNote}</div></article>`;}
+
+function artRecords(){const rows=seasonRows();if(!rows.length)return `<div class="empty">No records are available.</div>`;const high=[...rows].sort((a,b)=>b.pointsFor-a.pointsFor)[0],low=[...rows].filter(r=>r.pointsFor>0).sort((a,b)=>a.pointsFor-b.pointsFor)[0],diff=[...rows].sort((a,b)=>(b.pointsFor-b.pointsAgainst)-(a.pointsFor-a.pointsAgainst))[0],moves=[...rows].sort((a,b)=>b.moves-a.moves)[0],trades=[...rows].sort((a,b)=>b.trades-a.trades)[0],label=isAllSeasons()?"All-Time":state.season;return `<div class="record-grid">${artRecordCard(`${label} Highest Production`,fmt.format(high.pointsFor),`${high.season} · ${high.team} · ${high.manager}`,high.managerId)}${artRecordCard(`${label} Lowest Production`,fmt.format(low.pointsFor),`${low.season} · ${low.team} · ${low.manager}`,low.managerId)}${artRecordCard(`${label} Best Point Differential`,fmt.format(diff.pointsFor-diff.pointsAgainst),`${diff.season} · ${diff.team} · ${diff.manager}`,diff.managerId)}${artRecordCard(isAllSeasons()?"Certified Championships":"League Champion",isAllSeasons()?currentLeague().champions.length:esc(currentLeague().champions.find(c=>c.season===state.season)?.team||"Pending"),isAllSeasons()?`${currentLeague().seasons[0]}–${latestSeason()}`:(currentLeague().champions.find(c=>c.season===state.season)?.manager||String(state.season)),isAllSeasons()?null:currentLeague().champions.find(c=>c.season===state.season)?.managerId)}${artRecordCard("Most Roster Moves",moves.moves,`${moves.season} · ${moves.team} · ${moves.manager}`,moves.managerId)}${artRecordCard("Most Trades",trades.trades,`${trades.season} · ${trades.team} · ${trades.manager}`,trades.managerId)}</div>`;}
+
+function artTransactions(){
+  if(isAllSeasons()){
+    const rows=aggregateManagers().sort((a,b)=>b.moves-a.moves||b.trades-a.trades),totalMoves=rows.reduce((s,r)=>s+r.moves,0),totalTrades=rows.reduce((s,r)=>s+r.trades,0);
+    return `<div class="stats-grid two-stats"><article class="stat-card"><div class="stat-label">Total Roster Moves</div><div class="stat-value">${totalMoves}</div><div class="stat-note">Across all recorded seasons</div></article><article class="stat-card"><div class="stat-label">Total Trades</div><div class="stat-value">${totalTrades}</div><div class="stat-note">Across all recorded seasons</div></article></div><section class="paper-panel table-panel"><div class="panel-heading"><h2>All-Time Corporate Transaction Ledger</h2><span>Click any heading to sort</span></div><div class="table-wrap"><table class="sortable-table art-sortable-table"><thead><tr>${artSortableHeading("Executive",0,"text")}${artSortableHeading("Seasons",1)}${artSortableHeading("Roster Moves",2)}${artSortableHeading("Trades",3)}${artSortableHeading("Career Record",4)}${artSortableHeading("Championships",5)}</tr></thead><tbody>${rows.map(r=>`<tr><td data-sort-value="${esc(r.manager)}">${managerLink(r.managerId,r.manager)}</td><td data-sort-value="${r.seasons}">${r.seasons}</td><td data-sort-value="${r.moves}">${r.moves}</td><td data-sort-value="${r.trades}">${r.trades}</td><td data-sort-value="${(r.wins*10000)-r.losses}">${r.wins}-${r.losses}</td><td data-sort-value="${r.championships}">${r.championships}</td></tr>`).join("")}</tbody></table></div></section>`;
+  }
+  const rows=sortedStandings(seasonRows()),totalMoves=rows.reduce((s,r)=>s+(r.moves||0),0),totalTrades=rows.reduce((s,r)=>s+(r.trades||0),0);
+  return `<div class="stats-grid two-stats"><article class="stat-card"><div class="stat-label">Roster Moves</div><div class="stat-value">${totalMoves}</div><div class="stat-note">Waiver and roster moves in ${state.season}</div></article><article class="stat-card"><div class="stat-label">Trades</div><div class="stat-value">${totalTrades}</div><div class="stat-note">Certified trades in ${state.season}</div></article></div><section class="paper-panel table-panel"><div class="panel-heading"><h2>${state.season} Corporate Transaction Ledger</h2><span>Click any heading to sort</span></div><div class="table-wrap"><table class="sortable-table art-sortable-table"><thead><tr>${artSortableHeading("Franchise",0,"text")}${artSortableHeading("Executive",1,"text")}${artSortableHeading("Roster Moves",2)}${artSortableHeading("Trades",3)}${artSortableHeading("Draft Position",4)}${artSortableHeading("Final Finish",5)}</tr></thead><tbody>${rows.map(r=>`<tr><td data-sort-value="${esc(r.team)}"><strong>${esc(r.team)}</strong></td><td data-sort-value="${esc(r.manager)}">${managerLink(r.managerId,r.manager)}</td><td data-sort-value="${r.moves||0}">${r.moves||0}</td><td data-sort-value="${r.trades||0}">${r.trades||0}</td><td data-sort-value="${r.draftPosition||999}">${r.draftPosition||"—"}</td><td data-sort-value="${r.playoffRank||999}">${r.playoffRank?`#${r.playoffRank}`:"—"}</td></tr>`).join("")}</tbody></table></div></section>`;
+}
+
+function artManagerFile(){const m=managerById(state.managerId);if(!m)return `<div class="empty">This personnel file could not be located.</div>`;const career=currentLeague().rows.filter(r=>r.managerId===m.id).sort((a,b)=>b.season-a.season),selected=isAllSeasons()?null:career.find(r=>r.season===state.season),titles=currentLeague().champions.filter(c=>c.managerId===m.id).sort((a,b)=>b.season-a.season),best=[...career].sort((a,b)=>(a.overallRank??999)-(b.overallRank??999)||b.pointsFor-a.pointsFor)[0];return `<section class="personnel-dossier"><div class="dossier-header paper-panel"><a class="dossier-portrait-link" href="${portraitPath(m.id)}" target="_blank" rel="noopener">${portrait(m.id,m.name,"dossier-portrait")}</a><div class="dossier-identity"><div class="document-code">Confidential Personnel Record · ID ${esc(m.id)}</div><h2>${esc(m.name)}</h2><p>Fantasy Football Division Executive</p><div class="dossier-badges"><span>${m.firstSeason}–${m.lastSeason}</span><span>${m.seasons} Seasons</span><span>${m.championships} Championship${m.championships===1?"":"s"}</span></div></div><div class="dossier-stamp">PERSONNEL<br>FILE</div></div><div class="stats-grid dossier-stats"><article class="stat-card"><div class="stat-label">Career Record</div><div class="stat-value">${m.wins}-${m.losses}-${m.ties}</div><div class="stat-note">${pct(m.winPct)} success rate</div></article><article class="stat-card"><div class="stat-label">Career Production</div><div class="stat-value">${fmt.format(m.pointsFor)}</div><div class="stat-note">${fmt.format(m.pointsAgainst)} allowed</div></article><article class="stat-card"><div class="stat-label">Playoff Appearances</div><div class="stat-value">${m.playoffs}</div><div class="stat-note">Across ${m.seasons} seasons</div></article><article class="stat-card"><div class="stat-label">Best Overall Rank</div><div class="stat-value">#${best?.overallRank??"—"}</div><div class="stat-note">${best?.season||"—"} · ${esc(best?.team||"")}</div></article></div><div class="dossier-grid"><section class="paper-panel"><div class="panel-heading"><h2>${isAllSeasons()?"Career Summary":`${state.season} Assignment`}</h2><span>${isAllSeasons()?"All seasons combined":"Season-controlled view"}</span></div>${isAllSeasons()?`<div class="assignment-card"><h3>${m.seasons} seasons on file</h3><p><strong>${m.wins}-${m.losses}-${m.ties}</strong> career record · ${m.playoffs} playoff appearances · ${m.championships} championship${m.championships===1?"":"s"}</p><p>${fmt.format(m.pointsFor)} career points · ${career.reduce((a,r)=>a+(r.moves||0),0)} roster moves · ${career.reduce((a,r)=>a+(r.trades||0),0)} trades</p></div>`:selected?`<div class="assignment-card"><h3>${esc(selected.team)}</h3>${selected.manager!==m.name?`<p class="co-owner-line"><strong>Ownership:</strong> ${esc(selected.manager)}</p>`:""}<p><strong>${selected.wins}-${selected.losses}-${selected.ties}</strong> · Overall Rank #${selected.overallRank} · Final Finish ${selected.playoffRank?`#${selected.playoffRank}`:"—"}</p><p>${fmt.format(selected.pointsFor)} points for · ${fmt.format(selected.pointsAgainst)} allowed · ${selected.moves||0} moves · ${selected.trades||0} trades</p></div>`:`<div class="empty compact">No active assignment for ${state.season}.</div>`}<div class="panel-heading secondary-heading"><h2>Known Franchises</h2><span>${m.teams.length} names on file</span></div><div class="tag-list">${m.teams.map(t=>`<span>${esc(t)}</span>`).join("")}</div></section><section class="paper-panel"><div class="panel-heading"><h2>Executive Appointments</h2><span>Championship certifications</span></div>${titles.length?titles.map(c=>`<a class="appointment-row" href="#history" data-season-jump="${c.season}"><strong>${c.season}</strong><span>${esc(c.team)}</span><span>${c.record}</span></a>`).join(""):`<div class="empty compact">No championship appointments on file.</div>`}</section></div><section class="paper-panel table-panel career-ledger"><div class="panel-heading"><h2>Career Performance Ledger</h2><span>All seasons · newest first</span></div><div class="table-wrap"><table><thead><tr><th>Season</th><th>Franchise / Ownership</th><th>Record</th><th>Overall Rank</th><th>Final Finish</th><th>Production</th><th>Transactions</th></tr></thead><tbody>${career.map(r=>`<tr class="${!isAllSeasons()&&r.season===state.season?"selected-season-row":""}"><td><button class="season-jump" data-season-jump="${r.season}">${r.season}</button></td><td><strong>${esc(r.team)}</strong>${r.manager!==m.name?`<br><small>${esc(r.manager)}</small>`:""}</td><td>${r.wins}-${r.losses}-${r.ties}</td><td>#${r.overallRank}</td><td>${r.playoffRank?`#${r.playoffRank}`:"—"}</td><td>${fmt.format(r.pointsFor)}</td><td>${r.moves||0} moves · ${r.trades||0} trades</td></tr>`).join("")}</tbody></table></div></section></section>`;}
+/* === END APPROVED ART VANDELAY ENGINE === */
+
 function floridaOverview(){
   const league=currentLeague();
   const all=isAllSeasons();
@@ -819,10 +904,27 @@ const wantedPosterProfiles = {
   }
 };
 
+function wantedPosterProfileFor(manager){
+  const key=String(manager.id||"").toLowerCase();
+  if(wantedPosterProfiles[key]) return wantedPosterProfiles[key];
+  const career=currentLeague().rows.filter(r=>r.managerId===manager.id).sort((a,b)=>b.season-a.season);
+  const latest=career[0];
+  const franchiseAliases=[...new Set(career.map(r=>r.team).filter(Boolean))];
+  return {
+    alias: latest?.team || franchiseAliases[0] || manager.name,
+    charges: [
+      `${manager.wins}-${manager.losses}-${manager.ties} career record`,
+      `${manager.playoffs} playoff appearance${manager.playoffs===1?"":"s"} on file`,
+      `${franchiseAliases.length || manager.teams?.length || 1} documented franchise alias${(franchiseAliases.length || manager.teams?.length || 1)===1?"":"es"}`
+    ],
+    signature: manager.name,
+    title: "League of Losers Suspect"
+  };
+}
+
 function renderWantedPoster(manager){
   const key=String(manager.id||"").toLowerCase();
-  const profile=wantedPosterProfiles[key];
-  if(!profile)return "";
+  const profile=wantedPosterProfileFor(manager);
   return `<header class="wanted-poster wanted-poster-${esc(key)}" aria-label="${esc(manager.name)} wanted poster">
     <div class="wanted-template-portrait"><div class="wanted-portrait-crop">${portrait(manager.id,manager.name,"wanted-profile-portrait")}</div></div>
     <img class="wanted-template-seal" src="assets/sheriff/hardware/league-wax-seal.png" alt="League of Losers wax seal">
@@ -982,7 +1084,9 @@ function bindRecordSort(){
   }));
 }
 
-function render(preserveScroll=false){applyLeagueTheme();const league=currentLeague();if(state.season!=="all"&&!league.seasons.includes(Number(state.season)))state.season="all";if(state.view==="manager"&&!managerById(state.managerId)){state.view="managers";state.managerId=null;}const title=titleFor(state.view);document.body.classList.toggle("view-overview",state.view==="overview");document.body.classList.toggle("view-manager",state.view==="manager");document.body.classList.toggle("view-managers",state.view==="managers");if(pageTitle)pageTitle.textContent=title;document.title=`${title} | ${shellCopy().titleSuffix}`;navButtons.forEach(btn=>btn.classList.toggle("active",btn.dataset.view===(state.view==="manager"?"managers":state.view)));seasonSelect.value=String(state.season);localStorage.setItem(`season:${state.leagueId}`,String(state.season));content.innerHTML=({overview,standings,managers,manager:managerFile,history,records,transactions:commissionerOffice,draft:draftCenter,games:gameCenter,awards:awardsCenter,search:searchCenter,office:commissionerOffice}[state.view]||overview)();bindInternalLinks();if(state.view==="standings"){if(currentTheme()==="florida-man"){bindStandingsMode();bindPerformanceSort();}else if(!isAllSeasons())bindPerformanceSort();}if(state.view==="managers"&&currentTheme()==="florida-man")bindOwnerFilters();if(state.view==="draft"&&currentTheme()==="florida-man")bindKeeperFilters();if(state.view==="games"&&currentTheme()==="florida-man")bindGameExplorer();if(state.view==="records"&&currentTheme()==="florida-man")bindRecordSort();if(state.view==="transactions"&&currentTheme()==="florida-man")bindCommissionerOffice();if(state.view==="search")bindSearchCenter();if(state.view==="office")bindCommissionerOffice();if(!preserveScroll){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)window.scrollTo({top:0,behavior:"smooth"});else window.scrollTo(0,0);}}
+function render(preserveScroll=false){applyLeagueTheme();const league=currentLeague();if(currentTheme()==="art-vandelay"&&!["overview","standings","managers","manager","history","records","transactions"].includes(state.view)){state.view="overview";state.managerId=null;}if(state.season!=="all"&&!league.seasons.includes(Number(state.season)))state.season="all";if(state.view==="manager"&&!managerById(state.managerId)){state.view="managers";state.managerId=null;}const title=titleFor(state.view);[...document.body.classList].filter(c=>c.startsWith("view-")).forEach(c=>document.body.classList.remove(c));document.body.classList.add(`view-${state.view}`);if(pageTitle)pageTitle.textContent=title;document.title=`${title} | ${shellCopy().titleSuffix}`;navButtons.forEach(btn=>btn.classList.toggle("active",btn.dataset.view===(state.view==="manager"?"managers":state.view)));seasonSelect.value=String(state.season);localStorage.setItem(`season:${state.leagueId}`,String(state.season));const viewMap=currentTheme()==="art-vandelay"
+  ? {overview:artOverview,standings:artStandings,managers:artManagers,manager:artManagerFile,history:artHistory,records:artRecords,transactions:artTransactions}
+  : {overview,standings,managers,manager:managerFile,history,records,transactions:commissionerOffice,draft:draftCenter,games:gameCenter,awards:awardsCenter,search:searchCenter,office:commissionerOffice};content.innerHTML=(viewMap[state.view]||viewMap.overview)();bindInternalLinks();if(state.view==="standings"){if(currentTheme()==="florida-man"){bindStandingsMode();bindPerformanceSort();}else {bindPerformanceSort();bindArtTableSort();}}if(state.view==="managers"){if(currentTheme()==="florida-man")bindOwnerFilters();else bindArtTableSort();}if(state.view==="draft"&&currentTheme()==="florida-man")bindKeeperFilters();if(state.view==="games"&&currentTheme()==="florida-man")bindGameExplorer();if(state.view==="records"&&currentTheme()==="florida-man")bindRecordSort();if(state.view==="transactions"){if(currentTheme()==="florida-man")bindCommissionerOffice();else bindArtTableSort();}if(state.view==="search")bindSearchCenter();if(state.view==="office")bindCommissionerOffice();if(!preserveScroll){if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)window.scrollTo({top:0,behavior:"smooth"});else window.scrollTo(0,0);}}
 function populate(){leagueSelect.innerHTML=Object.values(data).map(l=>`<option value="${l.id}">${esc(l.name)}</option>`).join("");if(!data[state.leagueId])state.leagueId=Object.keys(data)[0];leagueSelect.value=state.leagueId;const league=currentLeague();seasonSelect.innerHTML=`<option value="all">All Seasons</option>`+[...league.seasons].reverse().map(y=>`<option value="${y}">${y}</option>`).join("");const remembered=localStorage.getItem(`season:${state.leagueId}`);if(state.season===null||state.season===undefined)state.season=remembered==="all"||league.seasons.includes(Number(remembered))?(remembered==="all"?"all":Number(remembered)):"all";seasonSelect.value=String(state.season);}
 leagueSelect.addEventListener("change",e=>{state.leagueId=e.target.value;localStorage.setItem("leagueId",state.leagueId);state.season="all";populate();if(state.view==="manager"&&!managerById(state.managerId))location.hash="managers";else render();});
 seasonSelect.addEventListener("change",e=>{state.season=e.target.value==="all"?"all":Number(e.target.value);localStorage.setItem(`season:${state.leagueId}`,String(state.season));render();});
